@@ -1,0 +1,38 @@
+{
+  "subjects": [
+    {
+      "id": "89b9b9aa-f7fd-4e51-bc90-0ef06b1a7862",
+      "subject_id": "01418232",
+      "name": "algorithm",
+      "grade": "A",
+      "credit": 3
+    },
+    {
+      "id": "20124827-0a4f-49ee-a4af-acc6e749cce4",
+      "subject_id": "01418136",
+      "name": "operating system",
+      "grade": "A",
+      "credit": 3
+    },
+    {
+      "id": "082beb0a-7862-409f-ab32-406dd26eb42b",
+      "subject_id": "01418214",
+      "name": "Practicum in Software",
+      "grade": "A",
+      "credit": 1
+    },
+    {
+      "id": "ff25c6c1-e8b2-4263-bf86-73ca58a62853",
+      "subject_id": "2222",
+      "name": "test",
+      "grade": "D",
+      "credit": 2
+    }
+  ],
+  "student": {
+    "student_id": "6630200560",
+    "major": "วิทยาการคอมพิวเตอร์",
+    "name": "นายศิรศักดิ์ สุวรรณเกิด",
+    "old_school": "วัดป่าประดู่"
+  }
+}
