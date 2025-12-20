@@ -8,8 +8,8 @@
       </div>
 
       <div class="bg-marquee marquee-left">
-        <span>VUE · JAVASCRIPT · PORTFOLIO · INTERNSHIP · </span>
-        <span>VUE · JAVASCRIPT · PORTFOLIO · INTERNSHIP · </span>
+        <span>VUE · JAVASCRIPT · PORTFOLIO · KASETSART UNIVERSITY SRIRACHA CAMPUS · </span>
+        <span>VUE · JAVASCRIPT · PORTFOLIO · KASETSART UNIVERSITY SRIRACHA CAMPUS · </span>
       </div>
     </div>
 
@@ -25,7 +25,7 @@
       <h1 class="name gradient-text">{{ student.name }}</h1>
 
       <p class="subtitle glass">
-        Computer Science Student · Internship Portfolio
+        Computer Science Student · Kasetsart University Sriracha Campus
       </p>
 
       <!--ACTION BUTTONS-->
