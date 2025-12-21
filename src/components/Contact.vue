@@ -85,7 +85,6 @@ export default {
         document.body.removeChild(textarea);
       }
 
-      // inline feedback
       this.copied[type] = true;
 
       setTimeout(() => {
@@ -98,7 +97,7 @@ export default {
 
 <style scoped>
 .contact-section {
-  min-height: 80vh;
+  min-height: 100vh;
   background: linear-gradient(135deg, #0f172a, #020617);
   display: flex;
   flex-direction: column;
@@ -183,7 +182,6 @@ export default {
   animation: pulseGlow 0.6s ease;
 }
 
-/* icon animation */
 .contact-item.copied .icon {
   animation: pop 0.4s ease;
 }

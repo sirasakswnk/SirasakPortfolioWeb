@@ -3,19 +3,31 @@
 
   <section class="portfolio-section" id="Portfolio">
     <h2 class="section-title">
-  <span class="title-icon">
-    <img src="/icons/certificate.svg" alt="certificate icon" />
-  </span>
-  Certificates
-</h2>
+      <span class="title-icon">
+        <img src="/icons/certificate.svg" alt="certificate icon" />
+      </span>
+      Certificates
+    </h2>
 
 
     <!-- GRID -->
     <div class="grid">
       <div class="card" v-for="(item, index) in items" :key="index" @click="openModal(item)">
         <img :src="item.image" />
+
+        <!-- TAG -->
+        <div class="tag-wrapper">
+          <span class="tag" v-for="(tag, i) in item.tags" :key="i">
+            {{ tag }}
+          </span>
+        </div>
+
         <h3>{{ item.title }}</h3>
+
+        <!-- DATE -->
+        <p class="card-date">{{ item.date }}</p>
       </div>
+
     </div>
 
     <!-- MODAL (เหมือนเดิม) -->
@@ -31,7 +43,7 @@
   </section>
 
 
-  
+
 
 </template>
 <script>
@@ -42,6 +54,9 @@ import cert4 from "@/assets/photo/portfolio/cert4.jpg";
 import cert5 from "@/assets/photo/portfolio/cert5.jpg";
 import cert6 from "@/assets/photo/portfolio/cert6.jpg";
 import cert7 from "@/assets/photo/portfolio/cert7.jpg";
+import cert8 from "@/assets/photo/portfolio/cert8.jpg";
+import cert9 from "@/assets/photo/portfolio/cert9.jpg";
+import cert10 from "@/assets/photo/portfolio/cert10.jpg";
 
 export default {
   name: "PortfolioSection",
@@ -54,43 +69,71 @@ export default {
           image: cert1,
           description: "Certificate of completion for a training program on web application design and development using Next.js, organized by Kasetsart University, Sriracha Campus (November 2025).",
           date: "November 12 2025",
-          
+          tags: ["Web","Frontend"]
+
         },
         {
           title: "Cybersecurity Training Program (12 Hours)",
           image: cert2,
           description: "Certificate of completion for a 12-hour Cybersecurity training program conducted by Digital Academy Thailand (DAT) and the Faculty of Engineering, Kasetsart University, Sriracha Campus (November 2025).",
           date: "November 17, 2025",
+          tags: ["Cybersecurity"]
         },
         {
           title: "Basic Cybersecurity  Certificate of Completion",
           image: cert3,
           description: "Successfully completed the Basic Cybersecurity course on the MOOC cybersecurity learning platform. The course covered fundamental cybersecurity concepts, threat awareness, and essential security practices for digital systems.",
           date: "November 15, 2025",
+          tags: ["Cybersecurity"]
         },
         {
           title: "LINK Certified Network Cabling for Engineering (LCCE)",
           image: cert4,
           description: "Successfully completed the LINK Certified Network Cabling for Engineering (LCCE) training program, covering structured cabling standards, network infrastructure fundamentals, and installation best practices based on international standards.",
           date: "September 17 2025",
+          tags: ["Network","Engineer"]
         },
         {
           title: "Super AI Engineer Season 5  AI Innovator Certification",
           image: cert5,
           description: "Successfully completed the Super AI Engineer Season 5 training and skill development program as an AI Innovator, organized by the Artificial Intelligence Association of Thailand (AIAT). The program focused on developing high-caliber AI talent, covering innovation-driven AI concepts, engineering skills, and industry-oriented applications to support rapidly changing global environments.",
           date: "July 19, 2025",
+          tags: ["Ai","Engineer"]
         },
         {
           title: "AI Ethics Certification",
           image: cert6,
           description: "Certificate of achievement for completing the Artificial Intelligence Ethics course, demonstrating knowledge of responsible and ethical AI practices.",
           date: "March 10, 2025",
+          tags: ["Ai"]
         },
         {
           title: "MATLAB Onramp – Course Completion Certificate",
           image: cert7,
           description: "Successfully completed the MATLAB Onramp self-paced training course provided by MathWorks Training Services.The course covered fundamental MATLAB concepts, including programming basics, data analysis, visualization,and problem-solving using MATLAB for engineering and scientific applications.",
           date: "March 17, 2024",
+          tags: ["MATLAB"]
+        },
+        {
+          title: "ChatGPT & AI for Digital Students",
+          image: cert8,
+          description: "Certificate of completion for training on ChatGPT and AI applications for digital learning and productivity",
+          date: "September 2, 2023",
+          tags: ["Ai"]
+        },
+        {
+          title: "Academic Excellence Award (2023)",
+          image: cert10,
+          description: "Certificate of recognition for outstanding academic performance at Kasetsart University, Sriracha Campus.",
+          date: "April 8, 2024",
+          tags: ["KUSRC"]
+        },
+        {
+          title: "Academic Excellence Award (2024)",
+          image: cert9,
+          description: "Certificate of recognition for outstanding academic performance at Kasetsart University, Sriracha Campus.",
+          date: "July 25, 2024",
+          tags: ["KUSRC"]
         },
 
       ],
@@ -107,9 +150,7 @@ export default {
 };
 </script>
 <style scoped>
-/* =========================
-   🌕 YELLOW SECTION
-========================= */
+
 .portfolio-section {
   min-height: 100vh;
   background: #ffd84d;
@@ -130,7 +171,6 @@ export default {
   position: relative;
 }
 
-/* icon */
 .title-icon img {
   width: 34px;
   height: 34px;
@@ -139,17 +179,10 @@ export default {
   filter: invert(16%) sepia(78%) saturate(430%) hue-rotate(250deg);
 }
 
-/* hover effect เบา ๆ */
 .section-title:hover .title-icon img {
   transform: rotate(-8deg) scale(1.05);
 }
 
-
-
-
-/* =========================
-   🧩 GRID LAYOUT
-========================= */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -188,14 +221,29 @@ export default {
   font-size: 1.1rem;
 }
 
-/* .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-} */
+.tag-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
 
-/* =========================
-   🪟 MODAL
-========================= */
+.tag {
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #2b1a00;
+  color: #ffd84d;
+  font-weight: 600;
+}
+
+.card-date {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 6px;
+}
+
+
 .modal {
   position: fixed;
   inset: 0;
@@ -219,7 +267,6 @@ export default {
 .modal-content img {
   width: 100%;
   max-height: 70vh;
-  /* 👈 ดูใหญ่ขึ้น */
   object-fit: contain;
   border-radius: 18px;
   margin-bottom: 24px;
@@ -309,10 +356,10 @@ export default {
     opacity: 0;
     transform: translateY(15px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 </style>

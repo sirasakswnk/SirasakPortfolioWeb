@@ -1,39 +1,93 @@
 <template>
-  <nav class="navbar">
-    <div class="profile-container">
-      <img src="../assets/photo/profileicon.jpg" alt="Profile" class="profile-pic" />
-      <h1 style="font-family: niramit;">Mingmings</h1>
+  <header :class="['navbar', {
+    shrink: isScrolled,
+    'light-text': isLightMode
+  }]">
+    <div class="nav-container">
+      <!-- LOGO -->
+      <div class="logo" @click="scrollTo('Hero')">
+        MyPortfolio
+      </div>
+
+      <!-- DESKTOP MENU -->
+      <nav class="nav-links">
+        <a v-for="link in links" :key="link.id" :class="{ active: activeSection === link.id }"
+          @click="scrollTo(link.id)">
+          {{ link.label }}
+        </a>
+      </nav>
+
+      <!-- MOBILE TOGGLE -->
+      <div class="menu-toggle" @click="toggleMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
-    <ul>
-      <li>
-        <a href="#Hero" class="nav-link">About me</a>
-      </li>
-      <li>
-        <a href="#Portfolio" class="nav-link">Portfolio</a>
-      </li>
-      <li>
-        <a href="#Contact" class="nav-link">Contact</a>
-      </li>
-    </ul>
-  </nav>
+
+    <!-- MOBILE MENU -->
+    <transition name="fade">
+      <div class="mobile-menu" v-if="menuOpen">
+        <a v-for="link in links" :key="link.id" :class="{ active: activeSection === link.id }"
+          @click="scrollTo(link.id)">
+          {{ link.label }}
+        </a>
+      </div>
+    </transition>
+  </header>
 </template>
 
-<script>  
+<script>
 export default {
   name: "Navbar",
+  data() {
+    return {
+      menuOpen: false,
+      isScrolled: false,
+      activeSection: "Home",
+      isLightMode: false,
+      links: [
+        { id: "Hero", label: "Home" },
+        { id: "Portfolio", label: "Certificates" },
+        { id: "Skills", label: "Skills" },
+        { id: "Contact", label: "Contact" },
+      ],
+    };
+  },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
+    this.handleScroll();
   },
   beforeUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
+    toggleMenu() {
+      this.menuOpen = !this.menuOpen;
+    },
+    scrollTo(id) {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+      this.menuOpen = false;
+    },
     handleScroll() {
-      const navbar = document.querySelector(".navbar");
-      if (window.scrollY > 50) {
-        navbar.classList.add("sticky");
-      } else {
-        navbar.classList.remove("sticky");
+      const scrollY = window.scrollY;
+      this.isScrolled = scrollY > 60;
+
+      for (const link of this.links) {
+        const section = document.getElementById(link.id);
+        if (!section) continue;
+
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 120 && rect.bottom >= 120) {
+          this.activeSection = link.id;
+
+          // 👇 ถ้าอยู่ใน Skills หรือ Contact → ใช้ฟอนต์ขาว
+          this.isLightMode = ["Skills", "Contact"].includes(link.id);
+          break;
+        }
       }
     },
   },
@@ -41,72 +95,171 @@ export default {
 </script>
 
 <style scoped>
+
 .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* จัดให้โปรไฟล์ซ้าย เมนูขวา */
-  background: transparent;
-  padding: 10px 20px;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.3);
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  max-width: 1200px;
   z-index: 1000;
-  transition: background 0.3s ease;
+
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(16px);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+
+  transition: all 0.35s ease;
 }
 
-.profile-container {
+.navbar.shrink {
+  top: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.nav-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
 }
 
-.profile-pic {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%; /* ทำให้เป็นวงกลม */
-  object-fit: cover;
-  border: 3px solid white; /* เพิ่มกรอบ */
-  margin-right: 15px; /* ขยับให้ห่างจากเมนู */
-  transition: transform 0.3s ease;
+.navbar.shrink .nav-container {
+  padding: 10px 22px;
 }
 
-/* 🎯 เอฟเฟกต์ Hover */
-.profile-pic:hover {
-  transform: scale(1.1) rotate(5deg);
+.logo {
+  font-size: 1.25rem;
+  font-weight: 800;
+  cursor: pointer;
+  color: #2b1a00;
 }
 
-ul {
-  list-style: none;
+.nav-links {
+  margin-left: 20px;
   display: flex;
-  gap: 30px;
-  padding: 0;
-  margin: 0;
+  gap: 28px;
 }
 
-li {
-  font-size: 18px;
-}
-
-/* 🔥 Animation เวลา Hover */
-.nav-link {
+.nav-links a,
+.mobile-menu a {
+  cursor: pointer;
+  font-weight: 600;
+  color: #2b1a00;
+  position: relative;
+  transition: color 0.3s ease;
   text-decoration: none;
-  color: #3498db;
-  font-weight: bold;
-  padding: 8px 15px;
-  border-radius: 8px;
-  transition: all 0.3s ease, transform 0.2s ease;
 }
 
-.nav-link:hover {
-  background: rgba(52, 152, 219, 0.2);
-  color: #2980b9;
-  transform: scale(1.1);
+.nav-links a:hover,
+.mobile-menu a:hover {
+  color: #ffb703;
 }
 
-.sticky {
-  background: rgba(255, 255, 255, 0.9); /* Navbar ชัดขึ้นเมื่อเลื่อน */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #ffb703;
+  transition: width 0.3s ease;
 }
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a.active,
+.mobile-menu a.active {
+  color: #ffb703;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 22px;
+  height: 2px;
+  background: #2b1a00;
+}
+
+.mobile-menu {
+  margin: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(16px);
+  border-radius: 18px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+.navbar.light-text {
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.navbar.light-text .logo,
+.navbar.light-text .nav-links a,
+.navbar.light-text .mobile-menu a {
+  color: #ffffff;
+}
+
+.navbar.light-text .nav-links a:hover,
+.navbar.light-text .mobile-menu a:hover {
+  color: #ffd84d;
+}
+
+.navbar.light-text .nav-links a::after {
+  background: #ffd84d;
+}
+
+.navbar.light-text .nav-links a.active,
+.navbar.light-text .mobile-menu a.active {
+  color: #ffd84d;
+}
+
+.navbar.light-text .menu-toggle span {
+  background: #ffffff;
+}
+
+.navbar .logo,
+.navbar .nav-links a,
+.navbar .menu-toggle span {
+  transition: color 0.35s ease, background-color 0.35s ease;
+}
+
 </style>

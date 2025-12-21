@@ -1,6 +1,5 @@
 <template>
   <div class="Hero" id="Hero">
-    <!-- 🔥 BACKGROUND TEXT -->
     <div class="bg-text">
       <div class="bg-marquee marquee-right">
         <span>SOFTWARE DEVELOPER · FRONTEND · CS STUDENT · </span>
@@ -28,7 +27,6 @@
         Computer Science Student · Kasetsart University Sriracha Campus
       </p>
 
-      <!--ACTION BUTTONS-->
       <div class="action-buttons">
   <a class="btn github magnetic" href="https://github.com/sirasakswnk" target="_blank">
     <img src="/icons/github.svg" class="btn-icon" />
@@ -130,9 +128,6 @@ beforeUnmount() {
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* =========================
-   🧠 BACKGROUND MARQUEE TEXT
-========================= */
 .bg-text {
   margin-bottom: 100px;
   position: absolute;
@@ -155,14 +150,12 @@ beforeUnmount() {
   letter-spacing: 8px;
 }
 
-/* บรรทัดบน → ไปขวา */
 .marquee-right {
   top: 28%;
   animation: marqueeRight 30s linear infinite;
   animation-duration: 45s;
 }
 
-/* บรรทัดล่าง → ไปซ้าย */
 .marquee-left {
   top: 48%;
   animation: marqueeLeft 32s linear infinite;
@@ -178,9 +171,6 @@ beforeUnmount() {
   opacity: 0.12;
 }
 
-/* =========================
-   ✨ TEXT CONTENT (MODERN)
-========================= */
 .text-content {
   top: 70px;
   position: relative;
@@ -213,7 +203,6 @@ beforeUnmount() {
   transition: transform 0.3s ease;
 }
 
-/* ---------- SUBTITLE ---------- */
 .subtitle {
   font-size: 1.05rem;
   font-weight: 400;
@@ -223,7 +212,6 @@ beforeUnmount() {
   opacity: 0.9;
 }
 
-/* Glass style */
 .glass {
   display: inline-block;
   padding: 10px 20px;
@@ -233,17 +221,10 @@ beforeUnmount() {
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-/* Hover interaction */
 .text-content:hover .glass {
   background: rgba(255, 255, 255, 0.18);
 }
 
-
-
-
-/* =========================
-   PURPLE MODERN THEME
-========================= */
 .Hero {
   position: relative; 
   min-height: 100vh;
@@ -257,9 +238,6 @@ beforeUnmount() {
 
 }
 
-/* =========================
-   AVATAR
-========================= */
 .avatar-wrapper {
 
   transform: translateY(-50px) scale(1.05);
@@ -295,10 +273,6 @@ beforeUnmount() {
   filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.25));
 }
 
-
-/* =========================
-   🔘 ACTION BUTTONS
-========================= */
 .action-buttons {
   display: flex;
   gap: 18px;
@@ -307,9 +281,6 @@ beforeUnmount() {
   flex-wrap: wrap;
 }
 
-/* =========================
-   🔘 BASE BUTTON
-========================= */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -329,9 +300,6 @@ beforeUnmount() {
     background 0.35s ease;
 }
 
-/* =========================
-   🎨 VARIANTS
-========================= */
 .btn.github {
   background: rgba(0, 0, 0, 0.45);
 }
@@ -351,9 +319,6 @@ beforeUnmount() {
   font-weight: 600;
 }
 
-/* =========================
-   ✨ ICON
-========================= */
 .btn-icon {
   width: 18px;
   height: 18px;
@@ -365,9 +330,6 @@ beforeUnmount() {
   filter: none;
 }
 
-/* =========================
-   🖱️ HOVER
-========================= */
 .btn:hover {
   transform: translateY(-6px);
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
@@ -377,9 +339,6 @@ beforeUnmount() {
   transform: translateX(4px);
 }
 
-/* =========================
-   🌟 RESUME – SUBTLE GLOW
-========================= */
 .btn.resume {
   position: relative;
 }
