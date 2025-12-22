@@ -4,12 +4,10 @@
     'light-text': isLightMode
   }]">
     <div class="nav-container">
-      <!-- LOGO -->
       <div class="logo" @click="scrollTo('Hero')">
         MyPortfolio
       </div>
 
-      <!-- DESKTOP MENU -->
       <nav class="nav-links">
         <a v-for="link in links" :key="link.id" :class="{ active: activeSection === link.id }"
           @click="scrollTo(link.id)">
@@ -17,7 +15,6 @@
         </a>
       </nav>
 
-      <!-- MOBILE TOGGLE -->
       <div class="menu-toggle" @click="toggleMenu">
         <span></span>
         <span></span>
@@ -25,7 +22,6 @@
       </div>
     </div>
 
-    <!-- MOBILE MENU -->
     <transition name="fade">
       <div class="mobile-menu" v-if="menuOpen">
         <a v-for="link in links" :key="link.id" :class="{ active: activeSection === link.id }"
@@ -120,6 +116,19 @@ export default {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
+.navbar.shrink .nav-container {
+  padding: 10px 22px;
+}
+
+.navbar.shrink .logo {
+  font-size: 1.3rem;
+}
+
+.navbar.shrink .nav-links a {
+  font-size: 0.95rem;
+}
+
+
 .nav-container {
   display: flex;
   align-items: center;
@@ -127,13 +136,12 @@ export default {
   padding: 14px 24px;
 }
 
-.navbar.shrink .nav-container {
-  padding: 10px 22px;
-}
+
 
 .logo {
-  font-size: 1.25rem;
+  font-size: 1.6rem;
   font-weight: 800;
+  letter-spacing: 0.4px;
   cursor: pointer;
   color: #2b1a00;
 }
@@ -146,8 +154,9 @@ export default {
 
 .nav-links a,
 .mobile-menu a {
+  font-size: 1.25rem;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 650;
   color: #2b1a00;
   position: relative;
   transition: color 0.3s ease;

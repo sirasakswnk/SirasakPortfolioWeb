@@ -108,25 +108,25 @@ export default {
           skills: [
             {
               name: "HTML / CSS",
-              percent: 80,
-              level: "Advanced",
+              percent: 70,
+              level: "Intermediate",
               icon: "/icons/html.svg",
             },
             {
               name: "Vue.js",
-              percent: 85,
-              level: "Advanced",
+              percent: 70,
+              level: "Intermediate",
               icon: "/icons/vue.svg",
             },
             {
               name: "JavaScript",
-              percent: 75,
+              percent: 70,
               level: "Intermediate",
               icon: "/icons/javascript.svg",
             },
             {
               name: "RESTful API",
-              percent: 75,
+              percent: 65,
               level: "Intermediate",
               icon: "/icons/api.svg",
             },
@@ -138,25 +138,25 @@ export default {
           skills: [
             {
               name: "PostgreSQL",
-              percent: 80,
-              level: "Advanced",
+              percent: 70,
+              level: "Intermediate",
               icon: "/icons/postgresql.svg",
             },
             {
               name: "Git / GitHub",
-              percent: 75,
+              percent: 65,
               level: "Intermediate",
               icon: "/icons/github.svg",
             },
             {
               name: "Postman",
-              percent: 75,
+              percent: 65,
               level: "Intermediate",
               icon: "/icons/postman.svg",
             },
             {
               name: "VS Code",
-              percent: 85,
+              percent: 70,
               level: "Advanced",
               icon: "/icons/vscode.svg",
             },
