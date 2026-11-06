@@ -13,7 +13,7 @@
     <!-- GRID -->
     <div class="grid">
       <div class="card" v-for="(item, index) in items" :key="index" @click="openModal(item)">
-        <img :src="item.image" />
+        <img :src="item.thumbnail" :alt="item.title" loading="lazy" decoding="async" />
 
         <!-- TAG -->
         <div class="tag-wrapper">
@@ -33,7 +33,7 @@
     <!-- MODAL (เหมือนเดิม) -->
     <div class="modal" v-if="selectedItem" @click.self="closeModal">
       <div class="modal-content">
-        <img :src="selectedItem.image" />
+        <img :src="selectedItem.image" :alt="selectedItem.title" decoding="async" />
         <h3>{{ selectedItem.title }}</h3>
         <p class="modal-date">{{ selectedItem.date }}</p>
         <p>{{ selectedItem.description }}</p>
@@ -47,16 +47,26 @@
 
 </template>
 <script>
-import cert1 from "@/assets/photo/portfolio/cert1.jpg";
-import cert2 from "@/assets/photo/portfolio/cert2.jpg";
-import cert3 from "@/assets/photo/portfolio/cert3.jpg";
+import cert1 from "@/assets/photo/optimized/portfolio/cert1.webp";
+import cert2 from "@/assets/photo/optimized/portfolio/cert2.webp";
+import cert3 from "@/assets/photo/optimized/portfolio/cert3.webp";
 import cert4 from "@/assets/photo/portfolio/cert4.jpg";
-import cert5 from "@/assets/photo/portfolio/cert5.jpg";
-import cert6 from "@/assets/photo/portfolio/cert6.jpg";
-import cert7 from "@/assets/photo/portfolio/cert7.jpg";
+import cert5 from "@/assets/photo/optimized/portfolio/cert5.webp";
+import cert6 from "@/assets/photo/optimized/portfolio/cert6.webp";
+import cert7 from "@/assets/photo/optimized/portfolio/cert7.webp";
 import cert8 from "@/assets/photo/portfolio/cert8.jpg";
-import cert9 from "@/assets/photo/portfolio/cert9.jpg";
-import cert10 from "@/assets/photo/portfolio/cert10.jpg";
+import cert9 from "@/assets/photo/optimized/portfolio/cert9.webp";
+import cert10 from "@/assets/photo/optimized/portfolio/cert10.webp";
+import thumb1 from "@/assets/photo/optimized/portfolio/cert1-thumb.webp";
+import thumb2 from "@/assets/photo/optimized/portfolio/cert2-thumb.webp";
+import thumb3 from "@/assets/photo/optimized/portfolio/cert3-thumb.webp";
+import thumb4 from "@/assets/photo/optimized/portfolio/cert4-thumb.webp";
+import thumb5 from "@/assets/photo/optimized/portfolio/cert5-thumb.webp";
+import thumb6 from "@/assets/photo/optimized/portfolio/cert6-thumb.webp";
+import thumb7 from "@/assets/photo/optimized/portfolio/cert7-thumb.webp";
+import thumb8 from "@/assets/photo/optimized/portfolio/cert8-thumb.webp";
+import thumb9 from "@/assets/photo/optimized/portfolio/cert9-thumb.webp";
+import thumb10 from "@/assets/photo/optimized/portfolio/cert10-thumb.webp";
 
 export default {
   name: "PortfolioSection",
@@ -67,6 +77,7 @@ export default {
         {
           title: "FutureDev: Web Application Development with Next.js",
           image: cert1,
+          thumbnail: thumb1,
           description: "Certificate of completion for a training program on web application design and development using Next.js, organized by Kasetsart University, Sriracha Campus (November 2025).",
           date: "November 12 2025",
           tags: ["Web","Frontend"]
@@ -75,6 +86,7 @@ export default {
         {
           title: "Cybersecurity Training Program (12 Hours)",
           image: cert2,
+          thumbnail: thumb2,
           description: "Certificate of completion for a 12-hour Cybersecurity training program conducted by Digital Academy Thailand (DAT) and the Faculty of Engineering, Kasetsart University, Sriracha Campus (November 2025).",
           date: "November 17, 2025",
           tags: ["Cybersecurity"]
@@ -82,6 +94,7 @@ export default {
         {
           title: "Basic Cybersecurity  Certificate of Completion",
           image: cert3,
+          thumbnail: thumb3,
           description: "Successfully completed the Basic Cybersecurity course on the MOOC cybersecurity learning platform. The course covered fundamental cybersecurity concepts, threat awareness, and essential security practices for digital systems.",
           date: "November 15, 2025",
           tags: ["Cybersecurity"]
@@ -89,6 +102,7 @@ export default {
         {
           title: "LINK Certified Network Cabling for Engineering (LCCE)",
           image: cert4,
+          thumbnail: thumb4,
           description: "Successfully completed the LINK Certified Network Cabling for Engineering (LCCE) training program, covering structured cabling standards, network infrastructure fundamentals, and installation best practices based on international standards.",
           date: "September 17 2025",
           tags: ["Network","Engineer"]
@@ -96,6 +110,7 @@ export default {
         {
           title: "Super AI Engineer Season 5  AI Innovator Certification",
           image: cert5,
+          thumbnail: thumb5,
           description: "Successfully completed the Super AI Engineer Season 5 training and skill development program as an AI Innovator, organized by the Artificial Intelligence Association of Thailand (AIAT). The program focused on developing high-caliber AI talent, covering innovation-driven AI concepts, engineering skills, and industry-oriented applications to support rapidly changing global environments.",
           date: "July 19, 2025",
           tags: ["Ai","Engineer"]
@@ -103,6 +118,7 @@ export default {
         {
           title: "AI Ethics Certification",
           image: cert6,
+          thumbnail: thumb6,
           description: "Certificate of achievement for completing the Artificial Intelligence Ethics course, demonstrating knowledge of responsible and ethical AI practices.",
           date: "March 10, 2025",
           tags: ["Ai"]
@@ -110,6 +126,7 @@ export default {
         {
           title: "MATLAB Onramp – Course Completion Certificate",
           image: cert7,
+          thumbnail: thumb7,
           description: "Successfully completed the MATLAB Onramp self-paced training course provided by MathWorks Training Services.The course covered fundamental MATLAB concepts, including programming basics, data analysis, visualization,and problem-solving using MATLAB for engineering and scientific applications.",
           date: "March 17, 2024",
           tags: ["MATLAB"]
@@ -117,6 +134,7 @@ export default {
         {
           title: "ChatGPT & AI for Digital Students",
           image: cert8,
+          thumbnail: thumb8,
           description: "Certificate of completion for training on ChatGPT and AI applications for digital learning and productivity",
           date: "September 2, 2023",
           tags: ["Ai"]
@@ -124,6 +142,7 @@ export default {
         {
           title: "Academic Excellence Award (2023)",
           image: cert10,
+          thumbnail: thumb10,
           description: "Certificate of recognition for outstanding academic performance at Kasetsart University, Sriracha Campus.",
           date: "April 8, 2024",
           tags: ["KUSRC"]
@@ -131,6 +150,7 @@ export default {
         {
           title: "Academic Excellence Award (2024)",
           image: cert9,
+          thumbnail: thumb9,
           description: "Certificate of recognition for outstanding academic performance at Kasetsart University, Sriracha Campus.",
           date: "July 25, 2024",
           tags: ["KUSRC"]

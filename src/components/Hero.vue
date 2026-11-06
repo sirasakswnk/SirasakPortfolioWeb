@@ -17,7 +17,8 @@
         ref="icons" />
 
 
-      <img src="@/assets/photo/profile1.jpg" class="main-avatar" alt="profile" />
+      <img src="@/assets/photo/optimized/profile1.webp" class="main-avatar" alt="profile"
+        width="1260" height="1680" fetchpriority="high" decoding="async" />
     </div>
 
     <div class="text-content">
