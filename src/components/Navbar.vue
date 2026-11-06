@@ -1,7 +1,8 @@
 <template>
   <header :class="['navbar', {
     shrink: isScrolled,
-    'light-text': isLightMode
+    'light-text': isLightMode,
+    'portfolio-background': activeSection === 'Portfolio'
   }]" @keydown.esc.stop.prevent="closeMenu">
     <div class="nav-container">
       <a class="logo" href="#Hero" @click.prevent="scrollTo('Hero')">
@@ -51,7 +52,7 @@ export default {
       isLightMode: false,
       links: [
         { id: "Hero", label: "Home" },
-        { id: "Portfolio", label: "Certificates" },
+        { id: "Portfolio", label: "Portfolio" },
         { id: "Skills", label: "Skills" },
         { id: "Contact", label: "Contact" },
       ],
@@ -292,6 +293,17 @@ export default {
 
 .navbar.light-text .menu-toggle span {
   background: #ffffff;
+}
+
+.navbar.portfolio-background .nav-links a.active,
+.navbar.portfolio-background .mobile-menu a.active,
+.navbar.portfolio-background .nav-links a:hover,
+.navbar.portfolio-background .mobile-menu a:hover {
+  color: #6a11cb;
+}
+
+.navbar.portfolio-background .nav-links a::after {
+  background: #6a11cb;
 }
 
 .navbar .logo,

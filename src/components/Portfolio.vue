@@ -1,213 +1,161 @@
 <template>
-
-
   <section class="portfolio-section" id="Portfolio" tabindex="-1">
     <h2 class="section-title">
       <span class="title-icon">
-        <img src="/icons/certificate.svg" alt="" aria-hidden="true" />
+        <img src="/icons/work.svg" alt="" aria-hidden="true" />
       </span>
-      Certificates
+      Portfolio
     </h2>
 
-
-    <!-- GRID -->
-    <div class="grid">
-      <div class="card" v-for="(item, index) in items" :key="index"
-        role="button" tabindex="0" aria-haspopup="dialog" :aria-label="`View certificate: ${item.title}`"
-        @click="openModal(item, $event.currentTarget)"
-        @keydown.enter.prevent="openModal(item, $event.currentTarget)"
-        @keydown.space.prevent="openModal(item, $event.currentTarget)">
-        <img :src="item.thumbnail" :alt="item.title" loading="lazy" decoding="async" />
-
-        <!-- TAG -->
-        <div class="tag-wrapper">
-          <span class="tag" v-for="(tag, i) in item.tags" :key="i">
-            {{ tag }}
-          </span>
-        </div>
-
-        <h3>{{ item.title }}</h3>
-
-        <!-- DATE -->
-        <p class="card-date">{{ item.date }}</p>
+    <div class="portfolio-toolbar" ref="toolbar">
+      <div class="portfolio-tabs" role="tablist" aria-label="Portfolio categories">
+        <button v-for="(tab, index) in tabs" :key="tab.id" ref="tabButtons" type="button" role="tab"
+          :id="`portfolio-tab-${tab.id}`" :aria-controls="`portfolio-panel-${tab.id}`"
+          :aria-selected="activeIndex === index" :tabindex="activeIndex === index ? 0 : -1"
+          :class="{ selected: activeIndex === index }" @click="selectPanel(index)"
+          @keydown="handleTabKey($event, index)">
+          {{ tab.label }}
+        </button>
       </div>
 
+      <div class="portfolio-pagination" role="group" aria-label="Portfolio pages">
+        <button type="button" :disabled="activeIndex === 0" aria-label="Show projects"
+          @click="selectPanel(activeIndex - 1, 'arrow')">
+          <span aria-hidden="true">←</span>
+        </button>
+        <span class="page-counter" aria-hidden="true">{{ activeIndex + 1 }} / {{ tabs.length }}</span>
+        <button type="button" :disabled="activeIndex === tabs.length - 1" aria-label="Show certificates"
+          @click="selectPanel(activeIndex + 1, 'arrow')">
+          <span aria-hidden="true">→</span>
+        </button>
+      </div>
     </div>
 
-    <dialog class="modal" ref="certificateDialog" v-if="selectedItem"
-      aria-modal="true" aria-labelledby="certificate-modal-title" aria-describedby="certificate-modal-description"
-      @click.self="closeModal" @cancel.prevent="closeModal" @close="closeModal"
-      @keydown.tab.prevent="focusCloseButton">
-      <div class="modal-content" ref="modalContent">
-        <img :src="selectedItem.image" :alt="selectedItem.title" decoding="async" />
-        <h3 id="certificate-modal-title" ref="modalTitle" tabindex="-1" autofocus>{{ selectedItem.title }}</h3>
-        <p class="modal-date">{{ selectedItem.date }}</p>
-        <p id="certificate-modal-description">{{ selectedItem.description }}</p>
-        <button type="button" class="close-btn" ref="closeButton" @click="closeModal">Close</button>
-      </div>
-    </dialog>
+    <p class="sr-only" role="status" aria-atomic="true">{{ announcement }}</p>
+
+    <div class="portfolio-stage" ref="stage" :style="{ '--slide-direction': direction }"
+      @pointerdown="startSwipe" @pointerup="endSwipe" @pointercancel="cancelSwipe"
+      @lostpointercapture="cancelSwipe">
+      <Transition v-for="(tab, index) in tabs" :key="tab.id" name="portfolio-slide"
+        @after-leave="releasePanel(index)" @enter-cancelled="releasePanel(index)"
+        @leave-cancelled="releasePanel(index)">
+        <div v-show="activeIndex === index" class="portfolio-panel" ref="panels" role="tabpanel"
+          :id="`portfolio-panel-${tab.id}`" :aria-labelledby="`portfolio-tab-${tab.id}`"
+          :aria-hidden="activeIndex !== index" :inert="activeIndex !== index">
+          <ProjectsPanel v-if="index === 0 && mountedPanels[index]" />
+          <CertificatesPanel v-if="index === 1 && mountedPanels[index]" />
+        </div>
+      </Transition>
+    </div>
   </section>
-
-
-
-
 </template>
+
 <script>
-import cert1 from "@/assets/photo/optimized/portfolio/cert1.webp";
-import cert2 from "@/assets/photo/optimized/portfolio/cert2.webp";
-import cert3 from "@/assets/photo/optimized/portfolio/cert3.webp";
-import cert4 from "@/assets/photo/portfolio/cert4.jpg";
-import cert5 from "@/assets/photo/optimized/portfolio/cert5.webp";
-import cert6 from "@/assets/photo/optimized/portfolio/cert6.webp";
-import cert7 from "@/assets/photo/optimized/portfolio/cert7.webp";
-import cert8 from "@/assets/photo/portfolio/cert8.jpg";
-import cert9 from "@/assets/photo/optimized/portfolio/cert9.webp";
-import cert10 from "@/assets/photo/optimized/portfolio/cert10.webp";
-import thumb1 from "@/assets/photo/optimized/portfolio/cert1-thumb.webp";
-import thumb2 from "@/assets/photo/optimized/portfolio/cert2-thumb.webp";
-import thumb3 from "@/assets/photo/optimized/portfolio/cert3-thumb.webp";
-import thumb4 from "@/assets/photo/optimized/portfolio/cert4-thumb.webp";
-import thumb5 from "@/assets/photo/optimized/portfolio/cert5-thumb.webp";
-import thumb6 from "@/assets/photo/optimized/portfolio/cert6-thumb.webp";
-import thumb7 from "@/assets/photo/optimized/portfolio/cert7-thumb.webp";
-import thumb8 from "@/assets/photo/optimized/portfolio/cert8-thumb.webp";
-import thumb9 from "@/assets/photo/optimized/portfolio/cert9-thumb.webp";
-import thumb10 from "@/assets/photo/optimized/portfolio/cert10-thumb.webp";
+import CertificatesPanel from './CertificatesPanel.vue';
+import ProjectsPanel from './ProjectsPanel.vue';
+import { prefersReducedMotion } from '@/utils/motion';
 
 export default {
-  name: "PortfolioSection",
+  name: 'PortfolioSection',
+  components: { CertificatesPanel, ProjectsPanel },
   data() {
     return {
-      selectedItem: null,
-      previousFocus: null,
-      previousBodyOverflow: null,
-      items: [
-        {
-          title: "FutureDev: Web Application Development with Next.js",
-          image: cert1,
-          thumbnail: thumb1,
-          description: "Certificate of completion for a training program on web application design and development using Next.js, organized by Kasetsart University, Sriracha Campus (November 2025).",
-          date: "November 12 2025",
-          tags: ["Web","Frontend"]
-
-        },
-        {
-          title: "Cybersecurity Training Program (12 Hours)",
-          image: cert2,
-          thumbnail: thumb2,
-          description: "Certificate of completion for a 12-hour Cybersecurity training program conducted by Digital Academy Thailand (DAT) and the Faculty of Engineering, Kasetsart University, Sriracha Campus (November 2025).",
-          date: "November 17, 2025",
-          tags: ["Cybersecurity"]
-        },
-        {
-          title: "Basic Cybersecurity  Certificate of Completion",
-          image: cert3,
-          thumbnail: thumb3,
-          description: "Successfully completed the Basic Cybersecurity course on the MOOC cybersecurity learning platform. The course covered fundamental cybersecurity concepts, threat awareness, and essential security practices for digital systems.",
-          date: "November 15, 2025",
-          tags: ["Cybersecurity"]
-        },
-        {
-          title: "LINK Certified Network Cabling for Engineering (LCCE)",
-          image: cert4,
-          thumbnail: thumb4,
-          description: "Successfully completed the LINK Certified Network Cabling for Engineering (LCCE) training program, covering structured cabling standards, network infrastructure fundamentals, and installation best practices based on international standards.",
-          date: "September 17 2025",
-          tags: ["Network","Engineer"]
-        },
-        {
-          title: "Super AI Engineer Season 5  AI Innovator Certification",
-          image: cert5,
-          thumbnail: thumb5,
-          description: "Successfully completed the Super AI Engineer Season 5 training and skill development program as an AI Innovator, organized by the Artificial Intelligence Association of Thailand (AIAT). The program focused on developing high-caliber AI talent, covering innovation-driven AI concepts, engineering skills, and industry-oriented applications to support rapidly changing global environments.",
-          date: "July 19, 2025",
-          tags: ["Ai","Engineer"]
-        },
-        {
-          title: "AI Ethics Certification",
-          image: cert6,
-          thumbnail: thumb6,
-          description: "Certificate of achievement for completing the Artificial Intelligence Ethics course, demonstrating knowledge of responsible and ethical AI practices.",
-          date: "March 10, 2025",
-          tags: ["Ai"]
-        },
-        {
-          title: "MATLAB Onramp – Course Completion Certificate",
-          image: cert7,
-          thumbnail: thumb7,
-          description: "Successfully completed the MATLAB Onramp self-paced training course provided by MathWorks Training Services.The course covered fundamental MATLAB concepts, including programming basics, data analysis, visualization,and problem-solving using MATLAB for engineering and scientific applications.",
-          date: "March 17, 2024",
-          tags: ["MATLAB"]
-        },
-        {
-          title: "ChatGPT & AI for Digital Students",
-          image: cert8,
-          thumbnail: thumb8,
-          description: "Certificate of completion for training on ChatGPT and AI applications for digital learning and productivity",
-          date: "September 2, 2023",
-          tags: ["Ai"]
-        },
-        {
-          title: "Academic Excellence Award (2023)",
-          image: cert10,
-          thumbnail: thumb10,
-          description: "Certificate of recognition for outstanding academic performance at Kasetsart University, Sriracha Campus.",
-          date: "April 8, 2024",
-          tags: ["KUSRC"]
-        },
-        {
-          title: "Academic Excellence Award (2024)",
-          image: cert9,
-          thumbnail: thumb9,
-          description: "Certificate of recognition for outstanding academic performance at Kasetsart University, Sriracha Campus.",
-          date: "July 25, 2024",
-          tags: ["KUSRC"]
-        },
-
+      tabs: [
+        { id: 'projects', label: 'Projects' },
+        { id: 'certificates', label: 'Certificates' },
       ],
+      activeIndex: 0,
+      mountedPanels: [true, false],
+      direction: 1,
+      announcement: '',
+      swipeStart: null,
+      touchPointers: new Set(),
+      disposed: false,
     };
   },
   beforeUnmount() {
-    this.restorePage();
+    this.disposed = true;
+    this.cancelSwipe();
   },
   methods: {
-    async openModal(item, trigger) {
-      if (this.selectedItem) return;
-      this.previousFocus = trigger || document.activeElement;
-      this.previousBodyOverflow = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-      this.selectedItem = item;
-      await this.$nextTick();
-      if (!this.selectedItem || !this.$refs.certificateDialog) return;
-      this.$refs.certificateDialog.showModal();
-      this.$refs.modalTitle.focus({ preventScroll: true });
-      this.$refs.modalContent.scrollTop = 0;
+    focusTab(index) {
+      this.$refs.tabButtons?.[index]?.focus({ preventScroll: true });
     },
-    focusCloseButton() {
-      // Close is the dialog's only control; keep Tab and Shift+Tab inside it.
-      this.$refs.closeButton?.focus();
-    },
-    closeModal() {
-      if (!this.selectedItem) return;
-      this.$refs.certificateDialog?.close();
-      this.selectedItem = null;
-      this.restorePage();
-    },
-    restorePage() {
-      if (this.previousBodyOverflow !== null) {
-        document.body.style.overflow = this.previousBodyOverflow;
-        this.previousBodyOverflow = null;
+    selectPanel(index, source = 'tab') {
+      if (this.disposed || index === this.activeIndex || index < 0 || index >= this.tabs.length) return;
+      if (this.$refs.stage.querySelector('dialog[open]')) return;
+
+      const previousPanel = this.$refs.panels[this.activeIndex];
+      const needsFocus = source !== 'swipe' || previousPanel.contains(document.activeElement);
+      // Move focus before making its previous panel inert/aria-hidden.
+      if (needsFocus) this.focusTab(index);
+      // Batched clicks can change selection before a hidden panel ever enters.
+      if (previousPanel.style.display === 'none') this.mountedPanels[this.activeIndex] = false;
+      this.direction = index > this.activeIndex ? 1 : -1;
+      this.mountedPanels[index] = true;
+      this.activeIndex = index;
+      this.announcement = source === 'tab' ? '' : `${this.tabs[index].label}, ${index + 1} of ${this.tabs.length}`;
+      this.swipeStart = null;
+
+      if (this.$refs.stage.getBoundingClientRect().top < 100) {
+        this.$refs.toolbar.scrollIntoView({
+          block: 'start',
+          behavior: prefersReducedMotion() ? 'instant' : 'smooth',
+        });
       }
-      if (this.previousFocus?.isConnected) {
-        this.previousFocus.focus({ preventScroll: true });
+    },
+    handleTabKey(event, index) {
+      const destinations = {
+        ArrowRight: (index + 1) % this.tabs.length,
+        ArrowLeft: (index + this.tabs.length - 1) % this.tabs.length,
+        Home: 0,
+        End: this.tabs.length - 1,
+      };
+      if (!Object.hasOwn(destinations, event.key)) return;
+      event.preventDefault();
+      const destination = destinations[event.key];
+      this.selectPanel(destination);
+      this.focusTab(destination);
+    },
+    releasePanel(index) {
+      if (!this.disposed && index !== this.activeIndex) this.mountedPanels[index] = false;
+    },
+    startSwipe(event) {
+      if (event.pointerType !== 'touch') return;
+      this.touchPointers.add(event.pointerId);
+      this.swipeStart = null;
+      if (!event.isPrimary || this.touchPointers.size !== 1) return;
+      if (this.$refs.stage.querySelector('dialog[open]')) return;
+      if (event.target.closest('a, button, input, select, textarea, summary, dialog, [role="button"], [contenteditable]')) return;
+
+      this.swipeStart = { id: event.pointerId, x: event.clientX, y: event.clientY };
+      try {
+        event.currentTarget.setPointerCapture(event.pointerId);
+      } catch {
+        this.swipeStart = null;
       }
-      this.previousFocus = null;
+    },
+    endSwipe(event) {
+      if (event.pointerType !== 'touch') return;
+      this.touchPointers.delete(event.pointerId);
+      const start = this.swipeStart;
+      this.swipeStart = null;
+      if (!start || start.id !== event.pointerId || this.touchPointers.size) return;
+      const x = event.clientX - start.x;
+      const y = event.clientY - start.y;
+      if (Math.abs(x) < 60 || Math.abs(x) <= Math.abs(y) * 1.5) return;
+      this.selectPanel(this.activeIndex + (x < 0 ? 1 : -1), 'swipe');
+    },
+    cancelSwipe(event) {
+      this.swipeStart = null;
+      if (event?.pointerId !== undefined) this.touchPointers.delete(event.pointerId);
+      else this.touchPointers.clear();
     },
   },
 };
 </script>
-<style scoped>
 
+<style scoped>
 .portfolio-section {
   min-height: 100vh;
   background: #ffd84d;
@@ -224,7 +172,7 @@ export default {
   font-weight: 700;
   color: #2b1a00;
   letter-spacing: 1px;
-  margin-bottom: 60px;
+  margin-bottom: 32px;
   position: relative;
 }
 
@@ -240,202 +188,129 @@ export default {
   transform: rotate(-8deg) scale(1.05);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 32px;
+.section-title {
+  animation: fadeUp 0.8s ease both;
+}
+
+.portfolio-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto 28px;
+  scroll-margin-top: 120px;
 }
 
+.portfolio-tabs,
+.portfolio-pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-.card {
-  background: white;
-  border-radius: 20px;
-  padding: 20px;
+.portfolio-tabs {
+  max-width: 100%;
+  padding: 6px;
+  border: 1px solid rgba(43, 26, 0, 0.15);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.portfolio-tabs button {
+  padding: 10px 22px;
+  border: 0;
+  border-radius: 999px;
+  color: #2b1a00;
+  background: transparent;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.portfolio-tabs button.selected {
+  color: #fff;
+  background: #6a11cb;
+}
+
+.portfolio-pagination button {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(43, 26, 0, 0.2);
+  border-radius: 50%;
+  color: #2b1a00;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.portfolio-pagination button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.portfolio-tabs button,
+.portfolio-pagination button:not(:disabled) {
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
-}
-
-.card:focus-visible,
-.close-btn:focus-visible {
-  outline: 3px solid #6a11cb;
+.portfolio-tabs button:focus-visible,
+.portfolio-pagination button:focus-visible {
+  outline: 3px solid #2b1a00;
   outline-offset: 4px;
 }
 
-
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 14px;
-  margin-bottom: 15px;
-}
-
-
-
-
-.card h3 {
-  font-size: 1.1rem;
-}
-
-.tag-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 10px;
-}
-
-.tag {
-  font-size: 0.7rem;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: #2b1a00;
-  color: #ffd84d;
+.page-counter {
+  min-width: 52px;
+  font-size: 0.9rem;
   font-weight: 600;
 }
 
-.card-date {
-  font-size: 0.8rem;
-  color: #666;
-  margin-top: 6px;
+.portfolio-stage {
+  position: relative;
+  overflow: clip;
+  padding: 8px;
+  margin: -8px;
+  touch-action: pan-y pinch-zoom;
 }
 
-
-.modal {
-  position: fixed;
-  inset: 0;
-  box-sizing: border-box;
-  width: 100%;
-  max-width: none;
-  height: 100vh;
-  height: 100dvh;
-  max-height: none;
-  margin: 0;
-  padding: 16px;
-  border: 0;
-  background: transparent;
-  color: #2b1a00;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  z-index: 1100; /* showModal() also places the dialog in the browser's top layer. */
+.portfolio-panel {
+  min-width: 0;
 }
 
-.modal::backdrop {
-  background: rgba(0, 0, 0, 0.65);
+.portfolio-slide-enter-active,
+.portfolio-slide-leave-active {
+  transition: opacity 0.22s ease, transform 0.22s ease;
 }
 
-.modal-content {
-  box-sizing: border-box;
-  display: block;
-  background: white;
-  padding: 25px;
-  max-width: 700px;
-  width: 100%;
-  max-height: 100%;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  overflow-wrap: anywhere;
-  border-radius: 24px;
-  animation: scaleIn 0.3s ease;
+.portfolio-slide-leave-active {
+  position: absolute;
+  inset: 8px 8px auto;
 }
 
-
-.modal-content img {
-  box-sizing: border-box;
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 70vh;
-  object-fit: contain;
-  border-radius: 18px;
-  margin-bottom: 24px;
-  background: #f5f5f5;
-  padding: 16px;
+.portfolio-slide-enter-from {
+  opacity: 0;
+  transform: translateX(calc(var(--slide-direction) * 24px));
 }
 
-.modal-content h3 {
-  font-size: 1.6rem;
-  margin-bottom: 12px;
+.portfolio-slide-leave-to {
+  opacity: 0;
+  transform: translateX(calc(var(--slide-direction) * -24px));
 }
 
-.modal-content p {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #333;
-}
-
-.modal-date {
-  display: inline-block;
-  font-size: 0.85rem;
-  padding: 4px 12px;
-  border-radius: 999px;
-  background: #f1f1f1;
-  color: #555;
-  margin-bottom: 14px;
-}
-
-
-
-.close-btn {
-  margin-top: 20px;
-  background: #ffd84d;
-  border: none;
-  padding: 10px 22px;
-  border-radius: 999px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-/* =========================
-   🎬 ANIMATION
-========================= */
-@keyframes scaleIn {
-  from {
-    transform: scale(0.85);
-    opacity: 0;
+@media (max-width: 600px) {
+  .portfolio-section {
+    padding: 80px 20px;
   }
 
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.97);
+  .portfolio-toolbar {
+    flex-direction: column;
+    gap: 16px;
   }
 
-  to {
-    opacity: 1;
-    transform: scale(1);
+  .portfolio-tabs button {
+    padding: 10px 16px;
   }
-}
-
-
-@media (max-width: 768px) {
-  .modal-content {
-    padding: 24px;
-    max-width: 95%;
-  }
-
-  .modal-content img {
-    max-height: 60vh;
-    padding: 10px;
-  }
-}
-
-.section-title {
-  animation: fadeUp 0.8s ease both;
 }
 
 @keyframes fadeUp {
@@ -451,8 +326,13 @@ export default {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .section-title:hover .title-icon img,
-  .card:hover {
+  .section-title:hover .title-icon img {
+    transform: none;
+  }
+
+  .portfolio-slide-enter-from,
+  .portfolio-slide-leave-to {
+    opacity: 1;
     transform: none;
   }
 }
