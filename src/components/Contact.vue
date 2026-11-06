@@ -87,13 +87,15 @@ export default {
   },
   beforeUnmount() {
     this.disposed = true;
-    Object.values(this.copyTimers).forEach(clearTimeout);
+    Object.values(this.copyTimers).forEach((timer) => clearTimeout(timer));
+    this.copyTimers = {};
   },
   methods: {
     async copy(text, type) {
       if (this.copying[type] || this.disposed) return;
 
       clearTimeout(this.copyTimers[type]);
+      delete this.copyTimers[type];
       this.copied[type] = false;
       this.copyErrors[type] = "";
       this.copying[type] = true;
@@ -108,6 +110,7 @@ export default {
         if (this.disposed) return;
         this.copied[type] = true;
         this.copyTimers[type] = setTimeout(() => {
+          if (this.disposed) return;
           this.copied[type] = false;
           delete this.copyTimers[type];
         }, 1500);

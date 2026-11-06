@@ -73,6 +73,8 @@ export default {
   data() {
     return {
       activeCategory: "web",
+      revealObserver: null,
+      disposed: false,
 
       skillCategories: {
         programming: {
@@ -202,19 +204,27 @@ export default {
   mounted() {
     // reveal animation on scroll
     const observer = new IntersectionObserver(
-      (entries) => {
+      (entries, currentObserver) => {
+        if (this.disposed) return;
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
+            currentObserver.unobserve(entry.target);
           }
         });
       },
       { threshold: 0.2 }
     );
 
-    document
+    this.revealObserver = observer;
+    this.$el
       .querySelectorAll(".reveal")
       .forEach((el) => observer.observe(el));
+  },
+  beforeUnmount() {
+    this.disposed = true;
+    this.revealObserver?.disconnect();
+    this.revealObserver = null;
   },
   methods: {
     // 🧲 magnetic icon effect (programming skills)
