@@ -1,0 +1,64 @@
+/* Shared warm palette for project details and the image viewer. */
+.project-popup {
+  --popup-background: #fffbf0;
+  --popup-text: #2b1a00;
+  --popup-muted: #756044;
+  --popup-border: #e5cf9c;
+  --popup-image-background: #fff6df;
+  --popup-accent: #6a11cb;
+  --project-image-border: var(--popup-border);
+  --project-image-background: var(--popup-image-background);
+  border: 1px solid var(--popup-border);
+  color: var(--popup-text);
+  background: var(--popup-background);
+  box-shadow: 0 28px 90px rgba(35, 18, 54, 0.3), 0 0 0 1px rgba(255, 251, 240, 0.25);
+  scrollbar-color: #c5a46c var(--popup-background);
+}
+
+.project-popup::backdrop {
+  background: rgba(32, 16, 48, 0.66);
+  backdrop-filter: blur(6px);
+}
+
+.project-popup .popup-header {
+  border-bottom: 1px solid var(--popup-border);
+  background: linear-gradient(120deg, #fff1bd, #ffe39a);
+  box-shadow: 0 3px 14px rgba(89, 62, 12, 0.04);
+}
+
+.project-popup .popup-close {
+  display: inline-flex;
+  flex: 0 0 44px;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid #d7bf84;
+  border-radius: 50%;
+  color: #59318b;
+  background: #fffbf0;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.project-popup .popup-close:hover {
+  border-color: #c5aadf;
+  background: #f0e4ff;
+}
+
+.project-popup .popup-close svg { width: 20px; height: 20px; }
+
+.project-popup .popup-primary {
+  border: 1px solid transparent;
+  color: #fff;
+  background: var(--popup-accent);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-popup .popup-primary:hover {
+  background: #54109e;
+  box-shadow: 0 4px 12px rgba(106, 17, 203, 0.16);
+}
+
+.project-popup .popup-primary[aria-pressed='true'] { background: #54109e; }

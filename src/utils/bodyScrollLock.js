@@ -1,0 +1,16 @@
+let lockCount = 0;
+let originalOverflow = '';
+
+// Layered project dialogs must keep the page locked until the last one closes.
+export function lockBodyScroll() {
+  if (lockCount === 0) originalOverflow = document.body.style.overflow;
+  lockCount += 1;
+  document.body.style.overflow = 'hidden';
+  let released = false;
+  return () => {
+    if (released) return;
+    released = true;
+    lockCount -= 1;
+    if (lockCount === 0) document.body.style.overflow = originalOverflow;
+  };
+}

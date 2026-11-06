@@ -83,7 +83,8 @@ export default {
     },
     selectPanel(index, source = 'tab') {
       if (this.disposed || index === this.activeIndex || index < 0 || index >= this.tabs.length) return;
-      if (this.$refs.stage.querySelector('dialog[open]')) return;
+      // Project details are teleported to body, outside the stage.
+      if (document.querySelector('dialog[open]')) return;
 
       const previousPanel = this.$refs.panels[this.activeIndex];
       const needsFocus = source !== 'swipe' || previousPanel.contains(document.activeElement);
@@ -125,7 +126,7 @@ export default {
       this.touchPointers.add(event.pointerId);
       this.swipeStart = null;
       if (!event.isPrimary || this.touchPointers.size !== 1) return;
-      if (this.$refs.stage.querySelector('dialog[open]')) return;
+      if (document.querySelector('dialog[open]')) return;
       if (event.target.closest('a, button, input, select, textarea, summary, dialog, [role="button"], [contenteditable]')) return;
 
       this.swipeStart = { id: event.pointerId, x: event.clientX, y: event.clientY };
