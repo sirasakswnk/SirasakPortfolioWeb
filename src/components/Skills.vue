@@ -66,6 +66,8 @@
 </template>
 
 <script>
+import { prefersReducedMotion } from "@/utils/motion";
+
 export default {
   name: "Skills",
   data() {
@@ -217,17 +219,20 @@ export default {
   methods: {
     // 🧲 magnetic icon effect (programming skills)
     moveIcon(e) {
+      if (prefersReducedMotion()) return;
       const icon = e.currentTarget.querySelector(".skill-icon");
       const rect = e.currentTarget.getBoundingClientRect();
 
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
 
-      icon.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+      icon.style.setProperty("--pointer-x", `${x * 0.15}px`);
+      icon.style.setProperty("--pointer-y", `${y * 0.15}px`);
     },
     resetIcon(e) {
       const icon = e.currentTarget.querySelector(".skill-icon");
-      icon.style.transform = "translate(0, 0)";
+      icon.style.removeProperty("--pointer-x");
+      icon.style.removeProperty("--pointer-y");
     },
   },
 };
@@ -377,7 +382,8 @@ export default {
   height: 26px;
   filter: invert(1);
   opacity: 0.9;
-  transition: transform 0.35s ease;
+  translate: var(--pointer-x, 0px) var(--pointer-y, 0px);
+  transition: transform 0.35s ease, translate 0.35s ease;
   will-change: transform;
 }
 
@@ -454,14 +460,20 @@ export default {
 
   background: rgba(255, 255, 255, 0.75);
 
-  transition: width 0.8s ease;
-  width: var(--target);
+  transition: width 0.8s ease, filter 0.3s ease;
 
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.25),
     0 0 10px rgba(255, 255, 255, 0.15);
 
-  transition: filter 0.3s ease;
+}
+
+.reveal.show .progress {
+  width: var(--target);
+}
+
+.reveal.show .skill-fade-enter-from .progress {
+  width: 0;
 }
 
 
@@ -519,5 +531,31 @@ export default {
   width: 28px;
   height: 28px;
   filter: invert(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .skill-fade-enter-from,
+  .skill-fade-leave-to {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal .progress {
+    width: var(--target);
+  }
+
+  .skill-icon {
+    translate: none;
+  }
+
+  .tab-btn:hover,
+  .skill-item:hover,
+  .skill-item:hover .skill-icon,
+  .skill-item:hover .percent-badge,
+  .soft-skill:hover,
+  .soft-skill:hover .soft-icon {
+    transform: none;
+  }
 }
 </style>

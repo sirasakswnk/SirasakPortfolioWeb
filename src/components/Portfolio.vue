@@ -449,4 +449,11 @@ export default {
     transform: translateY(0);
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .section-title:hover .title-icon img,
+  .card:hover {
+    transform: none;
+  }
+}
 </style>

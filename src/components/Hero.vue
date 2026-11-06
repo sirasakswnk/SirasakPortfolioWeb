@@ -29,17 +29,20 @@
       </p>
 
       <div class="action-buttons">
-  <a class="btn github magnetic" href="https://github.com/sirasakswnk" target="_blank">
+  <a class="btn github magnetic" href="https://github.com/sirasakswnk" target="_blank"
+    @mousemove="moveButton" @mouseleave="resetButton">
     <img src="/icons/github.svg" class="btn-icon" alt="" aria-hidden="true" />
     GitHub
   </a>
 
-  <a class="btn linkedin magnetic" href="https://www.linkedin.com/in/sirasak-suwannakoed-0572ab398/" target="_blank">
+  <a class="btn linkedin magnetic" href="https://www.linkedin.com/in/sirasak-suwannakoed-0572ab398/" target="_blank"
+    @mousemove="moveButton" @mouseleave="resetButton">
     <img src="/icons/linkedin.svg" class="btn-icon" alt="" aria-hidden="true" />
     LinkedIn
   </a>
 
-  <a class="btn resume magnetic" href="/resume.pdf" target="_blank">
+  <a class="btn resume magnetic" href="/resume.pdf" target="_blank"
+    @mousemove="moveButton" @mouseleave="resetButton">
     <img src="/icons/file-user.svg" class="btn-icon" alt="" aria-hidden="true" />
     Resume
   </a>
@@ -56,6 +59,7 @@ import click from "@/assets/photo/click.jpg";
 import cloud from "@/assets/photo/cloud.jpg";
 import database from "@/assets/photo/database.jpg";
 import code from "@/assets/photo/code.jpg";
+import { prefersReducedMotion } from "@/utils/motion";
 
 export default {
   name: "Hero",
@@ -86,47 +90,45 @@ export default {
     handleScroll() {
       const currentScroll = window.scrollY;
       const delta = currentScroll - this.lastScrollY;
+      this.lastScrollY = currentScroll;
+      if (prefersReducedMotion()) return;
 
       this.rotation += delta * 0.2;
 
       this.$refs.icons?.forEach((icon) => {
-        icon.style.transform = `rotate(${this.rotation}deg)`;
+        icon.style.setProperty("--scroll-rotation", `${this.rotation}deg`);
       });
 
-      this.lastScrollY = currentScroll;
-    }
-    ,
-  },
-  mounted() {
-  window.addEventListener("scroll", this.handleScroll);
-
-  const magnets = document.querySelectorAll(".magnetic");
-
-  magnets.forEach((btn) => {
-    btn.addEventListener("mousemove", (e) => {
-      const rect = btn.getBoundingClientRect();
+    },
+    moveButton(e) {
+      if (prefersReducedMotion()) return;
+      const button = e.currentTarget;
+      const rect = button.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
-
-      btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
-    });
-
-    btn.addEventListener("mouseleave", () => {
-      btn.style.transform = "translate(0, 0)";
-    });
-  });
-},
-beforeUnmount() {
-  window.removeEventListener("scroll", this.handleScroll);
-},
+      button.style.setProperty("--pointer-x", `${x * 0.25}px`);
+      button.style.setProperty("--pointer-y", `${y * 0.25}px`);
+    },
+    resetButton(e) {
+      e.currentTarget.style.removeProperty("--pointer-x");
+      e.currentTarget.style.removeProperty("--pointer-y");
+    },
+  },
+  mounted() {
+    this.lastScrollY = window.scrollY;
+    window.addEventListener("scroll", this.handleScroll, { passive: true });
+  },
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
 
 };
 </script>
 
 <style scoped>
 
-  .magnetic {
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+.magnetic {
+  translate: var(--pointer-x, 0px) var(--pointer-y, 0px);
 }
 
 .bg-text {
@@ -153,14 +155,12 @@ beforeUnmount() {
 
 .marquee-right {
   top: 28%;
-  animation: marqueeRight 30s linear infinite;
-  animation-duration: 45s;
+  animation: marqueeRight 45s linear infinite;
 }
 
 .marquee-left {
   top: 48%;
-  animation: marqueeLeft 32s linear infinite;
-  animation-duration: 50s;
+  animation: marqueeLeft 50s linear infinite;
 }
 
 .bg-marquee span {
@@ -185,7 +185,6 @@ beforeUnmount() {
   font-weight: 800;
   letter-spacing: 1px;
   margin-bottom: 12px;
-  animation: fadeUp 1.2s ease forwards;
 
   background: linear-gradient(90deg,
       #fff7b0,
@@ -267,10 +266,11 @@ beforeUnmount() {
   width: 60px;
   height: 60px;
   position: absolute;
-  opacity: 0;
+  opacity: 1;
   z-index: 1;
-  animation: floatOut 1s ease forwards;
-  transition: transform 0.25s ease-out;
+  animation: floatOut 1s ease backwards;
+  rotate: var(--scroll-rotation, 0deg);
+  transition: rotate 0.25s ease-out;
   filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.25));
 }
 
@@ -297,6 +297,7 @@ beforeUnmount() {
 
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    translate 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.35s ease,
     background 0.35s ease;
 }
@@ -427,6 +428,22 @@ beforeUnmount() {
 
   to {
     transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-icon {
+    rotate: none;
+  }
+
+  .magnetic {
+    translate: none;
+  }
+
+  .subtitle:hover,
+  .btn:hover,
+  .btn:hover .btn-icon {
+    transform: none;
   }
 }
 

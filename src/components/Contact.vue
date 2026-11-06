@@ -266,6 +266,12 @@ export default {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .contact-item:hover {
+    transform: none;
+  }
+}
+
 @keyframes pulseGlow {
   0% {
     box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);

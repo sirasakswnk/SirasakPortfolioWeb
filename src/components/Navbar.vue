@@ -39,6 +39,8 @@
 </template>
 
 <script>
+import { prefersReducedMotion } from "@/utils/motion";
+
 export default {
   name: "Navbar",
   data() {
@@ -74,7 +76,7 @@ export default {
     scrollTo(id) {
       const section = document.getElementById(id);
       if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
+        section.scrollIntoView({ behavior: prefersReducedMotion() ? "instant" : "smooth" });
         section.focus({ preventScroll: true });
       }
       this.menuOpen = false;
