@@ -12,26 +12,32 @@
       <div class="contact-links">
         <!-- Email -->
         <button class="contact-item copy" :class="{ copied: copied.email }"
+          :disabled="copying.email" :aria-busy="copying.email"
           @click="copy('sirasak.swnk@email.com', 'email')">
           <img :src="copied.email ? '/icons/check.svg' : '/icons/mail.svg'" class="icon" />
           {{ copied.email ? "Copied ✓" : "sirasak.swnk@email.com" }}
         </button>
+        <p v-if="copyErrors.email" class="copy-error" role="status">{{ copyErrors.email }}</p>
 
 
         <!-- Phone -->
         <button class="contact-item copy" :class="{ copied: copied.phone }"
+          :disabled="copying.phone" :aria-busy="copying.phone"
           @click="copy('0993699715', 'phone')">
           <img :src="copied.phone ? '/icons/check.svg' : '/icons/phone.svg'" class="icon" />
           {{ copied.phone ? "Copied ✓" : "0993699715" }}
         </button>
+        <p v-if="copyErrors.phone" class="copy-error" role="status">{{ copyErrors.phone }}</p>
 
 
         <!-- LINE -->
         <button class="contact-item copy" :class="{ copied: copied.line }"
+          :disabled="copying.line" :aria-busy="copying.line"
           @click="copy('taming31', 'line')">
           <img :src="copied.line ? '/icons/check.svg' : '/icons/line.svg'" class="icon" />
           {{ copied.line ? "Copied ✓" : "taming31" }}
         </button>
+        <p v-if="copyErrors.line" class="copy-error" role="status">{{ copyErrors.line }}</p>
 
         <!-- GitHub -->
         <a href="https://github.com/sirasakswnk" target="_blank" class="contact-item">
@@ -67,29 +73,66 @@ export default {
         phone: false,
         line: false,
       },
+      copying: { email: false, phone: false, line: false },
+      copyErrors: { email: "", phone: "", line: "" },
+      copyTimers: {},
+      disposed: false,
     };
   },
+  beforeUnmount() {
+    this.disposed = true;
+    Object.values(this.copyTimers).forEach(clearTimeout);
+  },
   methods: {
-    copy(text, type) {
-      // copy (รองรับ browser เก่า)
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(text);
-      } else {
-        const textarea = document.createElement("textarea");
-        textarea.value = text;
-        textarea.style.position = "fixed";
-        textarea.style.left = "-9999px";
+    async copy(text, type) {
+      if (this.copying[type] || this.disposed) return;
+
+      clearTimeout(this.copyTimers[type]);
+      this.copied[type] = false;
+      this.copyErrors[type] = "";
+      this.copying[type] = true;
+
+      try {
+        if (typeof navigator.clipboard?.writeText === "function") {
+          await navigator.clipboard.writeText(text);
+        } else {
+          this.copyWithTextarea(text);
+        }
+
+        if (this.disposed) return;
+        this.copied[type] = true;
+        this.copyTimers[type] = setTimeout(() => {
+          this.copied[type] = false;
+          delete this.copyTimers[type];
+        }, 1500);
+      } catch {
+        if (this.disposed) return;
+        const labels = { email: "email address", phone: "phone number", line: "LINE ID" };
+        this.copyErrors[type] = `Couldn't copy the ${labels[type]}. Please select and copy it manually.`;
+      } finally {
+        if (!this.disposed) this.copying[type] = false;
+      }
+    },
+    copyWithTextarea(text) {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.readOnly = true;
+      textarea.tabIndex = -1;
+      textarea.setAttribute("aria-hidden", "true");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      const previousFocus = document.activeElement;
+
+      try {
         document.body.appendChild(textarea);
         textarea.select();
-        document.execCommand("copy");
-        document.body.removeChild(textarea);
+        if (!document.execCommand("copy")) {
+          throw new Error("Copy command failed");
+        }
+      } finally {
+        textarea.remove();
+        previousFocus?.focus();
       }
-
-      this.copied[type] = true;
-
-      setTimeout(() => {
-        this.copied[type] = false;
-      }, 1500);
     },
   },
 };
@@ -164,6 +207,18 @@ export default {
 .contact-item:hover {
   background: rgba(255, 255, 255, 0.12);
   transform: translateY(-2px);
+}
+
+.contact-item:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.copy-error {
+  margin: -8px 0 0;
+  color: #fca5a5;
+  font-size: 0.85rem;
+  text-align: left;
 }
 
 
