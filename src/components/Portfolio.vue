@@ -251,7 +251,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
+  z-index: 1100; /* Above the fixed Navbar (1000). */
 }
 
 .modal-content {
