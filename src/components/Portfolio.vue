@@ -12,7 +12,11 @@
 
     <!-- GRID -->
     <div class="grid">
-      <div class="card" v-for="(item, index) in items" :key="index" @click="openModal(item)">
+      <div class="card" v-for="(item, index) in items" :key="index"
+        role="button" tabindex="0" aria-haspopup="dialog" :aria-label="`View certificate: ${item.title}`"
+        @click="openModal(item, $event.currentTarget)"
+        @keydown.enter.prevent="openModal(item, $event.currentTarget)"
+        @keydown.space.prevent="openModal(item, $event.currentTarget)">
         <img :src="item.thumbnail" :alt="item.title" loading="lazy" decoding="async" />
 
         <!-- TAG -->
@@ -30,16 +34,18 @@
 
     </div>
 
-    <!-- MODAL (เหมือนเดิม) -->
-    <div class="modal" v-if="selectedItem" @click.self="closeModal">
-      <div class="modal-content">
+    <dialog class="modal" ref="certificateDialog" v-if="selectedItem"
+      aria-modal="true" aria-labelledby="certificate-modal-title" aria-describedby="certificate-modal-description"
+      @click.self="closeModal" @cancel.prevent="closeModal" @close="closeModal"
+      @keydown.tab.prevent="focusCloseButton">
+      <div class="modal-content" ref="modalContent">
         <img :src="selectedItem.image" :alt="selectedItem.title" decoding="async" />
-        <h3>{{ selectedItem.title }}</h3>
+        <h3 id="certificate-modal-title" ref="modalTitle" tabindex="-1" autofocus>{{ selectedItem.title }}</h3>
         <p class="modal-date">{{ selectedItem.date }}</p>
-        <p>{{ selectedItem.description }}</p>
-        <button class="close-btn" @click="closeModal">Close</button>
+        <p id="certificate-modal-description">{{ selectedItem.description }}</p>
+        <button type="button" class="close-btn" ref="closeButton" @click="closeModal">Close</button>
       </div>
-    </div>
+    </dialog>
   </section>
 
 
@@ -73,6 +79,8 @@ export default {
   data() {
     return {
       selectedItem: null,
+      previousFocus: null,
+      previousBodyOverflow: null,
       items: [
         {
           title: "FutureDev: Web Application Development with Next.js",
@@ -159,12 +167,41 @@ export default {
       ],
     };
   },
+  beforeUnmount() {
+    this.restorePage();
+  },
   methods: {
-    openModal(item) {
+    async openModal(item, trigger) {
+      if (this.selectedItem) return;
+      this.previousFocus = trigger || document.activeElement;
+      this.previousBodyOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
       this.selectedItem = item;
+      await this.$nextTick();
+      if (!this.selectedItem || !this.$refs.certificateDialog) return;
+      this.$refs.certificateDialog.showModal();
+      this.$refs.modalTitle.focus({ preventScroll: true });
+      this.$refs.modalContent.scrollTop = 0;
+    },
+    focusCloseButton() {
+      // Close is the dialog's only control; keep Tab and Shift+Tab inside it.
+      this.$refs.closeButton?.focus();
     },
     closeModal() {
+      if (!this.selectedItem) return;
+      this.$refs.certificateDialog?.close();
       this.selectedItem = null;
+      this.restorePage();
+    },
+    restorePage() {
+      if (this.previousBodyOverflow !== null) {
+        document.body.style.overflow = this.previousBodyOverflow;
+        this.previousBodyOverflow = null;
+      }
+      if (this.previousFocus?.isConnected) {
+        this.previousFocus.focus({ preventScroll: true });
+      }
+      this.previousFocus = null;
     },
   },
 };
@@ -225,6 +262,12 @@ export default {
   box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
 }
 
+.card:focus-visible,
+.close-btn:focus-visible {
+  outline: 3px solid #6a11cb;
+  outline-offset: 4px;
+}
+
 
 .card img {
   width: 100%;
@@ -267,25 +310,49 @@ export default {
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  height: 100vh;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 16px;
+  border: 0;
+  background: transparent;
+  color: #2b1a00;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1100; /* Above the fixed Navbar (1000). */
+  overflow: hidden;
+  z-index: 1100; /* showModal() also places the dialog in the browser's top layer. */
+}
+
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.65);
 }
 
 .modal-content {
+  box-sizing: border-box;
+  display: block;
   background: white;
   padding: 25px;
   max-width: 700px;
-  width: 90%;
+  width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  overflow-wrap: anywhere;
   border-radius: 24px;
   animation: scaleIn 0.3s ease;
 }
 
 
 .modal-content img {
+  box-sizing: border-box;
+  display: block;
   width: 100%;
+  height: auto;
   max-height: 70vh;
   object-fit: contain;
   border-radius: 18px;
