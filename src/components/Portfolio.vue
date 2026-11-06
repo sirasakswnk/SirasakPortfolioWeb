@@ -1,10 +1,10 @@
 <template>
 
 
-  <section class="portfolio-section" id="Portfolio">
+  <section class="portfolio-section" id="Portfolio" tabindex="-1">
     <h2 class="section-title">
       <span class="title-icon">
-        <img src="/icons/certificate.svg" alt="certificate icon" />
+        <img src="/icons/certificate.svg" alt="" aria-hidden="true" />
       </span>
       Certificates
     </h2>

@@ -1,6 +1,6 @@
 <template>
-  <div class="Hero" id="Hero">
-    <div class="bg-text">
+  <div class="Hero" id="Hero" tabindex="-1">
+    <div class="bg-text" aria-hidden="true">
       <div class="bg-marquee marquee-right">
         <span>SOFTWARE DEVELOPER · FRONTEND · CS STUDENT · </span>
         <span>SOFTWARE DEVELOPER · FRONTEND · CS STUDENT · </span>
@@ -14,10 +14,10 @@
 
     <div class="avatar-wrapper">
       <img v-for="(img, index) in images" :key="index" :src="img" class="floating-icon" :style="iconStyle(index)"
-        ref="icons" />
+        ref="icons" alt="" aria-hidden="true" />
 
 
-      <img src="@/assets/photo/optimized/profile1.webp" class="main-avatar" alt="profile"
+      <img src="@/assets/photo/optimized/profile1.webp" class="main-avatar" :alt="`Portrait of ${student.name}`"
         width="1260" height="1680" fetchpriority="high" decoding="async" />
     </div>
 
@@ -30,17 +30,17 @@
 
       <div class="action-buttons">
   <a class="btn github magnetic" href="https://github.com/sirasakswnk" target="_blank">
-    <img src="/icons/github.svg" class="btn-icon" />
+    <img src="/icons/github.svg" class="btn-icon" alt="" aria-hidden="true" />
     GitHub
   </a>
 
   <a class="btn linkedin magnetic" href="https://www.linkedin.com/in/sirasak-suwannakoed-0572ab398/" target="_blank">
-    <img src="/icons/linkedin.svg" class="btn-icon" />
+    <img src="/icons/linkedin.svg" class="btn-icon" alt="" aria-hidden="true" />
     LinkedIn
   </a>
 
   <a class="btn resume magnetic" href="/resume.pdf" target="_blank">
-    <img src="/icons/file-user.svg" class="btn-icon" />
+    <img src="/icons/file-user.svg" class="btn-icon" alt="" aria-hidden="true" />
     Resume
   </a>
 </div>

@@ -1,5 +1,5 @@
 <template>
-  <section class="skills-section" id="Skills">
+  <section class="skills-section" id="Skills" tabindex="-1">
     <h2 class="section-title">Skills</h2>
 
     <div class="skills-grid">
@@ -9,7 +9,7 @@
       <div class="skills-card reveal">
         <h3 class="card-title">Technical Skills</h3>
         <div class="skill-tabs">
-          <button v-for="(cat, key) in skillCategories" :key="key"
+          <button type="button" v-for="(cat, key) in skillCategories" :key="key" :aria-pressed="activeCategory === key"
             :class="['tab-btn', { active: activeCategory === key }]" @click="activeCategory = key">
             {{ cat.label }}
           </button>
@@ -20,7 +20,7 @@
               <div class="skill-top">
                 <div class="skill-left">
                   <div class="icon-wrapper" @mousemove="moveIcon($event)" @mouseleave="resetIcon($event)">
-                    <img :src="skill.icon" class="skill-icon" />
+                    <img :src="skill.icon" class="skill-icon" alt="" aria-hidden="true" />
                   </div>
 
                   <span class="skill-name">{{ skill.name }}</span>
@@ -52,7 +52,7 @@
 
         <div class="soft-skill" v-for="soft in softSkills" :key="soft.title">
           <div class="soft-icon">
-            <img :src="soft.icon" />
+            <img :src="soft.icon" alt="" aria-hidden="true" />
           </div>
 
           <div class="soft-text">

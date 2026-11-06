@@ -1,5 +1,5 @@
 <template>
-  <section class="contact-section" id="Contact">
+  <section class="contact-section" id="Contact" tabindex="-1">
     <div class="contact-card">
       <h2 class="contact-title">Contact</h2>
 
@@ -11,49 +11,55 @@
 
       <div class="contact-links">
         <!-- Email -->
-        <button class="contact-item copy" :class="{ copied: copied.email }"
+        <button type="button" class="contact-item copy" :class="{ copied: copied.email }"
+          aria-label="Copy email address: sirasak.swnk@email.com"
           :disabled="copying.email" :aria-busy="copying.email"
           @click="copy('sirasak.swnk@email.com', 'email')">
-          <img :src="copied.email ? '/icons/check.svg' : '/icons/mail.svg'" class="icon" />
+          <img :src="copied.email ? '/icons/check.svg' : '/icons/mail.svg'" class="icon" alt="" aria-hidden="true" />
           {{ copied.email ? "Copied ✓" : "sirasak.swnk@email.com" }}
         </button>
+        <span class="sr-only" role="status" aria-atomic="true">{{ copied.email ? 'Email address copied.' : '' }}</span>
         <p v-if="copyErrors.email" class="copy-error" role="status">{{ copyErrors.email }}</p>
 
 
         <!-- Phone -->
-        <button class="contact-item copy" :class="{ copied: copied.phone }"
+        <button type="button" class="contact-item copy" :class="{ copied: copied.phone }"
+          aria-label="Copy phone number: 0993699715"
           :disabled="copying.phone" :aria-busy="copying.phone"
           @click="copy('0993699715', 'phone')">
-          <img :src="copied.phone ? '/icons/check.svg' : '/icons/phone.svg'" class="icon" />
+          <img :src="copied.phone ? '/icons/check.svg' : '/icons/phone.svg'" class="icon" alt="" aria-hidden="true" />
           {{ copied.phone ? "Copied ✓" : "0993699715" }}
         </button>
+        <span class="sr-only" role="status" aria-atomic="true">{{ copied.phone ? 'Phone number copied.' : '' }}</span>
         <p v-if="copyErrors.phone" class="copy-error" role="status">{{ copyErrors.phone }}</p>
 
 
         <!-- LINE -->
-        <button class="contact-item copy" :class="{ copied: copied.line }"
+        <button type="button" class="contact-item copy" :class="{ copied: copied.line }"
+          aria-label="Copy LINE ID: taming31"
           :disabled="copying.line" :aria-busy="copying.line"
           @click="copy('taming31', 'line')">
-          <img :src="copied.line ? '/icons/check.svg' : '/icons/line.svg'" class="icon" />
+          <img :src="copied.line ? '/icons/check.svg' : '/icons/line.svg'" class="icon" alt="" aria-hidden="true" />
           {{ copied.line ? "Copied ✓" : "taming31" }}
         </button>
+        <span class="sr-only" role="status" aria-atomic="true">{{ copied.line ? 'LINE ID copied.' : '' }}</span>
         <p v-if="copyErrors.line" class="copy-error" role="status">{{ copyErrors.line }}</p>
 
         <!-- GitHub -->
         <a href="https://github.com/sirasakswnk" target="_blank" class="contact-item">
-          <img src="/icons/github.svg" />
+          <img src="/icons/github.svg" alt="" aria-hidden="true" />
           GitHub
         </a>
 
         <!-- LinkedIn -->
         <a href="https://www.linkedin.com/in/sirasak-suwannakoed-0572ab398/" target="_blank" class="contact-item">
-          <img src="/icons/linkedin.svg" />
+          <img src="/icons/linkedin.svg" alt="" aria-hidden="true" />
           LinkedIn
         </a>
 
         <!-- Instagram -->
         <a href="https://www.instagram.com/mingmx._/" target="_blank" class="contact-item">
-          <img src="/icons/instagram.svg" />
+          <img src="/icons/instagram.svg" alt="" aria-hidden="true" />
           Instagram
         </a>
       </div>

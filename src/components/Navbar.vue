@@ -2,33 +2,38 @@
   <header :class="['navbar', {
     shrink: isScrolled,
     'light-text': isLightMode
-  }]">
+  }]" @keydown.esc.stop.prevent="closeMenu">
     <div class="nav-container">
-      <div class="logo" @click="scrollTo('Hero')">
+      <a class="logo" href="#Hero" @click.prevent="scrollTo('Hero')">
         MyPortfolio
-      </div>
+      </a>
 
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Main navigation">
         <a v-for="link in links" :key="link.id" :class="{ active: activeSection === link.id }"
-          @click="scrollTo(link.id)">
+          :href="`#${link.id}`" :aria-current="activeSection === link.id ? 'location' : undefined"
+          @click.prevent="scrollTo(link.id)">
           {{ link.label }}
         </a>
       </nav>
 
-      <div class="menu-toggle" @click="toggleMenu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      <button type="button" class="menu-toggle" ref="menuToggle" @click="toggleMenu"
+        :aria-expanded="menuOpen" aria-controls="mobile-navigation"
+        :aria-label="menuOpen ? 'Close navigation menu' : 'Open navigation menu'">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
     </div>
 
     <transition name="fade">
-      <div class="mobile-menu" v-if="menuOpen">
+      <nav class="mobile-menu" id="mobile-navigation" v-show="menuOpen"
+        aria-label="Mobile navigation" :aria-hidden="!menuOpen" :inert="!menuOpen">
         <a v-for="link in links" :key="link.id" :class="{ active: activeSection === link.id }"
-          @click="scrollTo(link.id)">
+          :href="`#${link.id}`" :aria-current="activeSection === link.id ? 'location' : undefined"
+          @click.prevent="scrollTo(link.id)">
           {{ link.label }}
         </a>
-      </div>
+      </nav>
     </transition>
   </header>
 </template>
@@ -40,7 +45,7 @@ export default {
     return {
       menuOpen: false,
       isScrolled: false,
-      activeSection: "Home",
+      activeSection: "Hero",
       isLightMode: false,
       links: [
         { id: "Hero", label: "Home" },
@@ -61,10 +66,16 @@ export default {
     toggleMenu() {
       this.menuOpen = !this.menuOpen;
     },
+    closeMenu() {
+      if (!this.menuOpen) return;
+      this.menuOpen = false;
+      this.$refs.menuToggle.focus();
+    },
     scrollTo(id) {
       const section = document.getElementById(id);
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
+        section.focus({ preventScroll: true });
       }
       this.menuOpen = false;
     },
@@ -130,6 +141,7 @@ export default {
 
 
 .nav-container {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -139,6 +151,7 @@ export default {
 
 
 .logo {
+  text-decoration: none;
   font-size: 1.6rem;
   font-weight: 800;
   letter-spacing: 0.4px;
@@ -197,6 +210,16 @@ export default {
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  padding: 8px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
 }
 
 .menu-toggle span {
@@ -208,7 +231,7 @@ export default {
 .mobile-menu {
   margin: 12px;
   padding: 18px;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 16px;
 
@@ -233,6 +256,10 @@ export default {
   }
 
   .menu-toggle {
+    display: flex;
+  }
+
+  .mobile-menu {
     display: flex;
   }
 }
