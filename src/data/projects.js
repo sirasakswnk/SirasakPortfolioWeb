@@ -26,6 +26,15 @@ import kemiResult from '@/assets/photo/project/project-three/optimized/charm-res
 import kemiCollection from '@/assets/photo/project/project-three/optimized/charm-collection.jpg'
 import kemiRoster from '@/assets/photo/project/project-three/optimized/roster-import.jpg'
 import kemiMonitoring from '@/assets/photo/project/project-three/optimized/admin-monitoring.webp'
+import nongwasteCover from '@/assets/photo/project/project-four/optimized/cover.webp'
+import nongwasteOverview from '@/assets/photo/project/project-four/optimized/system-overview.webp'
+import nongwasteLine from '@/assets/photo/project/project-four/optimized/line-detection.webp'
+import nongwasteLocation from '@/assets/photo/project/project-four/optimized/location-report.webp'
+import nongwasteLocationConfirmation from '@/assets/photo/project/project-four/optimized/location-report2.webp'
+import nongwasteMap from '@/assets/photo/project/project-four/optimized/waste-map.webp'
+import nongwasteCleanup from '@/assets/photo/project/project-four/optimized/cleanup-report.webp'
+import nongwasteDetection from '@/assets/photo/project/project-four/optimized/plastic-detection.jpg'
+import nongwasteMascots from '@/assets/photo/project/project-four/optimized/mascot-poses.webp'
 
 export const projects = [
   {
@@ -316,6 +325,100 @@ export const projects = [
         width: 2536,
         height: 1338,
         caption: 'Test environment monitoring view with backup warnings, storage usage, and background-job status.',
+      },
+    ],
+  },
+  {
+    id: 'nongwaste',
+    featured: false,
+    title: 'Nongwaste',
+    category: 'Super AI Engineer Season 5 · Team Project',
+    status: 'Completed (Prototype)',
+    role: 'LINE & Frontend Developer',
+    summary:
+      'A LINE chatbot and public waste map for identifying plastic waste, reporting waste locations with photos and GPS, and submitting cleanup evidence.',
+    roleDescription:
+      'Responsible for the LINE chatbot experience and web frontend as part of a team, connecting user-facing workflows for plastic analysis, waste location reporting, and cleanup evidence.',
+    technologies: ['LINE Messaging API', 'JavaScript', 'HTML', 'CSS', 'Google Maps JavaScript API', 'Firebase Realtime Database', 'Python', 'FastAPI', 'Ultralytics YOLO', 'Google Cloud Storage'],
+    image: nongwasteCover,
+    imageAlt: 'Nongwaste project cover with the bottle mascot, a plastic analysis conversation in LINE, and the public waste map.',
+    imageWidth: 1600,
+    imageHeight: 1000,
+    imageCaption: 'Project screenshots showing plastic analysis in LINE and reported waste locations, alongside the Nongwaste mascot.',
+    repositoryUrl: 'https://github.com/sirasakswnk/nongwasteLineChatBot',
+    demoUrl: null,
+    screenshots: [
+      {
+        id: 'system-overview',
+        title: 'System overview',
+        image: nongwasteOverview,
+        imageAlt: 'Nongwaste architecture connecting LINE and a public Google Maps frontend to FastAPI, Ultralytics YOLO, Google Cloud Storage, and Firebase Realtime Database.',
+        width: 1920,
+        height: 1280,
+        caption: 'Source-based architecture covering plastic analysis, waste reporting, and cleanup evidence. The public map reads location records directly from Firebase.',
+      },
+      {
+        id: 'line-detection',
+        title: 'Plastic analysis in LINE',
+        image: nongwasteLine,
+        imageAlt: 'A LINE conversation with an uploaded plastic cup photo, an annotated segmentation result, and a response identifying one single-use plastic item.',
+        width: 665,
+        height: 1292,
+        caption: 'An image-based plastic analysis response in LINE, with an annotated result, a plastic category, and an object count. The displayed score is prediction confidence for this example.',
+      },
+      {
+        id: 'location-report',
+        title: 'Waste reporting · Photo and GPS',
+        image: nongwasteLocation,
+        imageAlt: 'The LINE waste reporting workflow requesting a photo, GPS location, and description, followed by an uploaded waste photo and shared map location.',
+        width: 665,
+        height: 1265,
+        caption: 'The first part of a location report: start the reporting workflow, send a waste photo, and share the location through LINE.',
+      },
+      {
+        id: 'location-confirmation',
+        title: 'Waste reporting · Confirmation',
+        image: nongwasteLocationConfirmation,
+        imageAlt: 'The continuation of the LINE location report, acknowledging the shared location and confirming that the report has been saved.',
+        width: 667,
+        height: 1262,
+        caption: 'The continuation of the same reporting workflow, showing location acknowledgement and the saved-report confirmation.',
+      },
+      {
+        id: 'waste-map',
+        title: 'Public waste map',
+        image: nongwasteMap,
+        imageAlt: 'The Nongwaste public map viewed on mobile, with markers for reported waste locations.',
+        width: 666,
+        height: 1271,
+        caption: 'Reported waste locations displayed as markers on a Google Maps web interface.',
+      },
+      {
+        id: 'cleanup-report',
+        title: 'Location details and cleanup evidence',
+        image: nongwasteCleanup,
+        imageAlt: 'A waste map marker popup with a reported waste photo, location details, a file picker, and a button for submitting cleanup evidence.',
+        width: 666,
+        height: 1271,
+        caption: 'A location popup showing the reported waste and controls for uploading cleanup evidence. This screenshot shows the submission interface.',
+      },
+      {
+        id: 'plastic-detection',
+        title: 'Plastic detection and segmentation examples',
+        image: nongwasteDetection,
+        imageAlt: 'A model validation image mosaic with plastic objects, predicted bounding boxes, segmentation masks, class labels, and confidence scores.',
+        width: 1920,
+        height: 1920,
+        caption: 'Saved model validation predictions illustrating plastic detection and segmentation. These examples and their confidence scores do not represent overall model accuracy.',
+      },
+      {
+        id: 'mascot-poses',
+        title: 'Nongwaste mascot',
+        image: nongwasteMascots,
+        imageAlt: 'Three supplied Nongwaste bottle mascot illustrations: giving a thumbs-up, recycling a bottle, and raising both hands.',
+        width: 1600,
+        height: 760,
+        caption: 'The supplied project mascot in three poses, presented together as part of the Nongwaste visual identity.',
       },
     ],
   },
