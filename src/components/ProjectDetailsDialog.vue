@@ -106,10 +106,9 @@ export default {
 <style scoped>
 .project-dialog {
   box-sizing: border-box;
-  width: min(1000px, calc(100% - 32px));
+  width: min(1000px, calc(100dvw - 32px));
   max-width: none;
   max-height: calc(100dvh - 32px);
-  margin: auto;
   padding: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -264,7 +263,7 @@ a:focus-visible, button:focus-visible {
 
 @media (max-width: 480px) {
   .project-dialog {
-    width: calc(100% - 20px);
+    width: calc(100dvw - 20px);
     max-height: calc(100dvh - 20px);
     border-radius: 18px;
   }

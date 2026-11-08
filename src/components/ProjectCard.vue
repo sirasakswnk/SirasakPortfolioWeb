@@ -48,6 +48,7 @@ export default {
 
 <style scoped>
 .project-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -56,6 +57,21 @@ export default {
   border-radius: 24px;
   background: #fff;
   box-shadow: 0 12px 28px rgba(43, 26, 0, 0.1);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* Stretch the native details button across the card; image previews stay above it. */
+.details-button::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 24px;
+  content: '';
+}
+
+.project-cover :deep(.image-preview) {
+  z-index: 2;
 }
 
 .project-cover {
@@ -122,6 +138,7 @@ export default {
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 1.3;
+  transition: color 0.3s ease;
 }
 
 .project-summary {
@@ -166,6 +183,7 @@ export default {
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .details-button:hover {
@@ -173,8 +191,35 @@ export default {
 }
 
 .details-button:focus-visible {
+  outline: none;
+}
+
+.details-button:focus-visible::after {
   outline: 3px solid #6a11cb;
   outline-offset: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover {
+    transform: translateY(-4px);
+    border-color: #bca4d8;
+    box-shadow: 0 18px 36px rgba(65, 38, 99, 0.16);
+  }
+  .project-card:hover .project-title {
+    color: #6a11cb;
+  }
+  .project-card:hover .details-button {
+    background: #54109e;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card, .project-title, .details-button {
+    transition: none;
+  }
+  .project-card:hover {
+    transform: none;
+  }
 }
 
 .project-card-featured {

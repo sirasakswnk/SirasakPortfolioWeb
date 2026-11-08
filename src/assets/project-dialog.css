@@ -1,5 +1,12 @@
 /* Shared warm palette for project details and the image viewer. */
 .project-popup {
+  /* Keep dialogs inside the visible viewport even when the page has wide content. */
+  position: fixed;
+  inset: auto;
+  top: 50dvh;
+  left: 50dvw;
+  margin: 0;
+  transform: translate(-50%, -50%);
   --popup-background: #fffbf0;
   --popup-text: #2b1a00;
   --popup-muted: #756044;

@@ -60,10 +60,9 @@ export default {
 <style scoped>
 .image-viewer {
   box-sizing: border-box;
-  width: min(1600px, calc(100% - 32px));
+  width: min(1600px, calc(100dvw - 32px));
   max-width: none;
   max-height: calc(100dvh - 32px);
-  margin: auto;
   padding: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -120,7 +119,7 @@ h2 {
 
 .viewer-image-area img {
   display: block;
-  width: auto;
+  width: 100%;
   height: auto;
   max-width: 100%;
   max-height: calc(100dvh - 200px);
@@ -129,6 +128,7 @@ h2 {
 }
 
 .viewer-image-area.zoomed img {
+  width: auto;
   max-width: none;
   max-height: none;
 }
@@ -148,7 +148,7 @@ button:focus-visible, .viewer-image-area:focus-visible {
 
 @media (max-width: 480px) {
   .image-viewer {
-    width: calc(100% - 20px);
+    width: calc(100dvw - 20px);
     max-height: calc(100dvh - 20px);
   }
   .viewer-header {

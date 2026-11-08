@@ -6,14 +6,14 @@ import history from '@/assets/photo/project/project-one/optimized/history.webp'
 import report from '@/assets/photo/project/project-one/optimized/report.webp'
 import munbotCover from '@/assets/photo/project/project-two/optimized/cover.webp'
 import munbotOverview from '@/assets/photo/project/project-two/optimized/system-overview.jpg'
-import munbotDiagnosis from '@/assets/photo/project/project-two/optimized/line-diagnosis.jpg'
-import munbotRag from '@/assets/photo/project/project-two/optimized/rag-chatbot.jpg'
+import munbotDiagnosis from '@/assets/photo/project/project-two/optimized/line-diagnosis.webp'
+import munbotRag from '@/assets/photo/project/project-two/optimized/rag-chatbot.webp'
 import munbotSurveyDetails from '@/assets/photo/project/project-two/optimized/field-survey-details.jpg'
 import munbotSurveyImages from '@/assets/photo/project/project-two/optimized/field-survey-images.jpg'
 import munbotSurveyPrediction from '@/assets/photo/project/project-two/optimized/field-survey-prediction.jpg'
 import munbotMap from '@/assets/photo/project/project-two/optimized/disease-map.jpg'
 import munbotSeverity from '@/assets/photo/project/project-two/optimized/disease-severity.jpg'
-import munbotModels from '@/assets/photo/project/project-two/optimized/model-management.jpg'
+import munbotModels from '@/assets/photo/project/project-two/optimized/model-management.webp'
 import munbotEvaluation from '@/assets/photo/project/project-two/optimized/model-evaluation.webp'
 import kemiCover from '@/assets/photo/project/project-three/optimized/cover.webp'
 import kemiOverview from '@/assets/photo/project/project-three/optimized/system-overview.webp'
@@ -129,8 +129,8 @@ export const projects = [
         title: 'Disease analysis in LINE',
         image: munbotDiagnosis,
         imageAlt: 'A cassava leaf photo in LINE with a mosaic disease prediction, a confidence score, and an informational disease card.',
-        width: 237,
-        height: 531,
+        width: 536,
+        height: 1202,
         caption: 'Image-based disease classification in LINE. The displayed percentage is prediction confidence for this image.',
       },
       {
@@ -138,8 +138,8 @@ export const projects = [
         title: 'RAG-powered chatbot',
         image: munbotRag,
         imageAlt: 'A LINE conversation asking about cassava mosaic disease and receiving an explanation of its symptoms.',
-        width: 609,
-        height: 1492,
+        width: 477,
+        height: 1169,
         caption: 'A LINE conversation illustrating the RAG-based question-and-answer feature for cassava disease information.',
       },
       {
@@ -147,8 +147,8 @@ export const projects = [
         title: 'Field survey details',
         image: munbotSurveyDetails,
         imageAlt: 'A LINE LIFF survey form containing GPS coordinates, field location, planting details, and surrounding vegetation.',
-        width: 202,
-        height: 808,
+        width: 1024,
+        height: 4128,
         caption: 'LIFF survey form for recording field location, planting information, and surrounding conditions.',
       },
       {
@@ -156,8 +156,8 @@ export const projects = [
         title: 'Survey images and severity',
         image: munbotSurveyImages,
         imageAlt: 'A survey form with uploaded cassava leaf images, disease labels, affected plant counts, and a severity slider.',
-        width: 209,
-        height: 836,
+        width: 1184,
+        height: 3584,
         caption: 'Survey images with disease labels, affected plant counts, and recorded severity levels.',
       },
       {
@@ -192,8 +192,8 @@ export const projects = [
         title: 'Model and dataset management',
         image: munbotModels,
         imageAlt: 'An administration page showing expert-labeled dataset counts, dataset export, model upload, and model activation controls.',
-        width: 554,
-        height: 326,
+        width: 1772,
+        height: 1038,
         caption: 'Project administration interface for exporting labeled data and managing uploaded model versions.',
       },
       {
