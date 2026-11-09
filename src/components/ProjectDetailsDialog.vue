@@ -15,16 +15,16 @@
       <div class="dialog-content">
         <p class="project-category">{{ project.category }}</p>
         <h2 id="project-details-title" ref="title" tabindex="-1" autofocus>{{ project.title }}</h2>
-        <div class="project-badges">
+        <div v-if="project.status || project.role" class="project-badges">
           <span v-if="project.status" class="project-status">{{ project.status }}</span>
-          <span>{{ project.role }}</span>
+          <span v-if="project.role">{{ project.role }}</span>
         </div>
         <p class="project-summary">{{ project.summary }}</p>
         <section v-if="project.roleDescription" aria-labelledby="project-contribution-title">
           <h3 id="project-contribution-title">My contribution</h3>
           <p>{{ project.roleDescription }}</p>
         </section>
-        <section aria-labelledby="project-technologies-title">
+        <section v-if="project.technologies?.length" aria-labelledby="project-technologies-title">
           <h3 id="project-technologies-title">Technologies</h3>
           <ul class="technology-list"><li v-for="technology in project.technologies" :key="technology">{{ technology }}</li></ul>
         </section>

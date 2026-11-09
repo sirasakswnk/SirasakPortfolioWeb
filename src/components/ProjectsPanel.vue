@@ -14,6 +14,7 @@
       <h3>No projects to show yet</h3>
       <p>Project details will appear here once they are ready.</p>
     </div>
+    <PlaygroundPanel :projects="playgroundProjects" @show-details="openDetails" @preview-image="openImage" />
     <ProjectDetailsDialog v-if="selectedProject" :project="selectedProject" :trigger="detailsTrigger"
       @close="selectedProject = null" @preview-image="openImage" />
     <ProjectImageViewer v-if="selectedImage" :image="selectedImage" :trigger="imageTrigger"
@@ -24,14 +25,19 @@
 <script>
 import '@/assets/project-dialog.css';
 import { projects as projectEntries } from '@/data/projects';
+import { playgroundProjects as playgroundEntries } from '@/data/playground';
+import PlaygroundPanel from './PlaygroundPanel.vue';
 import ProjectCard from './ProjectCard.vue';
 import ProjectDetailsDialog from './ProjectDetailsDialog.vue';
 import ProjectImageViewer from './ProjectImageViewer.vue';
 
 export default {
   name: 'ProjectsPanel',
-  components: { ProjectCard, ProjectDetailsDialog, ProjectImageViewer },
-  props: { projects: { type: Array, default: () => projectEntries } },
+  components: { ProjectCard, ProjectDetailsDialog, ProjectImageViewer, PlaygroundPanel },
+  props: {
+    projects: { type: Array, default: () => projectEntries },
+    playgroundProjects: { type: Array, default: () => playgroundEntries },
+  },
   data() { return { selectedProject: null, detailsTrigger: null, selectedImage: null, imageTrigger: null }; },
   computed: {
     featuredProject() { return this.projects.find(project => project.featured) || this.projects[0]; },

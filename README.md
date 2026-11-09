@@ -33,6 +33,7 @@ npm run preview
 | `src/App.vue` | ประกอบส่วนต่าง ๆ ของหน้า |
 | `src/components/Portfolio.vue` | Section หลักของ Portfolio พร้อมแท็บ ลูกศร swipe และ transition |
 | `src/components/ProjectsPanel.vue` | เลือกโปรเจคเด่น กริดโปรเจคอื่น และ empty state |
+| `src/components/PlaygroundPanel.vue` และ `PlaygroundCard.vue` | หมวดเกมส่วนตัวท้าย Projects การ์ดแบบย่อ และปุ่มขยายรายการ |
 | `src/components/ProjectCard.vue` | การ์ดโปรเจคเด่นและการ์ดขนาดย่อ |
 | `src/components/ProjectDetailsDialog.vue` | native dialog สำหรับรายละเอียด บทบาท เทคโนโลยี และภาพทั้งหมด |
 | `src/components/ProjectImageButton.vue` และ `ProjectImageViewer.vue` | ภาพที่มีเอฟเฟกต์ hover และป๊อปอัปดูภาพ พร้อมขนาดจริง |
@@ -40,6 +41,7 @@ npm run preview
 | `src/utils/bodyScrollLock.js` | จัดการการล็อก scroll สำหรับหน้าต่างรายละเอียดและภาพที่เปิดซ้อนกัน |
 | `src/components/CertificatesPanel.vue` | ใบประกาศ 10 รายการและ native dialog สำหรับดูภาพเต็ม |
 | `src/data/projects.js` | ข้อมูลผลงานที่แสดงบนหน้า Projects |
+| `src/data/playground.js` | รายการเกมส่วนตัวที่แสดงใน Playground แยกจากผลงานหลัก |
 | `src/components/` | รวม Navbar, Hero, Skills และ Contact ด้วย |
 | `src/assets/typography.css` | ฟอนต์หลัก กรอบ focus และข้อความสำหรับ assistive technology |
 | `src/assets/motion.css` และ `src/utils/motion.js` | รองรับการตั้งค่าลดการเคลื่อนไหว |
@@ -128,6 +130,37 @@ MonoShop เป็นโปรเจคที่ห้า ชื่อและ�
 ภาพ MonoShop มีปก 1 ภาพและภาพประกอบ 8 ภาพใน `project-five/optimized/` รวม 2,477,384 bytes ภาพประกอบเป็น WebP แบบ lossless ที่ขนาดเดิมและตรวจ decoded RGBA ตรง PNG ต้นฉบับ ปกมี SVG/PNG สำหรับแก้ไข ชุดภาพเดิมและหลักฐานเก็บใน `project-five/portfolio-screenshots/` ภาพใช้ข้อมูลสาธิตผ่าน backend จริงกับ PostgreSQL แยก ตามเอกสารชุดภาพ
 
 ชื่อ MonoCraft ในภาพ UI คงตามต้นฉบับ ส่วนชื่อบน Portfolio ใช้ MonoShop ตามผู้พัฒนาระบุ คำบรรยาย Orders ระบุว่ายอดคำนวณจากรายละเอียดสินค้า เพราะหลักฐานชุดภาพพบว่า order header เก็บยอดเป็น 0 ภาพเปิดฟอร์มแก้ไขสินค้าและ controls ของผู้ดูแลไม่ใช่หลักฐานการบันทึก/เปลี่ยนสถานะ/ลบ งานนำเข้า Portfolio ไม่แก้ข้อจำกัด backend เหล่านี้
+
+## Playground
+
+Playground อยู่ต่อจากผลงานหลักทั้งหมดภายในแท็บ Projects ใช้หัวข้อ “Personal projects” และคำโปรย “Games and experiments built for fun with friends.” การ์ดมีขนาดย่อและใช้สีอ่อนเพื่อให้ผลงานหลักยังเด่นกว่า จอคอมกว้างตั้งแต่ 1024px แสดง 3 คอลัมน์ จอ 600–1023px แสดง 2 คอลัมน์ และจอเล็กกว่านั้นแสดง 1 คอลัมน์
+
+ขณะนี้ `src/data/playground.js` เป็น array ว่างตามที่ผู้พัฒนาต้องการรอเลือกรายการเกม หน้าเว็บแสดงข้อความว่างสั้น ๆ โดยไม่มีตัวอย่างเกมหรือลิงก์สมมติ เมื่อเพิ่มข้อมูลจะแสดง 3 เกมแรก และมีปุ่ม Show all games / Show fewer games เมื่อมีมากกว่า 3 เกม
+
+เตรียมภาพไว้ใน `src/assets/photo/playground/<game-id>/` โดยอ่านแนวทางใน README ของโฟลเดอร์นั้น แล้ว import ภาพสำหรับเว็บและเพิ่ม object ใน `playgroundProjects` ข้อมูลใช้รูปแบบเดียวกับ `projects` แต่ไม่ต้องกำหนด `featured`:
+
+```js
+{
+  id: 'unique-game-id',
+  title: 'ชื่อเกมที่ยืนยันแล้ว',
+  category: 'Personal Project',
+  status: null, // เช่น Playable Prototype หรือ In Development ตามสถานะจริง
+  role: null,
+  roleDescription: null,
+  summary: 'เกมทำอะไร และส่วนที่พัฒนาเองโดยย่อ',
+  technologies: [],
+  image: importedCover, // import ภาพจริงก่อนเพิ่มรายการ
+  imageAlt: 'คำอธิบายภาพปกจริง',
+  imageWidth: 1600, // ใช้ขนาดไฟล์จริง
+  imageHeight: 1000,
+  imageCaption: 'ที่มาของภาพและประเภทข้อมูลที่ใช้',
+  repositoryUrl: null,
+  demoUrl: null,
+  screenshots: [], // ภาพที่มีจริงประมาณ 1–3 ภาพ ใช้ schema เดียวกับ projects
+}
+```
+
+การ์ดแสดงเทคโนโลยีสูงสุด 2 รายการ พร้อมปุ่ม Play demo/GitHub เมื่อมี URL แบบ HTTP/HTTPS กดพื้นที่การ์ดหรือ Details เพื่อเปิดรายละเอียด และกดภาพเพื่อเปิดป๊อปอัปภาพ ทั้งสองใช้ dialog เดิมและคืน focus/scroll ตามปกติ ลิงก์ Play demo/GitHub เป็นส่วนที่กดแยกจากพื้นที่เปิดรายละเอียด
 
 ## การตรวจหลังแก้ไข
 
