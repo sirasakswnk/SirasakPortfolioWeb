@@ -1,0 +1,126 @@
+{
+  "reviewedAt": "2026-11-09T08:11:24.424Z",
+  "gitMetadataAvailable": false,
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "a261a86c7b183ba31fc47a0b97eae6da3fb2609815753bdd021b8103e080c09e"
+    },
+    {
+      "file": "backend/package.json",
+      "sha256": "0119648f0200e9c15d7be84add66d5d25b11faa61cea8cca2b502ecf20fabbce"
+    },
+    {
+      "file": "backend/index.js",
+      "sha256": "daa61121509e5aee54004be27ed29407aa41d116f716a406a4b6d2e494a2a56e"
+    },
+    {
+      "file": "backend/service/database.js",
+      "sha256": "c867be42ecdc356917335d3345c2b8de674c05544904d43cf629357d439fa320"
+    },
+    {
+      "file": "backend/service/databaseConfig.js",
+      "sha256": "69571ef844e85a7d58ec5bba330d6d50e37d4c6d1b070bddcc2ecafa74f01a7f"
+    },
+    {
+      "file": "backend/service/authCookie.js",
+      "sha256": "133a548504b7a47bf834ba89c8d85f535b461be336fee6d193e785268b4bde6f"
+    },
+    {
+      "file": "backend/Routes/memberRoute.js",
+      "sha256": "4bad025458906eb70d7e16548a2dc630bf08d72f6e66e12b3c93ba98e7ec5ae4"
+    },
+    {
+      "file": "backend/Routes/productRoute.js",
+      "sha256": "6f7e5b11af85bef3a2cd39364e8a4600e41368236657f3ea1df191d0faf43a88"
+    },
+    {
+      "file": "backend/Routes/cartRoute.js",
+      "sha256": "431f58d1dc9131a78554db4e584ef6fffea15a5403cab9bd2dfc6ce3f2c6270d"
+    },
+    {
+      "file": "backend/Controllers/memberController.js",
+      "sha256": "b670ad7c8c2e2d8d91a0380e8f7a6b570f04398acbc6c8c3c90d61bae8a17aa5"
+    },
+    {
+      "file": "backend/Controllers/productController.js",
+      "sha256": "a41a15d452228967ee8c94fcb28875f1e96773062822071670f1808771f92bde"
+    },
+    {
+      "file": "backend/Controllers/cartController.js",
+      "sha256": "8f3593815d89e567720c0694acac2f966a6ac01853598e59a00406a0c78f6219"
+    },
+    {
+      "file": "frontend/MonoShop/README.md",
+      "sha256": "c79a4c2e41db3d8dbcdbf58bf37b7e4a93be2eaf80c29029bb2e340081f78c67"
+    },
+    {
+      "file": "frontend/MonoShop/package.json",
+      "sha256": "70e89bb22e3a955a81d5134dce62f26725ae7a10e20a4960eb0550f188e5d9cb"
+    },
+    {
+      "file": "frontend/MonoShop/vite.config.js",
+      "sha256": "cf889b811adeb359d58189165b5d779321cfa4511abec2423acfc79d1425098c"
+    },
+    {
+      "file": "frontend/MonoShop/src/main.js",
+      "sha256": "e5e82fbe1b2983e45bc099ad895e0036a31313e0938f195b865bd94adf7543a1"
+    },
+    {
+      "file": "frontend/MonoShop/src/router/index.js",
+      "sha256": "880e26866594e129932c7487ac3bfeee11a78cb74695c465bbb9be80917b6a08"
+    },
+    {
+      "file": "frontend/MonoShop/src/config/api.js",
+      "sha256": "938e1763567cd816c287500f4746628130bfde9015144a7ede50852ca14228bd"
+    },
+    {
+      "file": "frontend/MonoShop/src/stores/authStore.js",
+      "sha256": "dfcdfea6731de6962852faa2bfe0917cef0ac502b0c457b14e61c891a1f1a274"
+    },
+    {
+      "file": "frontend/MonoShop/src/stores/cartStore.js",
+      "sha256": "0350ee25e51310424cfe01ea3dbb09ce870bf6fae0478d2d1a2a7377aa19fed6"
+    },
+    {
+      "file": "frontend/MonoShop/src/components/TheHome.vue",
+      "sha256": "0be345c3d8ea1de8e08d813efecfe52cf17c7ad845401e64848ab41d2501b268"
+    },
+    {
+      "file": "frontend/MonoShop/src/components/PageProduct.vue",
+      "sha256": "a65ca234480f4abb96549f42761d055c3f695b9ac4e91802ba9d61589167c9cf"
+    },
+    {
+      "file": "frontend/MonoShop/src/components/ProductShow.vue",
+      "sha256": "5b68e3374b9d74e33ab1f94a26f63304c6658a275f2d6369526dc9c522abe432"
+    },
+    {
+      "file": "frontend/MonoShop/src/components/CartShow.vue",
+      "sha256": "7e59316b089ca4e95a2e62371d990b201d08beb2ec43b9497e275a00f6b1b479"
+    },
+    {
+      "file": "frontend/MonoShop/src/components/OrderList.vue",
+      "sha256": "6e655049e37c7feb31f49d96a8cd628866ec954559309fb4f67cc5fe69f77170"
+    },
+    {
+      "file": "frontend/MonoShop/src/components/AdminOrders.vue",
+      "sha256": "ddd3e0920f1e82505fe4b2fb292430a6fcbd691e6997e5354c2fa9df77740ed6"
+    },
+    {
+      "file": "frontend/MonoShop/src/components/MainMenu.vue",
+      "sha256": "52d26159b84185b6f65f1fd4daeda9a1bebdd970ea042bc48ccc77298db60e98"
+    },
+    {
+      "file": "frontend/MonoShop/src/components/CartInfo.vue",
+      "sha256": "eafef4775fd03c088093dc47e0e58a0cea21c98a21ef5544d3150e38b880041d"
+    },
+    {
+      "file": "frontend/MonoShop/src/components/TheLogin.vue",
+      "sha256": "5db8e9c81277c7371434c292685d40aa79480c92f561d91edf07933c9d2a43fc"
+    },
+    {
+      "file": "frontend/MonoShop/src/components/PageMember.vue",
+      "sha256": "99ec75001bf84303ba34df98b8a1fcd3d7b5809384b04f545d43eef2ae61e67c"
+    }
+  ]
+}

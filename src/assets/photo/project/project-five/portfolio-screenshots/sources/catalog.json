@@ -1,0 +1,177 @@
+{
+  "brands": [
+    {
+      "brand_id": "01",
+      "brand_name": "WILDVERSE"
+    },
+    {
+      "brand_id": "03",
+      "brand_name": "MYTHOPOP"
+    },
+    {
+      "brand_id": "02",
+      "brand_name": "LOUD FEATHERS"
+    },
+    {
+      "brand_id": "04",
+      "brand_name": "Koikatsu"
+    },
+    {
+      "brand_id": "05",
+      "brand_name": "Moumi"
+    },
+    {
+      "brand_id": "06",
+      "brand_name": "Lunara"
+    },
+    {
+      "brand_id": "07",
+      "brand_name": "Puffi Skydrop"
+    }
+  ],
+  "series": [
+    {
+      "series_id": "01",
+      "series_name": "Beast Syndicate"
+    },
+    {
+      "series_id": "02",
+      "series_name": "Stage Blazers"
+    },
+    {
+      "series_id": "03",
+      "series_name": "Mini Myths"
+    },
+    {
+      "series_id": "04",
+      "series_name": "Games"
+    },
+    {
+      "series_id": "05",
+      "series_name": "Guardians of the Eclipse"
+    },
+    {
+      "series_id": "06",
+      "series_name": "Dreamlight Realm"
+    },
+    {
+      "series_id": "07",
+      "series_name": "Cloudborn Spirits"
+    }
+  ],
+  "producttype": [
+    {
+      "product_typeid": "01",
+      "type_name": "Human Character"
+    },
+    {
+      "product_typeid": "02",
+      "type_name": "Animal"
+    },
+    {
+      "product_typeid": "03",
+      "type_name": "Mythic"
+    }
+  ],
+  "products": [
+    {
+      "product_id": "001",
+      "productname": "Mr.Apeone",
+      "price": 12990,
+      "meterial": "Vinyl + Faux Leather",
+      "size": "medium",
+      "description": "The Gorilla Godfather of the Jungle City. Dressed in a pinstripe suit with a cigar and banana in hand, he rules the concrete jungle with style and power.",
+      "product_typeid": "02",
+      "brand_id": "01",
+      "series_id": "01"
+    },
+    {
+      "product_id": "007",
+      "productname": "Changli",
+      "price": 1500,
+      "meterial": "Painted Plastic",
+      "size": "small",
+      "description": "3D figure from popular game \"Wuthering Waves\",In her name Eternal Flame Changli",
+      "product_typeid": "01",
+      "brand_id": "04",
+      "series_id": "04"
+    },
+    {
+      "product_id": "008",
+      "productname": "Theresa Apocalypse [Lunar Vow: Crimson Love]",
+      "price": 1200,
+      "meterial": "Painted Plastic",
+      "size": "small",
+      "description": "3D figure from popular game \"Honkai Impact 3rd\",Bloody bride : Lunar Vow",
+      "product_typeid": "01",
+      "brand_id": "04",
+      "series_id": "04"
+    },
+    {
+      "product_id": "009",
+      "productname": "Original : Unknown Entity",
+      "price": 1000,
+      "meterial": "Painted Plastic",
+      "size": "small",
+      "description": "3D figure from original character from Developer",
+      "product_typeid": "01",
+      "brand_id": "04",
+      "series_id": "04"
+    },
+    {
+      "product_id": "005",
+      "productname": "Taria",
+      "price": 1490,
+      "meterial": "Premium resin with galaxy shimmer",
+      "size": "medium",
+      "description": "Inspired by the Egyptian goddess Bastet — a symbol of beauty, protection, and cosmic grace.",
+      "product_typeid": "02",
+      "brand_id": "05",
+      "series_id": "05"
+    },
+    {
+      "product_id": "006",
+      "productname": "Elli",
+      "price": 1290,
+      "meterial": "Smooth matte resin with pastel gradient finish",
+      "size": "medium",
+      "description": "A gentle moon spirit who brings serenity and light to your dreams.",
+      "product_typeid": "03",
+      "brand_id": "06",
+      "series_id": "06"
+    },
+    {
+      "product_id": "003",
+      "productname": "Trio Puffy",
+      "price": 5990,
+      "meterial": "Pearlescent Vinyl",
+      "size": "small",
+      "description": "Three Heads, One Heart — The Cutest Monster in the Abyss. A shimmering mini dragon with an iridescent glow and gentle smile.",
+      "product_typeid": "03",
+      "brand_id": "03",
+      "series_id": "03"
+    },
+    {
+      "product_id": "002",
+      "productname": "Chick'n Roll",
+      "price": 8990,
+      "meterial": "Vinyl + Acrylic Flames",
+      "size": "small",
+      "description": "The Fiery Frontman Who Rules the Roost. This punk chicken rocks the stage in a red leather jacket and stands on blazing flames of passion.",
+      "product_typeid": "02",
+      "brand_id": "02",
+      "series_id": "02"
+    },
+    {
+      "product_id": "004",
+      "productname": "Sora",
+      "price": 1000,
+      "meterial": "Soft-touch vinyl with airbrush pastel tones",
+      "size": "small",
+      "description": "A chubby sky creature filled with joy, hope, and endless stardust smiles.",
+      "product_typeid": "03",
+      "brand_id": "07",
+      "series_id": "07"
+    }
+  ]
+}

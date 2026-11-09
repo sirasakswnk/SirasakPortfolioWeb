@@ -66,7 +66,7 @@ Bootstrap, Bootstrap Icons และ Niramit โหลดผ่าน CDN; เ�
 
 ## การเพิ่มหรือแก้ไขโปรเจค
 
-ข้อมูลโปรเจคปัจจุบันอยู่ใน `src/data/projects.js` และภาพแยกตามโฟลเดอร์ `project-one/` ถึง `project-four/` โดยรายละเอียดภาพและที่มาของ Nongwaste อยู่ใน `project-four/README.md`
+ข้อมูลโปรเจคปัจจุบันอยู่ใน `src/data/projects.js` และภาพแยกตามโฟลเดอร์ `project-one/` ถึง `project-five/` โดยรายละเอียดภาพและที่มาของ Nongwaste และ MonoShop อยู่ใน README ของแต่ละโฟลเดอร์
 
 1. เตรียมภาพใน `src/assets/photo/project/<ชื่อโฟลเดอร์>/` และภาพสำหรับเว็บในโฟลเดอร์ `optimized/` ของโปรเจคนั้น เก็บต้นฉบับไว้สำหรับปรับภาพภายหลัง
 2. Import ภาพที่เตรียมแล้วและเพิ่ม object ใน array `projects` ของ `src/data/projects.js` ใช้ `featured: true` กับโปรเจคเด่นหนึ่งรายการ (ปัจจุบันคือ OCRPTT) รายการอื่นแสดงตามลำดับใน array หากไม่ได้กำหนดโปรเจคเด่นจะใช้รายการแรก หากกำหนดหลายรายการจะใช้รายการแรกที่มีค่า `featured: true` เป็นโปรเจคเด่นเพียงรายการเดียว
@@ -122,6 +122,12 @@ Nongwaste เป็นโปรเจคที่สี่ แสดงต่อ
 ภาพ Nongwaste มีปก 1 ภาพและภาพประกอบ 8 รายการใน `project-four/optimized/` รวม 3,081,461 bytes ประกอบด้วย System overview, LINE plastic analysis, การแจ้งพิกัด 2 ภาพต่อเนื่อง, แผนที่, หน้าส่งหลักฐานทำความสะอาด, ตัวอย่างผลตรวจพลาสติก และมาสคอตทั้ง 3 ท่า ภาพหน้าจอ PNG แปลงเป็น WebP แบบ lossless โดยตรวจ decoded RGBA ให้ตรงต้นฉบับ ส่วนภาพ validation ใช้ JPEG เดิม คำบรรยายแยกผลทำนายตัวอย่างจากความแม่นยำรวม และไม่อ้างว่าหน้าส่งหลักฐานเป็นภาพยืนยันการส่งสำเร็จ
 
 ปก ภาพรวมมาสคอต และแผนภาพระบบมี SVG สำหรับแก้ไขต่อ พร้อม PNG และ WebP สำหรับเว็บ แผนภาพอ้างอิง source code ของ Nongwaste โดยแผนที่อ่าน Firebase โดยตรง และส่งภาพหลักฐานผ่าน FastAPI ไปยัง Google Cloud Storage รายละเอียดการพัฒนาระบบโดยรวมแยกจากส่วนที่เจ้าของ Portfolio รับผิดชอบในคำอธิบายบทบาท
+
+MonoShop เป็นโปรเจคที่ห้า ชื่อและสถานะ Completed (Academic Project) มาจากการยืนยันของผู้พัฒนา ใช้บทบาท Backend Developer รับผิดชอบ backend ทั้งหมด ครอบคลุม Express REST APIs, PostgreSQL, authentication, สินค้า, ตะกร้า และคำสั่งซื้อ มีปุ่ม GitHub ไปยัง repository สาธารณะ โดยยังไม่กำหนด Live Demo
+
+ภาพ MonoShop มีปก 1 ภาพและภาพประกอบ 8 ภาพใน `project-five/optimized/` รวม 2,477,384 bytes ภาพประกอบเป็น WebP แบบ lossless ที่ขนาดเดิมและตรวจ decoded RGBA ตรง PNG ต้นฉบับ ปกมี SVG/PNG สำหรับแก้ไข ชุดภาพเดิมและหลักฐานเก็บใน `project-five/portfolio-screenshots/` ภาพใช้ข้อมูลสาธิตผ่าน backend จริงกับ PostgreSQL แยก ตามเอกสารชุดภาพ
+
+ชื่อ MonoCraft ในภาพ UI คงตามต้นฉบับ ส่วนชื่อบน Portfolio ใช้ MonoShop ตามผู้พัฒนาระบุ คำบรรยาย Orders ระบุว่ายอดคำนวณจากรายละเอียดสินค้า เพราะหลักฐานชุดภาพพบว่า order header เก็บยอดเป็น 0 ภาพเปิดฟอร์มแก้ไขสินค้าและ controls ของผู้ดูแลไม่ใช่หลักฐานการบันทึก/เปลี่ยนสถานะ/ลบ งานนำเข้า Portfolio ไม่แก้ข้อจำกัด backend เหล่านี้
 
 ## การตรวจหลังแก้ไข
 

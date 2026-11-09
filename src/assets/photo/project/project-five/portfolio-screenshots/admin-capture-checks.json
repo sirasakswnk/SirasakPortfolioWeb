@@ -1,0 +1,147 @@
+{
+  "pageErrors": [],
+  "consoleErrors": [],
+  "api": [
+    {
+      "method": "GET",
+      "path": "/members/detail",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/products",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/img_pd/001.jpg",
+      "status": 304
+    },
+    {
+      "method": "GET",
+      "path": "/img_pd/002.jpg",
+      "status": 304
+    },
+    {
+      "method": "GET",
+      "path": "/img_pd/003.jpg",
+      "status": 304
+    },
+    {
+      "method": "GET",
+      "path": "/members/detail",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/members/login",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/img_mem/default.jpg",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/members/detail",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/members/detail",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/carts/chkcart",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/img_mem/admin.portfolio@example.invalid.jpg",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/members/detail",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/img_mem/admin.portfolio@example.invalid.jpg",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/members/detail",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/orders/admin",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/orders/detail/ORD202611090001",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/members/detail",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/products",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/carts/chkcart",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/img_pd/004.jpg",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/img_pd/005.jpg",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/img_pd/007.jpg",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/img_pd/006.jpg",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/img_pd/008.jpg",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/img_pd/009.jpg",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/members/detail",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/products/001",
+      "status": 200
+    }
+  ],
+  "dialogs": []
+}

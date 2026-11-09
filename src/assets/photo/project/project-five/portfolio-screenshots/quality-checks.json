@@ -1,0 +1,68 @@
+{
+  "verifiedAt": "2026-11-09T08:11:24.817Z",
+  "images": [
+    {
+      "file": "home.png",
+      "width": 1920,
+      "height": 1536,
+      "bytes": 1258667,
+      "sha256": "47f56612d12b49ab31219822ca2543e76547ca14b270219c41cdd2488d8ab13b"
+    },
+    {
+      "file": "product-catalog.png",
+      "width": 1600,
+      "height": 1050,
+      "bytes": 828296,
+      "sha256": "77fb7c87cd26fe00a70e08c6ba04722ecb10e7d1fe3dfedab98646a971e4d429"
+    },
+    {
+      "file": "product-detail.png",
+      "width": 1600,
+      "height": 1120,
+      "bytes": 447945,
+      "sha256": "c55237f8ed92c14e9b4904aaec152ce44c866d643ecf949f78a44b6cee075e05"
+    },
+    {
+      "file": "cart.png",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 171428,
+      "sha256": "c8ef30682b075403784a493fff9deae27a909bfa063e3fad9031f6ccacc18675"
+    },
+    {
+      "file": "my-orders.png",
+      "width": 1600,
+      "height": 1050,
+      "bytes": 139836,
+      "sha256": "abdbde057664471dbea58c5423c5367890d9f306974d7e0ae86cb20e72dd6582"
+    },
+    {
+      "file": "admin-orders.png",
+      "width": 1600,
+      "height": 1280,
+      "bytes": 165268,
+      "sha256": "ab9133795e6db5c2dfc8cfb2ca1c92384a7424272a350ca6b6d1b1891744034b"
+    },
+    {
+      "file": "product-edit.png",
+      "width": 1600,
+      "height": 1240,
+      "bytes": 436853,
+      "sha256": "a631a32c0d9ecff1cd253dae7268bfbcd2c11b36164c85b204e7dbf4fb2a44c8"
+    },
+    {
+      "file": "system-overview.png",
+      "width": 1920,
+      "height": 1280,
+      "bytes": 209091,
+      "sha256": "8b7376b3e79783ff3a729b3406a0e2fb7c8c7f5984105e1f42ed827f1f236aef"
+    }
+  ],
+  "screenshotCount": 7,
+  "diagramPngCount": 1,
+  "editableSvg": true,
+  "screenshotPageErrors": 0,
+  "screenshotConsoleErrors": 0,
+  "privateDemoValuesInArtifacts": false,
+  "visualReview": "All seven screenshots and final diagram PNG opened and reviewed individually."
+}

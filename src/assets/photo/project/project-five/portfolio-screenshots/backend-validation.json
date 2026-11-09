@@ -1,0 +1,20 @@
+{
+  "isolatedPostgresPort": 55432,
+  "fixtureApiUsed": false,
+  "originalDatabaseWrites": false,
+  "productEditSaved": false,
+  "adminStatusChanged": false,
+  "adminOrderDeleted": false,
+  "createdDemoOrder": [
+    {
+      "orderId": "ORD202611090001",
+      "storedHeaderQty": 0,
+      "storedHeaderPrice": "0.00",
+      "detailQty": 4,
+      "detailPrice": "28270.00"
+    }
+  ],
+  "limitations": [
+    "confirmOrder reads camelCase aliases from an unquoted SQL aggregate; PostgreSQL returns lowercase names, so order header totals are saved as zero. The UI GET endpoints aggregate orderDtl and display the correct totals. Business logic was left unchanged."
+  ]
+}

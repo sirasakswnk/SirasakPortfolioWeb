@@ -35,6 +35,15 @@ import nongwasteMap from '@/assets/photo/project/project-four/optimized/waste-ma
 import nongwasteCleanup from '@/assets/photo/project/project-four/optimized/cleanup-report.webp'
 import nongwasteDetection from '@/assets/photo/project/project-four/optimized/plastic-detection.jpg'
 import nongwasteMascots from '@/assets/photo/project/project-four/optimized/mascot-poses.webp'
+import monoshopCover from '@/assets/photo/project/project-five/optimized/cover.webp'
+import monoshopOverview from '@/assets/photo/project/project-five/optimized/system-overview.webp'
+import monoshopHome from '@/assets/photo/project/project-five/optimized/home.webp'
+import monoshopCatalog from '@/assets/photo/project/project-five/optimized/product-catalog.webp'
+import monoshopDetail from '@/assets/photo/project/project-five/optimized/product-detail.webp'
+import monoshopCart from '@/assets/photo/project/project-five/optimized/cart.webp'
+import monoshopOrders from '@/assets/photo/project/project-five/optimized/my-orders.webp'
+import monoshopAdmin from '@/assets/photo/project/project-five/optimized/admin-orders.webp'
+import monoshopEdit from '@/assets/photo/project/project-five/optimized/product-edit.webp'
 
 export const projects = [
   {
@@ -419,6 +428,100 @@ export const projects = [
         width: 1600,
         height: 760,
         caption: 'The supplied project mascot in three poses, presented together as part of the Nongwaste visual identity.',
+      },
+    ],
+  },
+  {
+    id: 'monoshop',
+    featured: false,
+    title: 'MonoShop',
+    category: 'Academic Project',
+    status: 'Completed (Academic Project)',
+    role: 'Backend Developer',
+    summary:
+      'An Art Toy storefront with product search, member accounts, shopping carts, customer order history, and administrator order management.',
+    roleDescription:
+      'Developed the entire backend, including Express REST APIs, PostgreSQL data access, member authentication, product endpoints, cart and order workflows, administrator checks, and member image uploads.',
+    technologies: ['Node.js', 'Express', 'PostgreSQL', 'JWT', 'bcrypt', 'Multer', 'JavaScript', 'Vue', 'Pinia', 'Bootstrap'],
+    image: monoshopCover,
+    imageAlt: 'MonoShop project cover combining the Art Toy storefront and product detail screens with a summary of backend responsibilities.',
+    imageWidth: 1600,
+    imageHeight: 1000,
+    imageCaption: 'Application screens captured with demonstration data through the real backend and an isolated PostgreSQL database.',
+    repositoryUrl: 'https://github.com/sirasakswnk/Monoshop',
+    demoUrl: null,
+    screenshots: [
+      {
+        id: 'system-overview',
+        title: 'System overview',
+        image: monoshopOverview,
+        imageAlt: 'MonoShop architecture showing customer and administrator views, Vue and Pinia, an Express API, PostgreSQL, member image storage, and authentication.',
+        width: 1920,
+        height: 1280,
+        caption: 'Source-based architecture for member accounts, products, carts, orders, and authentication. The original application uses the MonoCraft brand in its UI.',
+      },
+      {
+        id: 'home',
+        title: 'Art Toy storefront',
+        image: monoshopHome,
+        imageAlt: 'A pastel Art Toy storefront with navigation, a featured character, and three recommended product cards.',
+        width: 1920,
+        height: 1536,
+        caption: 'The original storefront interface, captured with a demonstration catalog in an isolated PostgreSQL database.',
+      },
+      {
+        id: 'product-catalog',
+        title: 'Product catalog and search',
+        image: monoshopCatalog,
+        imageAlt: 'The product catalog showing a search for figure and three matching Art Toy products with images, names, and prices.',
+        width: 1600,
+        height: 1050,
+        caption: 'A search for "figure" returning three catalog entries through the Express search API in the demonstration environment.',
+      },
+      {
+        id: 'product-detail',
+        title: 'Product details',
+        image: monoshopDetail,
+        imageAlt: 'The Mr.Apeone product page with its image, price, brand, material, size, series, description, quantity selector, and add-to-cart button.',
+        width: 1600,
+        height: 1120,
+        caption: 'Product information retrieved from the backend, alongside quantity and cart controls for the demonstration customer.',
+      },
+      {
+        id: 'cart',
+        title: 'Shopping cart',
+        image: monoshopCart,
+        imageAlt: 'A demonstration shopping cart with three product lines, four items, quantity controls, removal buttons, an order confirmation button, and a total of 28,270 baht.',
+        width: 1600,
+        height: 1000,
+        caption: 'Three product lines added through the UI and persisted by the backend, totaling four items and 28,270 baht in the demonstration cart.',
+      },
+      {
+        id: 'my-orders',
+        title: 'Customer order history',
+        image: monoshopOrders,
+        imageAlt: 'The demonstration customer order history with an expanded order showing item quantities and prices, plus two seeded historical orders.',
+        width: 1600,
+        height: 1050,
+        caption: 'A demo order created through cart confirmation, alongside two seeded historical orders. Displayed totals are recalculated from order details; an order-header totals issue is documented in the capture notes.',
+      },
+      {
+        id: 'admin-orders',
+        title: 'Administrator order management',
+        image: monoshopAdmin,
+        imageAlt: 'The demonstration administrator order page with statuses, totals, expanded product details, and confirm and delete controls.',
+        width: 1600,
+        height: 1280,
+        caption: 'Administrator view of demonstration orders, with totals calculated from line items. Status changes and deletion were not exercised during capture.',
+      },
+      {
+        id: 'product-edit',
+        title: 'Administrator product editing',
+        image: monoshopEdit,
+        imageAlt: 'The administrator product edit form for Mr.Apeone, with name, price, material, size, description, and save and cancel controls.',
+        width: 1600,
+        height: 1240,
+        caption: 'The existing product edit form opened with a demonstration administrator account. No product changes were saved during capture.',
       },
     ],
   },

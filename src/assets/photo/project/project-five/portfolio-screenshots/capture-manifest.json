@@ -1,0 +1,161 @@
+[
+  {
+    "file": "home.png",
+    "width": 1920,
+    "height": 1536,
+    "logicalPage": "/",
+    "actualUrl": "http://127.0.0.1:5173/",
+    "dataSource": "Real UI + real Express API + isolated PostgreSQL demo; no mock API",
+    "capturedAt": "2026-11-09T07:58:46.055Z",
+    "horizontalOverflow": false,
+    "fontStatus": "loaded",
+    "fonts": [
+      "Bitcount Prop Single Ink",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "bootstrap-icons",
+      "Bitcount Prop Single Ink"
+    ],
+    "brokenImages": 0
+  },
+  {
+    "file": "product-catalog.png",
+    "width": 1600,
+    "height": 1050,
+    "logicalPage": "/product?q=figure",
+    "actualUrl": "http://127.0.0.1:5173/",
+    "dataSource": "Real UI + real Express API + isolated PostgreSQL demo; no mock API",
+    "capturedAt": "2026-11-09T07:58:46.596Z",
+    "horizontalOverflow": false,
+    "fontStatus": "loaded",
+    "fonts": [
+      "Prompt",
+      "Bitcount Prop Single Ink",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "bootstrap-icons",
+      "Bitcount Prop Single Ink"
+    ],
+    "brokenImages": 0
+  },
+  {
+    "file": "product-detail.png",
+    "width": 1600,
+    "height": 1120,
+    "logicalPage": "/ProductShow/001 (customer)",
+    "actualUrl": "http://127.0.0.1:5173/",
+    "dataSource": "Real UI + real Express API + isolated PostgreSQL demo; no mock API",
+    "capturedAt": "2026-11-09T07:58:49.821Z",
+    "horizontalOverflow": false,
+    "fontStatus": "loaded",
+    "fonts": [
+      "Prompt",
+      "Bitcount Prop Single Ink",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "bootstrap-icons",
+      "Bitcount Prop Single Ink"
+    ],
+    "brokenImages": 0
+  },
+  {
+    "file": "cart.png",
+    "width": 1600,
+    "height": 1000,
+    "logicalPage": "/cartShow/:cart_id (customer)",
+    "actualUrl": "http://127.0.0.1:5173/",
+    "dataSource": "Real UI + real Express API + isolated PostgreSQL demo; no mock API",
+    "capturedAt": "2026-11-09T07:58:51.892Z",
+    "horizontalOverflow": false,
+    "fontStatus": "loaded",
+    "fonts": [
+      "Prompt",
+      "Bitcount Prop Single Ink",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "bootstrap-icons",
+      "Bitcount Prop Single Ink"
+    ],
+    "brokenImages": 0
+  },
+  {
+    "file": "my-orders.png",
+    "width": 1600,
+    "height": 1050,
+    "logicalPage": "/orders (customer; newest order expanded)",
+    "actualUrl": "http://127.0.0.1:5173/",
+    "dataSource": "Real UI + real Express API + isolated PostgreSQL demo; no mock API",
+    "capturedAt": "2026-11-09T07:58:52.116Z",
+    "horizontalOverflow": false,
+    "fontStatus": "loaded",
+    "fonts": [
+      "Prompt",
+      "Bitcount Prop Single Ink",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "bootstrap-icons",
+      "Bitcount Prop Single Ink"
+    ],
+    "brokenImages": 0
+  },
+  {
+    "file": "admin-orders.png",
+    "width": 1600,
+    "height": 1280,
+    "logicalPage": "/admin/orders (admin; newest order expanded)",
+    "actualUrl": "http://127.0.0.1:5173/",
+    "dataSource": "Real UI + real Express API + isolated PostgreSQL demo; no mock API",
+    "capturedAt": "2026-11-09T07:59:03.057Z",
+    "horizontalOverflow": false,
+    "fontStatus": "loaded",
+    "fonts": [
+      "Bitcount Prop Single Ink",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "bootstrap-icons",
+      "Bitcount Prop Single Ink"
+    ],
+    "brokenImages": 0
+  },
+  {
+    "file": "product-edit.png",
+    "width": 1600,
+    "height": 1240,
+    "logicalPage": "/ProductShow/001 (admin; edit form open, unsaved)",
+    "actualUrl": "http://127.0.0.1:5173/",
+    "dataSource": "Real UI + real Express API + isolated PostgreSQL demo; no mock API",
+    "capturedAt": "2026-11-09T07:59:04.122Z",
+    "horizontalOverflow": false,
+    "fontStatus": "loaded",
+    "fonts": [
+      "Prompt",
+      "Bitcount Prop Single Ink",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "Kanit",
+      "bootstrap-icons",
+      "Bitcount Prop Single Ink"
+    ],
+    "brokenImages": 0
+  }
+]
