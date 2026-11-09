@@ -139,7 +139,11 @@ Playground อยู่ต่อจากผลงานหลักทั้ง
 
 Wavelength เป็นเกมแรก ผู้พัฒนายืนยันว่าทำคนเดียว ใช้บทบาท Solo Developer และสถานะ Playable Prototype เป็นเกมภาษาไทยแบบสองผู้เล่นที่ดัดแปลงเป็นเว็บสำหรับเล่นกับเพื่อน ภาพปกหนึ่งภาพและแกลเลอรี 3 ภาพมาจากการเล่นผ่าน UI บน Firebase Emulators ตามเอกสารส่งงาน จบครบ 4 รอบ Player A ชนะ 5–3 ภาพสำหรับเว็บรวม 1,471,222 bytes เป็น WebP แบบ lossless ส่วนต้นฉบับครบ 7 ภาพเก็บใน `src/assets/photo/playground/wavelength/portfolio-screenshots/`
 
-ภาพปกครอปเฉพาะพื้นหลังตกแต่งด้านล่าง ป้ายคะแนนที่ทับส่วนบนของวงล้อยังคงตาม UI จริง รายการมีปุ่ม GitHub ส่วน Play demo ยังซ่อน เพราะ URL homepage ใน repository ตอบกลับ HTTP 404 เมื่อตรวจวันที่ 9 พฤศจิกายน 2026 รายละเอียดเพิ่มเติมอยู่ใน README ของโฟลเดอร์ Wavelength การตรวจในงาน Portfolio ไม่ใช่การทดสอบเกมบน production
+ภาพปกครอปเฉพาะพื้นหลังตกแต่งด้านล่าง ป้ายคะแนนที่ทับส่วนบนของวงล้อยังคงตาม UI จริง รายการมีปุ่ม GitHub และ Play demo ไปที่ `https://wavelengthboardgamebymingmx.vercel.app/` ตาม URL ใหม่ที่ผู้พัฒนายืนยัน ตรวจหน้า HTML ได้ HTTP 200 เมื่อวันที่ 10 พฤศจิกายน 2026 รายละเอียดเพิ่มเติมอยู่ใน README ของโฟลเดอร์ Wavelength การตรวจในงาน Portfolio ไม่ใช่การทดสอบเกมบน production
+
+Merchant’s Bluff เป็นเกมที่สอง ผู้พัฒนายืนยัน Solo Developer และ Playable Prototype มีปุ่ม Play demo ที่ `https://merchant-s-bluff.vercel.app/` ซึ่งตรวจหน้า HTML ได้ HTTP 200 เมื่อวันที่ 9 พฤศจิกายน 2026 และมีปุ่ม GitHub การตรวจนี้ไม่ได้ทดสอบเล่นบน production
+
+ภาพ Merchant’s Bluff ใช้ Design Preview จาก source snapshot ในเอกสารส่งงาน มีป้ายกำกับบนปก คำอธิบายการ์ด และ captions โดยไม่อ้างเป็นผล multiplayer จริง เก็บต้นฉบับครบ 9 ภาพ ปกหนึ่งภาพและแกลเลอรี 3 ภาพเป็น WebP รวม 1,663,076 bytes ภาพอันดับกับแผงสูตรคะแนนจัดคู่กันพร้อมป้ายแยก เพราะ popup ใน snapshot ที่ถ่ายแสดงเพียงอันดับและเงินสด รายละเอียดอยู่ใน `src/assets/photo/playground/merchants-bluff/README.md`
 
 เตรียมภาพไว้ใน `src/assets/photo/playground/<game-id>/` โดยอ่านแนวทางใน README ของโฟลเดอร์นั้น แล้ว import ภาพสำหรับเว็บและเพิ่ม object ใน `playgroundProjects` ข้อมูลใช้รูปแบบเดียวกับ `projects` แต่ไม่ต้องกำหนด `featured`:
 

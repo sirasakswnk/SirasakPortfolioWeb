@@ -9,7 +9,7 @@
 - เกมส่วนตัวสำหรับเล่นกับเพื่อน เป็น web adaptation ของ Wavelength ไม่อ้างว่าออกแบบบอร์ดเกมต้นฉบับ
 - เทคโนโลยีจาก source: React, TypeScript, Vite, Firebase Anonymous Auth, Realtime Database และ SVG dial
 - Repository สาธารณะ: https://github.com/sirasakswnk/wavelength-boardgame
-- `demoUrl: null`: ตรวจ HTTP GET ของ homepage ที่ repo ระบุ (`https://wavelength-boardgame.vercel.app/`) วันที่ 9 พฤศจิกายน 2026 ได้ HTTP 404 จึงยังไม่แสดง Play demo ตรวจเฉพาะการตอบกลับหน้าเว็บ ไม่ได้สร้างห้องหรือเชื่อมเกมบน production
+- Play demo ใช้ URL ที่ผู้พัฒนายืนยัน: https://wavelengthboardgamebymingmx.vercel.app/ ตรวจ HTTP GET วันที่ 10 พฤศจิกายน 2026 ได้ HTTP 200 และ title “WaveLengthBoardGame — คลื่นความถี่อ่านใจ” ตรวจเฉพาะหน้า HTML ไม่ได้สร้างห้องหรือทดสอบ multiplayer บน production
 
 ## ภาพที่นำมาใช้
 
