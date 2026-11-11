@@ -4,7 +4,7 @@
       <h2 class="contact-title">Contact</h2>
 
       <p class="contact-desc">
-        Interested in internship opportunities or collaboration.
+        Seeking a programmer role, with a strong interest in AI model training.
         <br />
         Let’s get in touch.
       </p>
@@ -65,7 +65,7 @@
       </div>
     </div>
 
-    <p class="footer-text">© 2025 Sirasak · Portfolio</p>
+    <p class="footer-text">© 2026 Sirasak · Portfolio</p>
   </section>
 </template>
 
