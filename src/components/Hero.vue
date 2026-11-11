@@ -2,8 +2,8 @@
   <div class="Hero" id="Hero" tabindex="-1">
     <div class="bg-text" aria-hidden="true">
       <div class="bg-marquee marquee-right">
-        <span>SOFTWARE DEVELOPER · FRONTEND · CS STUDENT · </span>
-        <span>SOFTWARE DEVELOPER · FRONTEND · CS STUDENT · </span>
+        <span>SOFTWARE DEVELOPER · FRONTEND · BACKEND · CS STUDENT · </span>
+        <span>SOFTWARE DEVELOPER · FRONTEND · BACKEND · CS STUDENT · </span>
       </div>
 
       <div class="bg-marquee marquee-left">
