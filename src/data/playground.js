@@ -6,6 +6,10 @@ import merchantsBluffCover from '@/assets/photo/playground/merchants-bluff/optim
 import merchantsBluffDecision from '@/assets/photo/playground/merchants-bluff/optimized/sheriff-decision.webp'
 import merchantsBluffInspection from '@/assets/photo/playground/merchants-bluff/optimized/inspection-result.webp'
 import merchantsBluffRanking from '@/assets/photo/playground/merchants-bluff/optimized/ranking-and-rules.webp'
+import inSyncCover from '@/assets/photo/playground/in-sync/optimized/cover.webp'
+import inSyncLobby from '@/assets/photo/playground/in-sync/optimized/lobby.webp'
+import inSyncReveal from '@/assets/photo/playground/in-sync/optimized/round-reveal.webp'
+import inSyncResults from '@/assets/photo/playground/in-sync/optimized/game-results.webp'
 
 // Personal games stay separate from the main project showcases.
 // Entries share the detail and screenshot fields used by src/data/projects.js.
@@ -103,6 +107,54 @@ export const playgroundProjects = [
         width: 1760,
         height: 950,
         caption: 'Design Preview · Two separate UI captures. The captured popup shows rank and cash only; total scores, item and bonus breakdowns, and market-leader awards are absent from that popup. The scoring rules are shown separately.',
+      },
+    ],
+  },
+  {
+    id: 'in-sync',
+    title: 'IN SYNC',
+    category: 'Personal Project · Board Game',
+    status: 'Completed · Playable',
+    role: 'Solo Developer',
+    summary:
+      'A two-player game for ranking preferences and guessing your partner’s choices. Screenshots show a local Design Preview with sample data.',
+    roleDescription:
+      'Developed the game independently, including the Next.js interface, ranking interactions, round and scoring logic, server-side commands, and Firebase authentication and realtime state.',
+    technologies: ['Next.js', 'Firebase', 'TypeScript', 'React', '@dnd-kit', 'CSS Modules'],
+    image: inSyncCover,
+    imageAlt: 'IN SYNC Design Preview cover with the five-card guessing board and a cropped sample summary showing scores of 16 and 22.',
+    imageWidth: 1600,
+    imageHeight: 900,
+    imageCaption: 'Design Preview · A composition of the original mobile guessing screen and a crop of the sample results screen.',
+    repositoryUrl: 'https://github.com/sirasakswnk/In-sync-boardgame',
+    demoUrl: 'https://heartsyncboardgamebymingmx.vercel.app/',
+    screenshots: [
+      {
+        id: 'lobby',
+        title: 'Room and question decks · Design Preview',
+        image: inSyncLobby,
+        imageAlt: 'The IN SYNC preview lobby with two sample players, a six-character room code, selectable question decks, one ready player, and a disabled start button.',
+        width: 860,
+        height: 2360,
+        caption: 'Design Preview · Two sample players with one ready. The selected question decks and waiting-to-start state follow the original preview fixture.',
+      },
+      {
+        id: 'round-reveal',
+        title: 'Rank comparison · Design Preview',
+        image: inSyncReveal,
+        imageAlt: 'All five sample answer cards revealed, comparing actual and guessed ranks with per-card points and a round score of eight out of ten.',
+        width: 860,
+        height: 2520,
+        caption: 'Design Preview · Five revealed cards compare the actual and guessed positions. The sample round awards 8/10 points using the existing scoring logic.',
+      },
+      {
+        id: 'game-results',
+        title: 'Game summary · Design Preview',
+        image: inSyncResults,
+        imageAlt: 'The sample IN SYNC game summary with scores of 16 and 22 out of 30, a rematch control, best-round notes, and seven exact guesses for each player.',
+        width: 860,
+        height: 2520,
+        caption: 'Design Preview · Sample totals of 16–22, best-round notes, and exact-guess counts. These values come from the local preview scenario.',
       },
     ],
   },

@@ -145,6 +145,10 @@ Merchant’s Bluff เป็นเกมที่สอง ผู้พัฒน
 
 ภาพ Merchant’s Bluff ใช้ Design Preview จาก source snapshot ในเอกสารส่งงาน มีป้ายกำกับบนปก คำอธิบายการ์ด และ captions โดยไม่อ้างเป็นผล multiplayer จริง เก็บต้นฉบับครบ 9 ภาพ ปกหนึ่งภาพและแกลเลอรี 3 ภาพเป็น WebP รวม 1,663,076 bytes ภาพอันดับกับแผงสูตรคะแนนจัดคู่กันพร้อมป้ายแยก เพราะ popup ใน snapshot ที่ถ่ายแสดงเพียงอันดับและเงินสด รายละเอียดอยู่ใน `src/assets/photo/playground/merchants-bluff/README.md`
 
+IN SYNC เป็นเกมที่สาม ผู้พัฒนายืนยันว่าทำคนเดียวและเสร็จแล้วพร้อมเล่น ใช้ Solo Developer และ Completed · Playable มี Play demo ที่ `https://heartsyncboardgamebymingmx.vercel.app/` ซึ่งตรวจหน้า HTML ได้ HTTP 200 เมื่อวันที่ 11 พฤศจิกายน 2026 และมีปุ่ม GitHub
+
+ภาพ IN SYNC เป็น Design Preview ตาม source snapshot ในเอกสารส่งงาน เก็บต้นฉบับครบ 7 ภาพ ภาพปกหนึ่งภาพและแกลเลอรี 3 ภาพใช้ WebP รวม 2,766,704 bytes โดยคงความละเอียดภาพประกอบจาก device scale 2 และตรวจ decoded RGBA ตรง PNG คำบรรยาย Lobby ระบุว่าผู้เล่นพร้อมหนึ่งคน ข้อจำกัด live publisher ของ Guess และข้อมูลจำลองใน Watch บันทึกอยู่ใน `src/assets/photo/playground/in-sync/README.md`
+
 เตรียมภาพไว้ใน `src/assets/photo/playground/<game-id>/` โดยอ่านแนวทางใน README ของโฟลเดอร์นั้น แล้ว import ภาพสำหรับเว็บและเพิ่ม object ใน `playgroundProjects` ข้อมูลใช้รูปแบบเดียวกับ `projects` แต่ไม่ต้องกำหนด `featured`:
 
 ```js

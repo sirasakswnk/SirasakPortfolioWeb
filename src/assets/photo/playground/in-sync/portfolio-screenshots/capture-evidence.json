@@ -1,0 +1,265 @@
+{
+  "shots": [
+    {
+      "filename": "guess-ranking.png",
+      "url": "http://localhost:3000/dev/preview?screen=guess",
+      "capturedAt": "2026-11-11T12:00:57.394Z",
+      "png": {
+        "width": 860,
+        "height": 1688
+      },
+      "viewport": {
+        "width": 430,
+        "height": 844
+      },
+      "deviceScaleFactor": 2,
+      "zoom": 1,
+      "fontStatus": "loaded",
+      "fontFamily": "\"Noto Sans Thai\", \"Noto Sans Thai Looped\", \"Leelawadee UI\", Thonburi, system-ui, sans-serif",
+      "notoSansThaiLoaded": 8,
+      "brokenImages": [],
+      "scrollWidth": 430,
+      "scrollHeight": 844,
+      "bodyText": "💞\nIN SYNC\n⋯\n🦊\nต้นกล้า\n0\nรอบ 1/6\n🐰\nมะปราง\n0\n\n🐰\nทายใจ มะปราง\n\nถ้ามะปรางได้ตั๋วเที่ยวฟรี มะปรางจะอยากไปแบบไหนมากที่สุด?\n\n1\n= อยากไปมากที่สุด\n5\n= อยากไปน้อยที่สุด\n\n🌆\nเมืองใหญ่\n★ 1\n🏔️\nภูเขา\n2\n🏖️\nทะเล\n3\n🎢\nสวนสนุก\n4\n🏯\nเมืองเก่า\n5\n\n👀 มะปราง กำลังดูอยู่ · วางครบแล้ว · แตะไพ่บนแท่นเพื่อสลับ\n\nครบแล้ว! ตรวจอันดับก่อนยืนยัน\n\nล็อกคำทาย\nวาง เมืองเก่า ที่อันดับ 5 · วางครบแล้ว",
+      "notes": "Design Preview; ต้นกล้า guesses มะปราง; 5/5 placed through UI; not submitted."
+    },
+    {
+      "filename": "lobby.png",
+      "url": "http://localhost:3000/dev/preview?screen=lobby",
+      "capturedAt": "2026-11-11T12:00:59.219Z",
+      "png": {
+        "width": 860,
+        "height": 2360
+      },
+      "viewport": {
+        "width": 430,
+        "height": 1180
+      },
+      "deviceScaleFactor": 2,
+      "zoom": 1,
+      "fontStatus": "loaded",
+      "fontFamily": "\"Noto Sans Thai\", \"Noto Sans Thai Looped\", \"Leelawadee UI\", Thonburi, system-ui, sans-serif",
+      "notoSansThaiLoaded": 8,
+      "brokenImages": [],
+      "scrollWidth": 430,
+      "scrollHeight": 1180,
+      "bodyText": "💞\nIN SYNC\n⋯\n🐰\nมะปราง\n💞\n🦊\nต้นกล้า\n\nไพ่เชิญเข้าห้อง\n\nK\n7\nM\n4\nQ\nX\n\nแตะรหัสเพื่อคัดลอก\n\n🔗 คัดลอกลิงก์เชิญ\n📤 แชร์…\n\n👑\n🐰\nมะปราง\nคุณ · ออนไลน์\nพร้อม!\n💞\n🦊\nต้นกล้า\nออนไลน์\nยังไม่พร้อม\nเลือกกองคำถาม\n25 ข้อในกอง · เล่น 6 ข้อ\n\nทั้งสองคนเลือกกองได้ · เจ้าของห้องเป็นคนกดเริ่มเกม\n\n🏠\nชีวิตประจำวัน\n5 ข้อ\n✓\n🍜\nอาหารการกิน\n5 ข้อ\n✓\n🎮\nเกมและเทคโนโลยี\n5 ข้อ\n✓\n🔮\nถ้าเกิดว่า…\n5 ข้อ\n✓\n😤\nเรื่องชวนหงุดหงิด\n5 ข้อ\n✓\n💞\nความสัมพันธ์\n5 ข้อ · เลือกเองถ้าอยาก\n⭐\nชุดพิเศษ\n8 ข้อ · เล่นครบทุกข้อ\n\nเปลี่ยนกองแล้ว ความพร้อมของทั้งคู่จะถูกรีเซ็ตเพื่อให้เห็นการตั้งค่าใหม่\n\nยกเลิกความพร้อม\nเริ่มเกม 🎲\n\nรอ ต้นกล้า กดพร้อม",
+      "notes": "Design Preview; host มะปราง ready, ต้นกล้า not ready; start disabled by existing fixture."
+    },
+    {
+      "filename": "round-reveal.png",
+      "url": "http://localhost:3000/dev/preview?screen=reveal",
+      "capturedAt": "2026-11-11T12:01:02.466Z",
+      "png": {
+        "width": 860,
+        "height": 2520
+      },
+      "viewport": {
+        "width": 430,
+        "height": 1260
+      },
+      "deviceScaleFactor": 2,
+      "zoom": 1,
+      "fontStatus": "loaded",
+      "fontFamily": "\"Noto Sans Thai\", \"Noto Sans Thai Looped\", \"Leelawadee UI\", Thonburi, system-ui, sans-serif",
+      "notoSansThaiLoaded": 8,
+      "brokenImages": [],
+      "scrollWidth": 430,
+      "scrollHeight": 1260,
+      "bodyText": "💞\nIN SYNC\n⋯\n🐰\nมะปราง\n0\nรอบ 1/6\n🦊\nต้นกล้า\n8\n\nเฉลยรอบ 1 · ต้นกล้าทายใจคุณ\n\nถ้าคุณได้ตั๋วเที่ยวฟรี คุณอยากไปแบบไหนมากที่สุด?\n\nเรียงจากอยากไปมากที่สุด → อยากไปน้อยที่สุด\n\n+8\n\n🦊\nคะแนนของต้นกล้า\n\nทายเก่งอยู่เหมือนกันน้าา\n\nคะแนนรอบนี้ · เต็ม 10 คะแนน\n\nอันดับจริงของคุณ\nเปิดแล้ว 5 / 5 ใบ\n1\n🌆\nเมืองใหญ่\n\nทายอันดับ 1 · จริงอันดับ 1\n\nตรงเป๊ะ\n+2\n2\n🏔️\nภูเขา\n\nทายอันดับ 2 · จริงอันดับ 2\n\nตรงเป๊ะ\n+2\n3\n🎢\nสวนสนุก\n\nทายอันดับ 4 · จริงอันดับ 3\n\nใกล้มาก\n+1\n4\n🏖️\nทะเล\n\nทายอันดับ 3 · จริงอันดับ 4\n\nใกล้มาก\n+1\n5\n🏯\nเมืองเก่า\n\nทายอันดับ 5 · จริงอันดับ 5\n\nตรงเป๊ะ\n+2\n\nเปิดครบแล้ว · ไหนขอดูหน่อยสิ๊\n\nตรงเป๊ะ +2\nห่าง 1 อันดับ +1\nห่างกว่านั้น +0\n\nบันทึกความรู้ใจ\n\nอันดับหนึ่งของคุณคือ “เมืองใหญ่”\n\nลองถามกันเล่น ๆ\n“ข้อไหนทำให้คุณแปลกใจที่สุด?”\n\nคะแนนรวมตอนนี้\nคุณ 0\n·\nต้นกล้า 8\n\nรอบหน้า: ต้นกล้าเป็นคนวางลำดับ\n\nไปรอบต่อไป →\n\nไม่มีจับเวลา คุยกันให้พอแล้วค่อยไปต่อ\n\nเปิดเฉลยครบแล้ว ต้นกล้าได้ 8 จาก 10 คะแนน",
+      "notes": "Design Preview; มะปราง setter; all five naturally revealed; 8/10."
+    },
+    {
+      "filename": "game-results.png",
+      "url": "http://localhost:3000/dev/preview?screen=results",
+      "capturedAt": "2026-11-11T12:01:04.421Z",
+      "png": {
+        "width": 860,
+        "height": 2520
+      },
+      "viewport": {
+        "width": 430,
+        "height": 1260
+      },
+      "deviceScaleFactor": 2,
+      "zoom": 1,
+      "fontStatus": "loaded",
+      "fontFamily": "\"Noto Sans Thai\", \"Noto Sans Thai Looped\", \"Leelawadee UI\", Thonburi, system-ui, sans-serif",
+      "notoSansThaiLoaded": 10,
+      "brokenImages": [],
+      "scrollWidth": 430,
+      "scrollHeight": 1260,
+      "bodyText": "💞\nIN SYNC\n⋯\n🐰\nมะปราง\n16\nจบเกม\n🦊\nต้นกล้า\n22\n\nจบเกมแล้ว!\n\nรอบนี้ต้นกล้าทายใจแม่นกว่า\n\nผลัดกันทายคนละ 3 รอบ · เต็มคนละ 30 คะแนน\n\n✧\n✦\n✧\n♥\n🐰\nมะปราง\nคุณ\n\n16/30\n\nคะแนนทายใจต้นกล้า\n\nเจอกันรอบหน้า!\n♠\n🦊\nต้นกล้า\nคู่หูของคุณ\n\n22/30\n\nคะแนนทายใจมะปราง\n\nทายแม่นกว่า\n♥\n\nต้นกล้านำอยู่ 6 คะแนน · รอบหน้าจะเป็นยังไงนะ?\n\n↻\nเล่นอีกครั้ง\n\nชวนต้นกล้าเลือกหมวดใหม่ แล้วเล่นต่อในห้องเดิม\n\nเก็บโมเมนต์จากเกมนี้\n✎\nบันทึกความรู้ใจ\n\nรอบที่คุณทายแม่นที่สุด\n\nเรื่องไหนทำให้หงุดหงิดมากที่สุด?\n\nรอบ 6\n\n8/10\n\nรอบที่ต้นกล้าทายแม่นที่สุด\n\nได้ตั๋วเที่ยวฟรี อยากไปแบบไหนมากที่สุด?\n\nรอบ 1\n\n8/10\n\nทายอันดับตรงเป๊ะ\nคุณ 7 · ต้นกล้า 7 ใบ\n\nจากไพ่ที่แต่ละคนทาย 15 ใบ\n\n▤\nย้อนดูเฉลยทุกข้อ\n6 รอบ\n⌄\nคะแนนจากคำทายในเกมนี้\nที่สำคัญ…เราได้รู้จักกันอีกนิดแล้ว ♡",
+      "notes": "Design Preview; มะปราง 16/30, ต้นกล้า 22/30; exact hits 7 each."
+    },
+    {
+      "filename": "self-ranking.png",
+      "url": "http://localhost:3000/dev/preview?screen=self",
+      "capturedAt": "2026-11-11T12:01:06.794Z",
+      "png": {
+        "width": 860,
+        "height": 1864
+      },
+      "viewport": {
+        "width": 430,
+        "height": 932
+      },
+      "deviceScaleFactor": 2,
+      "zoom": 1,
+      "fontStatus": "loaded",
+      "fontFamily": "\"Noto Sans Thai\", \"Noto Sans Thai Looped\", \"Leelawadee UI\", Thonburi, system-ui, sans-serif",
+      "notoSansThaiLoaded": 9,
+      "brokenImages": [],
+      "scrollWidth": 430,
+      "scrollHeight": 932,
+      "bodyText": "💞\nIN SYNC\n⋯\n🐰\nมะปราง\n0\nรอบ 1/6\n🦊\nต้นกล้า\n0\n\n✍️\nจัดอันดับของคุณ\n\nถ้าคุณได้ตั๋วเที่ยวฟรี คุณอยากไปแบบไหนมากที่สุด?\n\n1\n= อยากไปมากที่สุด\n5\n= อยากไปน้อยที่สุด\n\n🌆\nเมืองใหญ่\n★ 1\n🏔️\nภูเขา\n2\n🎢\nสวนสนุก\n3\n4\n4\n5\n5\n\nแตะไพ่ แล้วแตะช่องบนแท่น\n\n🏯\nเมืองเก่า\n🏖️\nทะเล\n\nจัดแล้ว 3/5 ใบ\n\nยืนยันอันดับของฉัน\nวาง สวนสนุก ที่อันดับ 3 · เหลือในมือ 2 ใบ",
+      "notes": "Design Preview; มะปราง setter; 3 placed, 2 in hand; confirm disabled; no selection obscuring instruction."
+    },
+    {
+      "filename": "watch-guess.png",
+      "url": "http://localhost:3000/dev/preview?screen=watch",
+      "capturedAt": "2026-11-11T12:01:08.515Z",
+      "png": {
+        "width": 860,
+        "height": 1864
+      },
+      "viewport": {
+        "width": 430,
+        "height": 932
+      },
+      "deviceScaleFactor": 2,
+      "zoom": 1,
+      "fontStatus": "loaded",
+      "fontFamily": "\"Noto Sans Thai\", \"Noto Sans Thai Looped\", \"Leelawadee UI\", Thonburi, system-ui, sans-serif",
+      "notoSansThaiLoaded": 8,
+      "brokenImages": [],
+      "scrollWidth": 430,
+      "scrollHeight": 932,
+      "bodyText": "💞\nIN SYNC\n⋯\n🐰\nมะปราง\n0\nรอบ 1/6\n🦊\nต้นกล้า\n0\n\nรอบ 1 · ตาต้นกล้าทาย\n\nถ้าคุณได้ตั๋วเที่ยวฟรี คุณอยากไปแบบไหนมากที่สุด?\n\nดูต้นกล้าเรียงการ์ดสด ๆ — คะแนนจะเปิดตอนต้นกล้าล็อกคำทาย\n\n👀 ต้นกล้า กำลังวางไพ่ทายคุณ\n\n🏖️\nทะเล\n★ 1\n2\n2\n🏯\nเมืองเก่า\n3\n🌆\nเมืองใหญ่\n4\n5\n5\n\nต้นกล้า กำลังคิด… (3/5)\n\nคำตอบของคุณ\n1\n🌆\nเมืองใหญ่\n2\n🏔️\nภูเขา\n3\n🎢\nสวนสนุก\n4\n🏖️\nทะเล\n5\n🏯\nเมืองเก่า\nรอ ต้นกล้า ล็อกคำทาย",
+      "notes": "Design Preview; มะปราง setter watches simulated ต้นกล้า 3/5 layout; own answers visible; no real realtime session."
+    },
+    {
+      "filename": "home.png",
+      "url": "http://localhost:3000/",
+      "capturedAt": "2026-11-11T12:01:10.432Z",
+      "png": {
+        "width": 860,
+        "height": 2520
+      },
+      "viewport": {
+        "width": 430,
+        "height": 1260
+      },
+      "deviceScaleFactor": 2,
+      "zoom": 1,
+      "fontStatus": "loaded",
+      "fontFamily": "\"Noto Sans Thai\", \"Noto Sans Thai Looped\", \"Leelawadee UI\", Thonburi, system-ui, sans-serif",
+      "notoSansThaiLoaded": 9,
+      "brokenImages": [],
+      "scrollWidth": 430,
+      "scrollHeight": 1260,
+      "bodyText": "♥♥IN SYNC\n?\n\nโต๊ะนี้มีที่ให้เราสองคน\n\nIN SYNC♥\n\nคิดว่ารู้ใจเพื่อนแค่ไหน? มาลองกัน\n\n✧\n🦊\nฉันว่าเธอเลือกทะเล!\n🐰\nไม่บอกจ้าา ♡\nการ์ดคำถาม\nตั๋วเที่ยวฟรี…จะไปไหนดี?\n✧\nสวนสนุก\nภูเขา\n1\nทะเล\nเมืองเก่า\nเมืองใหญ่\n♥\n\nลองแตะไพ่ดูสิ…คุณจะเลือกอะไรเป็นอันดับ 1?\n\n1จัดอันดับ\n→\n2ทายใจ\n→\n3เปิดเฉลย\nเตรียมตัวเข้าโต๊ะ\n\nเลือกตัวคุณ แล้วชวนคนที่อยากรู้ใจมาเล่น\n\nชื่อเล่นของคุณ\n6/20\nเลือกอวาตาร์ของคุณ\n🐱\nแมว\n🐶\nหมา\n🐰\nกระต่าย\n🐻\nหมี\n🦊\nจิ้งจอก\n🐼\nแพนด้า\n🐸\nกบ\n🦉\nนกฮูก\n🐧\nเพนกวิน\n🐯\nเสือ\n🐨\nโคอาลา\n🦆\nเป็ด\n＋\nสร้างห้องใหม่\nหรือเข้าห้องของเพื่อน\nเข้าห้อง\n\nเล่นครั้งละ 2 คน · ผลัดกันวาง ผลัดกันทาย 6 รอบ\nคุยกันต่อหน้าหรือโทรหากันระหว่างเล่นได้เลย\n\nMADE FOR TWO ♥",
+      "notes": "Firebase Emulators; anonymous Auth; demo name/avatar entered in form, not saved or used to create/join a room."
+    }
+  ],
+  "diagnostics": [
+    {
+      "screen": "guess",
+      "level": "warning",
+      "message": "[2026-11-11T12:00:55.052Z]  @firebase/database: FIREBASE WARNING: set at /live/preview/preview-partner failed: permission_denied "
+    },
+    {
+      "screen": "guess",
+      "level": "warning",
+      "message": "[2026-11-11T12:00:55.054Z]  @firebase/database: FIREBASE WARNING: set at /live/preview/preview-partner failed: permission_denied "
+    },
+    {
+      "screen": "guess",
+      "level": "warning",
+      "message": "[2026-11-11T12:00:55.639Z]  @firebase/database: FIREBASE WARNING: set at /live/preview/preview-partner failed: permission_denied "
+    },
+    {
+      "screen": "guess",
+      "level": "warning",
+      "message": "[2026-11-11T12:00:55.744Z]  @firebase/database: FIREBASE WARNING: set at /live/preview/preview-partner failed: permission_denied "
+    },
+    {
+      "screen": "guess",
+      "level": "warning",
+      "message": "[2026-11-11T12:00:55.904Z]  @firebase/database: FIREBASE WARNING: set at /live/preview/preview-partner failed: permission_denied "
+    },
+    {
+      "screen": "guess",
+      "level": "warning",
+      "message": "[2026-11-11T12:00:56.205Z]  @firebase/database: FIREBASE WARNING: set at /live/preview/preview-partner failed: permission_denied "
+    },
+    {
+      "screen": "guess",
+      "level": "warning",
+      "message": "[2026-11-11T12:00:56.523Z]  @firebase/database: FIREBASE WARNING: set at /live/preview/preview-partner failed: permission_denied "
+    }
+  ],
+  "network": [
+    {
+      "protocol": "ws:",
+      "host": "localhost:3000",
+      "path": "/_next/hmr"
+    },
+    {
+      "protocol": "ws:",
+      "host": "127.0.0.1:9000",
+      "path": "/.ws"
+    },
+    {
+      "protocol": "ws:",
+      "host": "localhost:3000",
+      "path": "/_next/hmr"
+    },
+    {
+      "protocol": "ws:",
+      "host": "localhost:3000",
+      "path": "/_next/hmr"
+    },
+    {
+      "protocol": "ws:",
+      "host": "localhost:3000",
+      "path": "/_next/hmr"
+    },
+    {
+      "protocol": "ws:",
+      "host": "localhost:3000",
+      "path": "/_next/hmr"
+    },
+    {
+      "protocol": "ws:",
+      "host": "localhost:3000",
+      "path": "/_next/hmr"
+    },
+    {
+      "protocol": "ws:",
+      "host": "localhost:3000",
+      "path": "/_next/hmr"
+    },
+    {
+      "host": "127.0.0.1:9099",
+      "path": "/identitytoolkit.googleapis.com/v1/accounts:signUp",
+      "status": 200
+    },
+    {
+      "host": "127.0.0.1:9099",
+      "path": "/identitytoolkit.googleapis.com/v1/accounts:lookup",
+      "status": 200
+    },
+    {
+      "host": "localhost:3000",
+      "path": "/api/profile",
+      "status": 200
+    },
+    {
+      "host": "localhost:3000",
+      "path": "/api/profile",
+      "status": 200
+    }
+  ],
+  "browserVersion": "157.0.8103.40"
+}
