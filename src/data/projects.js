@@ -15,6 +15,8 @@ import munbotMap from '@/assets/photo/project/project-two/optimized/disease-map.
 import munbotSeverity from '@/assets/photo/project/project-two/optimized/disease-severity.jpg'
 import munbotModels from '@/assets/photo/project/project-two/optimized/model-management.webp'
 import munbotEvaluation from '@/assets/photo/project/project-two/optimized/model-evaluation.webp'
+import munbotDataset from '@/assets/photo/project/project-two/optimized/dataset.webp'
+import munbotPreprocessing from '@/assets/photo/project/project-two/optimized/preprocessing.webp'
 import kemiCover from '@/assets/photo/project/project-three/optimized/cover.webp'
 import kemiOverview from '@/assets/photo/project/project-three/optimized/system-overview.webp'
 import kemiClassroom from '@/assets/photo/project/project-three/optimized/student-classroom.jpg'
@@ -206,6 +208,24 @@ export const projects = [
         caption: 'Severity distributions and calculated averages for the displayed survey records.',
       },
       {
+        id: 'dataset',
+        title: 'Dataset overview',
+        image: munbotDataset,
+        imageAlt: 'A presentation slide showing four cassava leaf categories, training class distributions, and test counts of 1,000 images per category.',
+        width: 1920,
+        height: 1080,
+        caption: 'Training dataset split with 1,000 held-out images per category (4,000 total), used for validation during training according to the project report. Field evaluation is reported separately below.',
+      },
+      {
+        id: 'preprocessing',
+        title: 'Data preprocessing',
+        image: munbotPreprocessing,
+        imageAlt: 'A preprocessing presentation slide showing training class counts of 28,215, 29,429, 28,294, and 29,533, with 1,000 test images per category.',
+        width: 1920,
+        height: 1080,
+        caption: 'Training class counts after data preparation: approximately 28,000–30,000 images per category. The held-out split remains at 1,000 images per category for validation during training.',
+      },
+      {
         id: 'model-management',
         title: 'Model and dataset management',
         image: munbotModels,
@@ -221,7 +241,7 @@ export const projects = [
         imageAlt: 'Evaluation table listing 2,774 test images, 2,587 correct predictions, and per-class recall and precision for Healthy, Mosaic Disease, and Brown Streak Disease.',
         width: 557,
         height: 177,
-        caption: 'Reported overall accuracy: 93.3% on 2,774 test images across three classes. Bacterial Blight was not represented in this test set.',
+        caption: 'Reported field evaluation: 93.3% overall accuracy on 2,774 images across three classes, described in the project report as field photos reviewed by a plant pathologist. Bacterial Blight was not represented in this evaluation.',
       },
     ],
   },
