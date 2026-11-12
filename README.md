@@ -151,6 +151,8 @@ IN SYNC เป็นเกมที่สาม ผู้พัฒนายื�
 
 ภาพ IN SYNC เป็น Design Preview ตาม source snapshot ในเอกสารส่งงาน เก็บต้นฉบับครบ 7 ภาพ ภาพปกหนึ่งภาพและแกลเลอรี 3 ภาพใช้ WebP รวม 2,766,704 bytes โดยคงความละเอียดภาพประกอบจาก device scale 2 และตรวจ decoded RGBA ตรง PNG คำบรรยาย Lobby ระบุว่าผู้เล่นพร้อมหนึ่งคน ข้อจำกัด live publisher ของ Guess และข้อมูลจำลองใน Watch บันทึกอยู่ใน `src/assets/photo/playground/in-sync/README.md`
 
+Who Are You Really? เป็นเกมที่สี่ ผู้พัฒนายืนยันว่าทำคนเดียวและเสร็จแล้วพร้อมเล่น ใช้ Solo Developer และ Completed · Playable มี Play demo ที่ `https://who-are-you-really-board-game.vercel.app/` ซึ่งตรวจหน้า HTML ได้ HTTP 200 เมื่อวันที่ 12 พฤศจิกายน 2026 และมีปุ่ม GitHub ภาพทั้งหมดเป็น Design Preview พร้อมข้อมูลตัวอย่าง เก็บต้นฉบับ 11 PNG พร้อมหลักฐานการถ่าย ภาพสำหรับเว็บมีปกจากหน้า Deciding และแกลเลอรี Lobby/Round reveal/Match result รวม 4,218,812 bytes ใช้ WebP แบบ lossless รายละเอียดอยู่ใน `src/assets/photo/playground/who-are-you-really/README.md` เมื่อเพิ่มเกมที่สี่ ปุ่ม Show all games (4) จะแสดงตามระบบเดิม
+
 เตรียมภาพไว้ใน `src/assets/photo/playground/<game-id>/` โดยอ่านแนวทางใน README ของโฟลเดอร์นั้น แล้ว import ภาพสำหรับเว็บและเพิ่ม object ใน `playgroundProjects` ข้อมูลใช้รูปแบบเดียวกับ `projects` แต่ไม่ต้องกำหนด `featured`:
 
 ```js

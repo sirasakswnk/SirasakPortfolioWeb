@@ -1,0 +1,82 @@
+{
+  "sourceCommit": "0698282e0542db019f3d2bd708de0c8f540925b6",
+  "verified": [
+    {
+      "file": "answer-reveal.png",
+      "width": 1288,
+      "height": 1930,
+      "bytes": 1184521,
+      "sha256": "c4835b4cd4eb8086566a04d6fcd11dddcc8c3444ac47345f5f194060b175fcf6"
+    },
+    {
+      "file": "answering.png",
+      "width": 1288,
+      "height": 1978,
+      "bytes": 1156404,
+      "sha256": "4a8498a587e513fed87849cde93e338b80eecd3ba84eb6d45fb2ef8f81c3dae8"
+    },
+    {
+      "file": "deciding.png",
+      "width": 1288,
+      "height": 2674,
+      "bytes": 2069346,
+      "sha256": "73ea030690bbf43af8b690fcd919abd822e635459e3d904ff6fd3212fee62a64"
+    },
+    {
+      "file": "home.png",
+      "width": 2320,
+      "height": 2490,
+      "bytes": 648927,
+      "sha256": "e5ccb14c612969811cb649f2ccaaccae2fd4c66ed4257a710df8cfb03375378b"
+    },
+    {
+      "file": "lobby.png",
+      "width": 2048,
+      "height": 2304,
+      "bytes": 2161583,
+      "sha256": "ee54c0cd8250639a159367344a8792aaba85370263f9f1239ca13a8b7a821985"
+    },
+    {
+      "file": "match-history.png",
+      "width": 1288,
+      "height": 3858,
+      "bytes": 2594923,
+      "sha256": "488c691ef2ec0725cd572dbca6a191bc3371e052b10257c8c0ef10162415ec0a"
+    },
+    {
+      "file": "match-result.png",
+      "width": 1288,
+      "height": 2086,
+      "bytes": 1124447,
+      "sha256": "9500499737a1449fd9c55cd65319b97f205efd9a947ee9b1252e342f5d2ac187"
+    },
+    {
+      "file": "mobile-gameplay-02.png",
+      "width": 780,
+      "height": 1688,
+      "bytes": 1099585,
+      "sha256": "18cf5a441690913ddc4c4d616f030918c927f4531564543db4b12bc7d78f9733"
+    },
+    {
+      "file": "mobile-gameplay.png",
+      "width": 780,
+      "height": 1688,
+      "bytes": 1068401,
+      "sha256": "e2f1e8d5228d8e67941acd2dbe3536384cb9990e310317fd0786d25188cc6027"
+    },
+    {
+      "file": "role-intro.png",
+      "width": 1288,
+      "height": 2174,
+      "bytes": 1370577,
+      "sha256": "efe3ab850016303330e5f6f8c5d06888eb84cd7a134237d9d5f417e1c145baf1"
+    },
+    {
+      "file": "round-reveal.png",
+      "width": 1288,
+      "height": 2224,
+      "bytes": 1392901,
+      "sha256": "6c88750db2007494216b47c3e78cc473df2be5fd2e7cb50210c266f09b9d32cd"
+    }
+  ]
+}

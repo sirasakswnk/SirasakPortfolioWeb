@@ -137,7 +137,7 @@ export default {
   inset: 0;
   z-index: 0;
   overflow: hidden;
-  pointer-events: auto;
+  pointer-events: none;
   cursor: default;
 }
 
@@ -164,7 +164,8 @@ export default {
 }
 
 .bg-marquee span {
-  padding-right: 60px;
+  margin-right: 60px;
+  pointer-events: auto;
 }
 
 .bg-text:hover .bg-marquee {

@@ -10,6 +10,10 @@ import inSyncCover from '@/assets/photo/playground/in-sync/optimized/cover.webp'
 import inSyncLobby from '@/assets/photo/playground/in-sync/optimized/lobby.webp'
 import inSyncReveal from '@/assets/photo/playground/in-sync/optimized/round-reveal.webp'
 import inSyncResults from '@/assets/photo/playground/in-sync/optimized/game-results.webp'
+import whoAreYouCover from '@/assets/photo/playground/who-are-you-really/optimized/cover.webp'
+import whoAreYouLobby from '@/assets/photo/playground/who-are-you-really/optimized/lobby.webp'
+import whoAreYouRound from '@/assets/photo/playground/who-are-you-really/optimized/round-reveal.webp'
+import whoAreYouResults from '@/assets/photo/playground/who-are-you-really/optimized/match-result.webp'
 
 // Personal games stay separate from the main project showcases.
 // Entries share the detail and screenshot fields used by src/data/projects.js.
@@ -155,6 +159,54 @@ export const playgroundProjects = [
         width: 860,
         height: 2520,
         caption: 'Design Preview · Sample totals of 16–22, best-round notes, and exact-guess counts. These values come from the local preview scenario.',
+      },
+    ],
+  },
+  {
+    id: 'who-are-you-really',
+    title: 'Who Are You Really?',
+    category: 'Personal Project · Board Game',
+    status: 'Completed · Playable',
+    role: 'Solo Developer',
+    summary:
+      'A two-player deduction game with secret roles, scenario-based clues, and detective case files. Screenshots show a Design Preview with sample data.',
+    roleDescription:
+      'Developed the game independently, including the Next.js interface, secret-role and deduction workflows, round scoring, server-side commands, Firebase authentication and realtime state, and match history and rematch features.',
+    technologies: ['Next.js', 'Firebase', 'TypeScript', 'React', 'CSS Modules', 'Firebase Realtime Database', 'Firebase Anonymous Auth'],
+    image: whoAreYouCover,
+    imageAlt: 'Who Are You Really? Design Preview cover showing a sample statement and scenario question above the selected Spy and unselected Vampire suspect cards.',
+    imageWidth: 1600,
+    imageHeight: 900,
+    imageCaption: 'Design Preview · Two crops from the same role-guessing screen, showing the evidence review and two suspect cards with Spy selected. The screen uses sample data.',
+    repositoryUrl: 'https://github.com/sirasakswnk/Who-Are-You-Really-BoardGame',
+    demoUrl: 'https://who-are-you-really-board-game.vercel.app/',
+    screenshots: [
+      {
+        id: 'lobby',
+        title: 'Two-player case room · Design Preview',
+        image: whoAreYouLobby,
+        imageAlt: 'The Who Are You Really? preview lobby with room code DEMOUI, sample players Mali and Ton, both ready, and an enabled start button.',
+        width: 2048,
+        height: 2304,
+        caption: 'Design Preview · Both sample players are ready after using the preview ready control. The room code, presence, and ready states are demonstration data.',
+      },
+      {
+        id: 'round-reveal',
+        title: 'Roles, guesses, and round scores · Design Preview',
+        image: whoAreYouRound,
+        imageAlt: 'The sample round-two report revealing Alien and Spy roles, both guesses, four and three points awarded, and cumulative scores of nine to three.',
+        width: 1288,
+        height: 2224,
+        caption: 'Design Preview · The round-two fixture reveals both roles and guesses, explains the sample awards of +4 and +3, and shows cumulative scores of 9–3.',
+      },
+      {
+        id: 'match-result',
+        title: 'Match results and history · Design Preview',
+        image: whoAreYouResults,
+        imageAlt: 'The sample four-round match summary showing Mali winning eleven to ten, all four round score rows, and rematch and home controls.',
+        width: 1288,
+        height: 2086,
+        caption: 'Design Preview · Sample totals of 11–10 with four round summaries and a rematch control. These scores are provided by the preview fixture.',
       },
     ],
   },
