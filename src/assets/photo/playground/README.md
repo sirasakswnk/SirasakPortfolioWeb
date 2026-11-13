@@ -1,6 +1,6 @@
 # Playground assets
 
-พื้นที่ภาพสำหรับเกมส่วนตัวและงานทดลองในหมวด Playground ปัจจุบันมี Wavelength, Merchant’s Bluff, IN SYNC และ Who Are You Really? รายละเอียดที่มาภาพและข้อจำกัดอยู่ใน README ของแต่ละเกม
+พื้นที่ภาพสำหรับเกมส่วนตัวและงานทดลองในหมวด Playground ปัจจุบันมี Wavelength, Merchant’s Bluff, IN SYNC, Who Are You Really? และ I’m The BOSS รายละเอียดที่มาภาพและข้อจำกัดอยู่ใน README ของแต่ละเกม
 
 - สร้างโฟลเดอร์แยกแต่ละเกม เช่น `<game-id>/` และเก็บภาพสำหรับเว็บใน `<game-id>/optimized/`
 - เตรียมภาพปกหนึ่งภาพ และภาพ gameplay/lobby/results ตามฟีเจอร์ที่มีจริงประมาณ 1–3 ภาพ

@@ -153,6 +153,8 @@ IN SYNC เป็นเกมที่สาม ผู้พัฒนายื�
 
 Who Are You Really? เป็นเกมที่สี่ ผู้พัฒนายืนยันว่าทำคนเดียวและเสร็จแล้วพร้อมเล่น ใช้ Solo Developer และ Completed · Playable มี Play demo ที่ `https://who-are-you-really-board-game.vercel.app/` ซึ่งตรวจหน้า HTML ได้ HTTP 200 เมื่อวันที่ 12 พฤศจิกายน 2026 และมีปุ่ม GitHub ภาพทั้งหมดเป็น Design Preview พร้อมข้อมูลตัวอย่าง เก็บต้นฉบับ 11 PNG พร้อมหลักฐานการถ่าย ภาพสำหรับเว็บมีปกจากหน้า Deciding และแกลเลอรี Lobby/Round reveal/Match result รวม 4,218,812 bytes ใช้ WebP แบบ lossless รายละเอียดอยู่ใน `src/assets/photo/playground/who-are-you-really/README.md` เมื่อเพิ่มเกมที่สี่ ปุ่ม Show all games (4) จะแสดงตามระบบเดิม
 
+I’m The BOSS เป็นเกมที่ห้า ผู้พัฒนายืนยันว่าทำคนเดียวและเสร็จแล้วพร้อมเล่น ใช้ Solo Developer และ Completed · Playable มี Play demo ที่ `https://im-the-boss-boardgame.vercel.app/` ซึ่งตรวจหน้า HTML ได้ HTTP 200 เมื่อวันที่ 13 พฤศจิกายน 2026 และมีปุ่ม GitHub เก็บต้นฉบับ 13 PNG พร้อม manifest และเอกสารที่มา โดย 7 ภาพมาจาก Firebase Emulators และ 6 ภาพมาจาก Design Preview ปกใช้ภาพโต๊ะ Emulator ส่วนแกลเลอรีแสดงหน้าตรวจข้อเสนอแบบ Preview, หน้าลงการ์ดจาก Emulator และคะแนนตัวอย่างแบบ Preview ภาพสำหรับเว็บใช้ WebP แบบ lossless รวม 537,380 bytes รายละเอียดอยู่ใน `src/assets/photo/playground/im-the-boss/README.md` เกมนี้อยู่ในรายการ Show all games (5)
+
 เตรียมภาพไว้ใน `src/assets/photo/playground/<game-id>/` โดยอ่านแนวทางใน README ของโฟลเดอร์นั้น แล้ว import ภาพสำหรับเว็บและเพิ่ม object ใน `playgroundProjects` ข้อมูลใช้รูปแบบเดียวกับ `projects` แต่ไม่ต้องกำหนด `featured`:
 
 ```js

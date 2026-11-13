@@ -14,6 +14,10 @@ import whoAreYouCover from '@/assets/photo/playground/who-are-you-really/optimiz
 import whoAreYouLobby from '@/assets/photo/playground/who-are-you-really/optimized/lobby.webp'
 import whoAreYouRound from '@/assets/photo/playground/who-are-you-really/optimized/round-reveal.webp'
 import whoAreYouResults from '@/assets/photo/playground/who-are-you-really/optimized/match-result.webp'
+import imTheBossCover from '@/assets/photo/playground/im-the-boss/optimized/cover.webp'
+import imTheBossOffers from '@/assets/photo/playground/im-the-boss/optimized/boss-offers.webp'
+import imTheBossAction from '@/assets/photo/playground/im-the-boss/optimized/action-card.webp'
+import imTheBossResults from '@/assets/photo/playground/im-the-boss/optimized/final-score.webp'
 
 // Personal games stay separate from the main project showcases.
 // Entries share the detail and screenshot fields used by src/data/projects.js.
@@ -207,6 +211,54 @@ export const playgroundProjects = [
         width: 1288,
         height: 2086,
         caption: 'Design Preview · Sample totals of 11–10 with four round summaries and a rematch control. These scores are provided by the preview fixture.',
+      },
+    ],
+  },
+  {
+    id: 'im-the-boss',
+    title: 'I’m The BOSS',
+    category: 'Personal Project · Board Game',
+    status: 'Completed · Playable',
+    role: 'Solo Developer',
+    summary:
+      'A 3–6 player negotiation game with investor offers, influence cards, and profit sharing. Screenshots include emulator gameplay and Design Preview.',
+    roleDescription:
+      'Developed the game independently, including the React interface, TypeScript game engine, offer and influence-card workflows, Firebase room synchronization, and host migration.',
+    technologies: ['React', 'Firebase', 'TypeScript', 'Vite', 'Zustand', 'Tailwind CSS', 'Framer Motion', 'Firebase Realtime Database', 'Firebase Anonymous Auth'],
+    image: imTheBossCover,
+    imageAlt: 'I’m The BOSS cover with a four-player emulator table showing an open deal, one accepted offer, one pending offer, and the player’s hand.',
+    imageWidth: 1600,
+    imageHeight: 900,
+    imageCaption: 'Firebase Emulators · A composition using the original four-player table screenshot. The deal has two accepted shares out of five and one pending offer. The boss’s balance remains at zero while the deal is open.',
+    repositoryUrl: 'https://github.com/sirasakswnk/I-m-The-BOSS-BoardGame',
+    demoUrl: 'https://im-the-boss-boardgame.vercel.app/',
+    screenshots: [
+      {
+        id: 'boss-offers',
+        title: 'Review offers · Design Preview',
+        image: imTheBossOffers,
+        imageAlt: 'A sample boss offer-review dialog with one accepted and one pending offer using the same red investor, proposed payouts, and a conflict-resolution control.',
+        width: 1736,
+        height: 1554,
+        caption: 'Design Preview · Sample offers illustrate share allocation, proposed payouts, and a red-investor conflict. This UI scenario comes from the preview fixture.',
+      },
+      {
+        id: 'action-card',
+        title: 'Choose an influence card and target',
+        image: imTheBossAction,
+        imageAlt: 'An emulator player selecting a blue vacation card and the boss’s blue investor as its target, with the play-card button enabled before confirmation.',
+        width: 1776,
+        height: 1228,
+        caption: 'Firebase Emulators · A participant selects a vacation card and the boss’s blue investor through the UI. Captured before confirming the card action.',
+      },
+      {
+        id: 'final-score',
+        title: 'Final rankings · Design Preview',
+        image: imTheBossResults,
+        imageAlt: 'A sample final ranking with all four balances revealed: Nok wins with 55 million, followed by 41, 36, and 12 million, with a rematch button below.',
+        width: 1456,
+        height: 1324,
+        caption: 'Design Preview · Sample final balances of 55, 41, 36, and 12 million, with all four ranks revealed and a rematch control. These values come from the preview fixture.',
       },
     ],
   },

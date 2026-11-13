@@ -1,0 +1,323 @@
+{
+  "capturedOn": "2026-11-12",
+  "timezone": "Asia/Bangkok",
+  "captureTool": "Playwright MCP",
+  "browserVersion": "157.0.8103.51",
+  "sourceCommit": "1bb786d8a46021e8f094a6f10aef576fc7d1e49c",
+  "generatedAt": "2026-11-12T16:44:01.680Z",
+  "captureNotes": "Original screenshots; no application, DOM, CSS, score or network fixture patches. Sample data only on existing Preview routes.",
+  "verification": {
+    "compiledDevTrue": true,
+    "compiledUseEmulatorsTrue": true,
+    "compiledAuthEmulator": "http://127.0.0.1:9099",
+    "compiledDatabaseEmulator": "127.0.0.1:9000 (compiled literal 9e3)",
+    "hubChecked": "http://127.0.0.1:4400/emulators",
+    "fourDistinctPlayerUids": true,
+    "liveContextFontStatus": "loaded in all four contexts",
+    "brokenImgElementsAtFinalCheck": 0,
+    "observedAuthResourceOrigin": "http://127.0.0.1:9099",
+    "mobileDocumentScrollWidth": 375,
+    "mobileInnerWidth": 390,
+    "applicationTestsRun": false,
+    "applicationSourceModified": false
+  },
+  "images": [
+    {
+      "file": "game-table.png",
+      "viewport": {
+        "width": 1600,
+        "height": 1320
+      },
+      "source": "Firebase Emulators",
+      "url": "http://127.0.0.1:5180/89824",
+      "role": "ฟ้า Demo / boss",
+      "state": "dealOpen; space 4; accepted มะปราง 2 shares, pending ต้นกล้า 1 share",
+      "mode": "fullPage",
+      "deviceScaleFactor": 2,
+      "screenshotScale": "device",
+      "png": {
+        "width": 3200,
+        "height": 2640,
+        "bytes": 700496
+      },
+      "sha256": "46d64cb488b6a5b30fb252ea283fa8fd1c5bd28cdb4da73c4628387374bba818",
+      "fileModifiedAt": "2026-11-12T16:38:37.124Z",
+      "visualReview": "opened and inspected final PNG in this capture session"
+    },
+    {
+      "file": "boss-offers.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "source": "Design Preview / sample fixture",
+      "url": "http://127.0.0.1:5180/preview/game",
+      "role": "นก / boss",
+      "state": "dealConflict -> offer-review-open; accepted มิ้นท์ red, pending โอ๊ต red",
+      "mode": "modal bounding box plus 24 CSS px margin",
+      "deviceScaleFactor": 2,
+      "screenshotScale": "device",
+      "png": {
+        "width": 1736,
+        "height": 1554,
+        "bytes": 241621
+      },
+      "sha256": "37c356fca38da4e7b2b2fa9be078916c6ff13540d773bcfab41e4839636c93bc",
+      "fileModifiedAt": "2026-11-12T16:33:14.561Z",
+      "visualReview": "opened and inspected final PNG in this capture session"
+    },
+    {
+      "file": "action-card.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "source": "Firebase Emulators",
+      "url": "http://127.0.0.1:5180/89824",
+      "role": "ภูมิ Demo / participant",
+      "state": "travel-blue-1 selected; target ฟ้า Demo blue investor; before enabled action-submit click",
+      "mode": "modal bounding box plus 24 CSS px margin",
+      "deviceScaleFactor": 2,
+      "screenshotScale": "device",
+      "png": {
+        "width": 1776,
+        "height": 1228,
+        "bytes": 179842
+      },
+      "sha256": "444ec7c23f32c146b70c8ae248b9961e2b4d23c1347540e9ffaac3b3e43337f4",
+      "fileModifiedAt": "2026-11-12T16:36:19.582Z",
+      "visualReview": "opened and inspected final PNG in this capture session"
+    },
+    {
+      "file": "final-score.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "source": "Design Preview / sample fixture",
+      "url": "http://127.0.0.1:5180/preview/game",
+      "role": "นก / host",
+      "state": "gameOverFifteen; reveal 4/4; scores 55/41/36/12",
+      "mode": "modal bounding box plus 24 CSS px margin",
+      "deviceScaleFactor": 2,
+      "screenshotScale": "device",
+      "png": {
+        "width": 1456,
+        "height": 1324,
+        "bytes": 149988
+      },
+      "sha256": "63fee29b5ebad7a88b5120db5b8152c14bc0437d78c9b6f9213036da56062730",
+      "fileModifiedAt": "2026-11-12T16:36:46.684Z",
+      "visualReview": "opened and inspected final PNG in this capture session"
+    },
+    {
+      "file": "lobby.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "source": "Firebase Emulators",
+      "url": "http://127.0.0.1:5180/89824",
+      "role": "มะปราง Demo / host",
+      "state": "lobby; 4/6 seats; all 4 online; before start-game",
+      "mode": "fullPage",
+      "deviceScaleFactor": 2,
+      "screenshotScale": "device",
+      "png": {
+        "width": 2850,
+        "height": 2868,
+        "bytes": 4712511
+      },
+      "sha256": "187fbfe881caaf412084c8b1c37fb17d72f56f66eef25e26a8defc0c132dff7e",
+      "fileModifiedAt": "2026-11-12T16:34:53.183Z",
+      "visualReview": "opened and inspected final PNG in this capture session"
+    },
+    {
+      "file": "offer-modal.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "source": "Firebase Emulators",
+      "url": "http://127.0.0.1:5180/89824",
+      "role": "มะปราง Demo / participant",
+      "state": "yellow table investor + green hand clan; amount 2; before enabled offer-submit click",
+      "mode": "modal bounding box plus 24 CSS px margin",
+      "deviceScaleFactor": 2,
+      "screenshotScale": "device",
+      "png": {
+        "width": 1736,
+        "height": 1502,
+        "bytes": 217822
+      },
+      "sha256": "301f812ed7f37b4402db1d60f936c82700dbea37a8a4bbe89cbdb666b9003756",
+      "fileModifiedAt": "2026-11-12T16:35:55.308Z",
+      "visualReview": "opened and inspected final PNG in this capture session"
+    },
+    {
+      "file": "cards-gallery.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "source": "Design Preview / sample cards",
+      "url": "http://127.0.0.1:5180/preview/cards",
+      "state": "complete CardsPreview gallery",
+      "mode": "fullPage",
+      "deviceScaleFactor": 2,
+      "screenshotScale": "device",
+      "png": {
+        "width": 2850,
+        "height": 3840,
+        "bytes": 4538340
+      },
+      "sha256": "29d3c81381bffcde1292ba5567418472cc72c8b84ca53159ed2facf492c94bcb",
+      "fileModifiedAt": "2026-11-12T16:37:02.113Z",
+      "visualReview": "opened and inspected final PNG in this capture session"
+    },
+    {
+      "file": "mobile-gameplay.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "source": "Firebase Emulators",
+      "url": "http://127.0.0.1:5180/89824",
+      "role": "ฟ้า Demo / boss",
+      "state": "same accepted/pending deal as game-table; closed hand dock",
+      "mode": "viewport",
+      "scrollY": 160,
+      "deviceScaleFactor": 2,
+      "screenshotScale": "device",
+      "png": {
+        "width": 780,
+        "height": 1688,
+        "bytes": 190071
+      },
+      "sha256": "42c005f41ab9bae5547d584c36645c2388deaccbf8490df7ad0751841bf3de9b",
+      "fileModifiedAt": "2026-11-12T16:38:36.327Z",
+      "visualReview": "opened and inspected final PNG in this capture session"
+    },
+    {
+      "file": "mobile-hand.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "source": "Firebase Emulators",
+      "url": "http://127.0.0.1:5180/89824",
+      "role": "ฟ้า Demo / boss",
+      "state": "same deal; hand-dock-toggle open; 5 cards",
+      "mode": "viewport",
+      "scrollY": 200,
+      "deviceScaleFactor": 2,
+      "screenshotScale": "device",
+      "png": {
+        "width": 780,
+        "height": 1688,
+        "bytes": 159581
+      },
+      "sha256": "7165ae5c768591393338cdbebfc05e689986eb5e878bb866b76d9e1e62d85bf6",
+      "fileModifiedAt": "2026-11-12T16:37:58.959Z",
+      "visualReview": "opened and inspected final PNG in this capture session"
+    },
+    {
+      "file": "cards-family.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "source": "Design Preview / sample cards",
+      "url": "http://127.0.0.1:5180/preview/cards",
+      "state": "six clan colors",
+      "mode": "clip",
+      "clip": {
+        "x": 8,
+        "y": 173,
+        "width": 1424,
+        "height": 269
+      },
+      "deviceScaleFactor": 2,
+      "screenshotScale": "device",
+      "png": {
+        "width": 2848,
+        "height": 538,
+        "bytes": 1507678
+      },
+      "sha256": "27e7cdb1e5f0b00907072d3173b3b9576b509c23780f1c9c245764e06ccadf13",
+      "fileModifiedAt": "2026-11-12T16:37:22.533Z",
+      "visualReview": "opened and inspected final PNG in this capture session"
+    },
+    {
+      "file": "cards-action.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1400
+      },
+      "source": "Design Preview / sample cards",
+      "url": "http://127.0.0.1:5180/preview/cards",
+      "state": "travel, recruitment, stop, imTheBoss",
+      "mode": "clip",
+      "clip": {
+        "x": 8,
+        "y": 453,
+        "width": 1424,
+        "height": 831
+      },
+      "deviceScaleFactor": 2,
+      "screenshotScale": "device",
+      "png": {
+        "width": 2848,
+        "height": 1662,
+        "bytes": 2967230
+      },
+      "sha256": "c62b2c420c55aca18637ee99caf248cdd9816404f5bc2d22ff0281c19d3fa1a3",
+      "fileModifiedAt": "2026-11-12T16:38:38.372Z",
+      "visualReview": "opened and inspected final PNG in this capture session"
+    },
+    {
+      "file": "home.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "source": "Design Preview / sample data",
+      "url": "http://127.0.0.1:5180/preview/home",
+      "state": "PreviewHome; nickname มิ้นท์; create/join disabled in Preview",
+      "mode": "fullPage",
+      "deviceScaleFactor": 2,
+      "screenshotScale": "device",
+      "png": {
+        "width": 2850,
+        "height": 3718,
+        "bytes": 4218231
+      },
+      "sha256": "a61fc9a800b103eb6171c75615b84f6b9e10bfcf5f4bfc0c0dd3a83822ea3b5f",
+      "fileModifiedAt": "2026-11-12T16:37:24.996Z",
+      "visualReview": "opened and inspected final PNG in this capture session"
+    },
+    {
+      "file": "interrupt-window.png",
+      "viewport": {
+        "width": 1600,
+        "height": 1320
+      },
+      "source": "Firebase Emulators",
+      "url": "http://127.0.0.1:5180/89824",
+      "role": "ฟ้า Demo / boss",
+      "state": "ภูมิ played blue travel; target ฟ้า investor; pending; UI 5 seconds and 0/3 passes",
+      "remainingMsBeforeCapture": 4332,
+      "mode": "fullPage",
+      "deviceScaleFactor": 2,
+      "screenshotScale": "device",
+      "png": {
+        "width": 3170,
+        "height": 2792,
+        "bytes": 773640
+      },
+      "sha256": "347db9725026d58f6f62c63950819fca6eb8f07610b3ac887676c8309e4150b8",
+      "fileModifiedAt": "2026-11-12T16:39:11.006Z",
+      "visualReview": "opened and inspected final PNG in this capture session"
+    }
+  ]
+}
