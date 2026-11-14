@@ -65,7 +65,7 @@ export const projects = [
     imageWidth: 1600,
     imageHeight: 1500,
     imageCaption: 'Application walkthrough with simulated OCR readings.',
-    repositoryUrl: null,
+    repositoryUrl: 'https://github.com/sirasakswnk/Industrial-Gas-Meter-OCR',
     demoUrl: null,
     screenshots: [
       {
@@ -262,7 +262,7 @@ export const projects = [
     imageWidth: 1600,
     imageHeight: 1000,
     imageCaption: 'Student and teacher views from the test environment, using demonstration data.',
-    repositoryUrl: null,
+    repositoryUrl: 'https://github.com/sirasakswnk/kemi-classroom',
     demoUrl: null,
     screenshots: [
       {
